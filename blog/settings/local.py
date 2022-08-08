@@ -27,7 +27,7 @@ DATABASES = {
 
 
 # esto es para conectar a la BBDD de sql server
-# es mas poderoso y seguro
+# es mas 'poderoso' y seguro
 '''
 DATABASES = {
     'default': {

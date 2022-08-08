@@ -23,17 +23,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Application definition
 AUTH_USER_MODEL = 'usuarios.Usuario' #indica el modelo de usuario a usar
+#               =  (aplicacion).(modelo)
 
+# aca se especifica las apps que se van a usar.
+# vá lo que está en     apps/[Aplicacion]/apps.py   en      'name = ...'
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth', #app para gestion de usuarios (nombre, pass, etc) 
+    'django.contrib.auth', #app para gestion de usuarios (nombre, pass, email, etc) 
     # y todo el proceso de autenticacion!
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.usuarios',
-    'apps.noticias',
+    'apps.noticias', # no olvidar la coma al final
 ]
 
 MIDDLEWARE = [
@@ -51,7 +54,8 @@ ROOT_URLCONF = 'blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')],
+        'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')], 
+        # D:\CURSOS\Informatorio\ETAPA_2_Desarrollo_Web_2022\DJANGO\proyectoFDEMO\blog\templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
