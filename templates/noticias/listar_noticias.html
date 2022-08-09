@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOTICIAS</title>
-</head>
-<body>
-    <h2>SOY LA PANTALLA DE LISTYAR NOTICIAS</h2>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bloque_contenido %}
+
+    <h2>SOY LA PANTALLA DE LISTAR NOTICIAS</h2>
     <br>
-    <a href="{% url 'home' %}">VOLVER AL HOME</a>
-</body>
-</html>
+    <!-- <a href="{% url 'home' %}">VOLVER AL HOME</a> -->
+
+{% endblock bloque_contenido %}

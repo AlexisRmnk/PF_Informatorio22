@@ -14,5 +14,3 @@ print("os.path.join(os.path.dirname(BASE_DIR),'templates'):"
 
 
 '''
-
-''' Hola. '''
