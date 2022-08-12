@@ -1,14 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOTICIAS</title>
-</head>
-<body>
-    <h2>SOY LA PANTALLA DE LISTYAR NOTICIAS</h2>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bloque_contenido %}
+    <!-- aca se recibe un diccionario con las claves de las noticias -->
+
+    <h2>NOTICIAS ACTUALES</h2>
     <br>
-    <a href="{% url 'home' %}">VOLVER AL HOME</a>
-</body>
-</html>
+
+    {% for n in notis %}
+        <h2>{{ n.titulo }}</h2>
+
+        {% if n.autor %}
+        <p>Autor: {{ n.autor }}</p>
+        {% endif %}
+        
+        <p>Cuerpo: {{ n.cuerpo }}</p>
+        
+        {% if n.imagen %}
+            <img src="{{n.imagen.url}}" width="350px" height="260px">
+        {% else %}
+            <p> NO TIENE IMAGEN </p>
+        {% endif %}
+
+        {% if n.categoria %}
+            <p>Categoria: {{ n.categoria.nombre }}</p>
+        {% else %}
+            <p> NO TIENE CATEGORIA </p>
+        {% endif %}
+
+        <br>
+    {% endfor %}
+
+    
+    <!-- <a href="{_%_ url 'home' _%_}">VOLVER AL HOME</a> -->
+
+{% endblock bloque_contenido %}
