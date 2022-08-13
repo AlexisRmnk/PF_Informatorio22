@@ -18,7 +18,7 @@
     <div class="div-menu">
         <img src="{% static 'img/arbol.jpg' %}" width="150" height="200" 
         alt="Texto alternativo de la imagen x">
-        <div class="div-menu">
+        <div class="div-menu"> <!-- url 'nombre_app:nombre_url_en_urls.py_' -->
             <a href="{% url 'noticias:listar_noticias' %}">IR A LISTAR NOTICIAS</a>
             <a href="{% url 'home' %}">HOME</a>
         </div>
