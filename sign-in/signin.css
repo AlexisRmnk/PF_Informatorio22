@@ -8,7 +8,13 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f2ed79;
+  background-image: url(media/Botella7.png);
+  background-size: cover;
+  opacity: 2;
+}
+
+.form-control {
+  opacity: 0.5;
 }
 
 .form-signin {
@@ -38,6 +44,9 @@ body {
   border-top-right-radius: 0;
 }
 
+.breadcrumb {
+  margin-left: 1.35em;
+}
   
 
 .w-100 {
