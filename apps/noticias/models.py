@@ -13,7 +13,8 @@ class Noticia(models.Model):
     titulo = models.CharField(max_length = 120)
     creado = models.DateField(auto_now_add = True)
     cuerpo = models.TextField()
-    autor = models.CharField(max_length = 50, null = True, blank = True)
+    autor = models.CharField(max_length = 50, null = True, blank = True, 
+                             default="Botellas de Amor")
     imagen = models.ImageField(upload_to = 'noticias', null = True, blank = True)
     # 'null' es para que la BD acepte valores nulos. 'Blank' es para que el 
     # formulario (la entrada) permita valores VACIOS. Van los dos juntos.

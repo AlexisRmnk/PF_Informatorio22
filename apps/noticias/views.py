@@ -3,7 +3,7 @@ from .models import Noticia
 
 # Create your views here.
 
-def Listar(request):
+def listar(request):
     # creo diccionario CONTEXT para pasar datos al template
     ctx = dict()
     # BUSCAR LAS NOTICIAS EN LA BD
