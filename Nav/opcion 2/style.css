@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kanit', sans-serif;
+    font-size: 17px;
+}
+
+body {
+    background-color: #FCFCEF
+}
+
+.header {
+    background-color: #FCFCB6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    padding: 5px 10%;
+}
+
+.header .logo {
+    cursor: pointer;
+}
+
+.header .logo img {
+    height: 110px;
+    width: auto;
+    transition: all 0.3s;
+    margin-top: 15px;
+}
+
+.header .logo img:hover {
+    transform: scale(1.2);
+}
+
+.header .nav-links {
+    list-style: none;
+}
+
+.header .nav-links li {
+    display: inline-block;
+    padding: 0 40px;
+    transition: all 0.3s;
+}
+
+.header .nav-links li:hover {
+    color: #185014;
+    transform: scale(1.2);
+}
+
+.header .nav-links a {
+    font-size: 700;
+    color: #208507;
+    text-decoration: none;
+    font-family: 'Rubik Marker Hatch', cursive;
+}
+
+
+
+.header .btm button {
+    font-weight: 700;
+    color: #2E4C2C;
+    padding:  9px 25px;
+    background: ;
+    border: 2px solid #208507;
+    border-radius:20px 10px;
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+.header .btm button:hover {
+    background-color: #8EBF24;
+    color: #0D0D0D;
+    transform: scale(1.1);
+}
