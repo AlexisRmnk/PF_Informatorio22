@@ -27,9 +27,10 @@
         {% else %}
             <p> NO TIENE CATEGORIA </p>
         {% endif %}
-
+        <a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
         <br>
     {% endfor %}
+    
 
     {% include 'ejemplo_include.html' %}
     
