@@ -25,6 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 AUTH_USER_MODEL = 'usuarios.Usuario' #indica el modelo de usuario a usar
 #               =  (aplicacion).(modelo)
 
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+LOGOUT_REDIRECT_URL = reverse_lazy("home")
+
 # aca se especifica las apps que se van a usar.
 # vá lo que está en     apps/[Aplicacion]/apps.py   en      'name = ...'
 INSTALLED_APPS = [
