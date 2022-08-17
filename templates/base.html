@@ -21,7 +21,7 @@
         <div class="div-menu"> <!-- url 'nombre_app:nombre_url_en_urls.py_' -->
             <a href="{% url 'noticias:listar_noticias' %}">IR A LISTAR NOTICIAS</a>
             <a href="{% url 'home' %}">HOME</a>
-
+            
             {% if user.is_authenticated %}
                 <span>Bienvenido {{user.username}}</span>
                 <a href="{% url 'logout' %}">LOGOUT</a>  
