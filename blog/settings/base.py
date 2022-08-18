@@ -27,6 +27,8 @@ AUTH_USER_MODEL = 'usuarios.Usuario' #indica el modelo de usuario a usar
 
 LOGIN_REDIRECT_URL = reverse_lazy("home")
 LOGOUT_REDIRECT_URL = reverse_lazy("home")
+LOGIN_URL = reverse_lazy('login')
+
 
 # aca se especifica las apps que se van a usar.
 # vá lo que está en     apps/[Aplicacion]/apps.py   en      'name = ...'
