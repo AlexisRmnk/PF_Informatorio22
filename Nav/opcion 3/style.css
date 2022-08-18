@@ -1,0 +1,266 @@
+@font-face {
+    font-family: Alégre Sans;
+    src: url(font/Algre-Sans/Alégre\ Sans.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Alégre Sans, cursive;
+    text-decoration: none;
+}
+
+Header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+/*Header Superior*/
+
+.header__superior {
+    max-width: 1200px;
+    margin: 0em 6.25em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    transition: all 1.1s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    transform: scale(1.3);
+}
+
+.logo img {
+    width: 180px;
+}
+
+.search input {
+    width: 300px;
+    padding: 10px;
+}
+
+/*Barra Menu*/
+
+.container__menu {
+    width: 100%;
+    height: 50px;
+    background: #208507;
+    padding: 0px 20px;
+}
+
+.menu{
+    max-width: 1200px;
+    margin: auto;
+    height: 100%    ;
+}
+
+nav {
+    height: 100%;
+}
+
+nav > ul {
+    height: 100%;
+    display: flex;
+    margin: 0em 3.80em;
+}
+
+nav ul li {
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav > ul > li:first-child > a {
+    background-image: url(media/eco-home.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 20px 35px;
+}
+
+nav > ul > li:first-child:hover > a {
+    background-image: url(media/eco-home.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+nav > ul > li > a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    color: black;
+    text-transform: uppercase;
+    font-size: 22px;
+    transition: all 300ms ease;
+}
+
+
+nav > ul > li > a:hover {
+    transform: scale(1.1);
+    background: #8EBF24;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+}
+
+#selected {
+    transform: scale(1.1);
+    background-color: #8EBF24;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+}
+
+/*Sub Menu*/
+
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFF64A   ;
+    position: absolute;
+    top: 70px;
+    left: -5px;
+    padding: 14px 0px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+}
+
+nav ul li ul:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #FFF64A;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+} 
+
+nav ul li ul li a {
+    display: block;
+    color: black;
+    padding: 6px;
+    padding-left: 14px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: all 500ms ease;
+}
+
+nav ul li ul li a:hover {
+    background-color: #8EBF24;
+    color: #fff;
+    transform: scale(1.1);
+    padding-left: 30px;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
+
+}
+
+/*Elemento Responsivos*/
+
+.icon__menu {
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+    width: 26x;
+    height: 100%;
+    display: none;
+    align-items: center;
+}
+
+#check__menu {
+    display: none;
+}
+
+#label__check {
+    width: 26px;
+    height: 100%;
+    display: none;
+}
+
+@media screen and (max-width: 720px) {
+
+    .search input {
+        display: none;   
+    }
+
+    .logo img {
+        width: 140px;
+    }
+
+    .header__superior {
+        margin: 0px 20px;
+    }
+
+    nav > ul {
+        margin: auto;
+        flex-direction: column;    
+        background-color: #208507;
+        position: fixed;
+        left: 0;
+        top: 148px;
+        width: 100%;
+        height: 300px;
+        transition: all 300ms all;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    nav > ul > li > a:hover { 
+        transform: scale(1);
+    }
+
+    nav ul li ul {
+        left:  90px;
+    }
+
+    nav ul li:hover ul{
+        top: 50px;
+    }
+
+    nav ul li:first-child a {
+        background-position: 20px;
+    }
+
+    #selected {
+        transform: scale(1);
+    }
+
+    nav > ul > li > a {
+        font-size: 18px;
+    }
+
+    #label__check {
+        display: block;
+    }
+
+    .icon__menu {
+        display: flex;
+    }
+    
+    #check__menu:checked ~ nav > ul {
+        height: 300px;
+        visibility: visible;
+        opacity: 1;
+    }
+}
