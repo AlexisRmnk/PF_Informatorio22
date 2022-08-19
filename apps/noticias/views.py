@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Noticia
+from .models import Noticia, Categoria
 
 
 from django.views.generic.list import ListView
@@ -23,6 +23,9 @@ def listar(request):
     
     # PASARLO AL TEMPLATE
     ctx['notis'] = todas_noticias
+    
+    todas_categorias = Categoria.objects.all()
+    ctx["categs"] = todas_categorias
     
     return render(request, 'noticias/listar_noticias.html', ctx) 
     # todo lo de return se envia al template (templates\noticias\listar_noticias.html)

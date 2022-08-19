@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# ...\[nombre_carpeta_repositorio]\blog
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -61,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')], 
-        # D:\CURSOS\Informatorio\ETAPA_2_Desarrollo_Web_2022\DJANGO\proyectoFDEMO\blog\templates
+        # ...\[nombre_carpeta_repositorio]\templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
