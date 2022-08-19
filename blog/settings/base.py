@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# ...\[nombre_carpeta_repositorio]\blog
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -24,6 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Application definition
 AUTH_USER_MODEL = 'usuarios.Usuario' #indica el modelo de usuario a usar
 #               =  (aplicacion).(modelo)
+
+LOGIN_REDIRECT_URL = reverse_lazy("home")
+LOGOUT_REDIRECT_URL = reverse_lazy("home")
+LOGIN_URL = reverse_lazy('login')
+
 
 # aca se especifica las apps que se van a usar.
 # vá lo que está en     apps/[Aplicacion]/apps.py   en      'name = ...'
@@ -36,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.usuarios',
-    'apps.noticias', # no olvidar la coma al final
+    'apps.noticias',
+    'apps.contactos', # no olvidar la coma al final
 ]
 
 MIDDLEWARE = [
@@ -55,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(os.path.dirname(BASE_DIR),'templates')], 
-        # D:\CURSOS\Informatorio\ETAPA_2_Desarrollo_Web_2022\DJANGO\proyectoFDEMO\blog\templates
+        # ...\[nombre_carpeta_repositorio]\templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
