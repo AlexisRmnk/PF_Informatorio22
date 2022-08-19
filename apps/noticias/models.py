@@ -46,6 +46,9 @@ class Comentario(models.Model):
                                 null = False)
     autor = models.ForeignKey(Usuario, on_delete = models.CASCADE, 
                                 null = False)
+    
     # imagen_adjunta = archivo tipo imagen
     
+class Experimento(models.Model):
+    campo_experimento = models.TextField()
     
