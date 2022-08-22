@@ -1,0 +1,13 @@
+
+
+#ORM
+
+NombreModelo.objects.get(id = myID) # SE USA SI ESTOY SEGURO QUE EL RESULTADO ES UN SOLO OBJETO, ES DECIR FILTRA POR CLAVE
+# select * from NombreModelo where clave = myID
+
+NombreModelo.objects.filter(campo1 = myfiltro1,campo2 = myfiltro2)
+# select * from NombreModelo where campo1 = myFiltro1 and campo2 = myfiltro2
+
+
+NombreModelo.objects.all()
+# select * from NombreModelo 
