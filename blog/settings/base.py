@@ -30,6 +30,14 @@ LOGIN_REDIRECT_URL = reverse_lazy("home")
 LOGOUT_REDIRECT_URL = reverse_lazy("home")
 LOGIN_URL = reverse_lazy('login')
 
+# para enviar email desde contactos/views.enviar_contacto
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '9b228b7caf3f52'
+EMAIL_HOST_PASSWORD = 'ae6d1ecd60e683'
+EMAIL_PORT = '2525'
+
+#EMAIL_USE_TLS = True
 
 # aca se especifica las apps que se van a usar.
 # vá lo que está en     apps/[Aplicacion]/apps.py   en      'name = ...'
@@ -43,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.usuarios',
     'apps.noticias',
+    'apps.eventos',
     'apps.contactos', # no olvidar la coma al final
 ]
 

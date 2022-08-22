@@ -13,5 +13,5 @@ class Evento(models.Model):
     es_gratuito = models.BooleanField()
     es_presencial = models.BooleanField()
     ubicacion =  models.CharField(max_length = 120)
-    imagen = models.ImageField(verbose_name="Imagen opcion",
+    imagen = models.ImageField(verbose_name="Imagen opcional",
                                upload_to = 'eventos', null = True, blank = True)

@@ -39,6 +39,7 @@ urlpatterns = [
     path('', views.Home, name = 'home'),
     # URL DE APLICACIONES
     path('Noticias/', include('apps.noticias.urls')),
+    path('Eventos/', include('apps.eventos.urls')),
     path('Contactos/', include('apps.contactos.urls')), # no olvidar coma al final
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
     # esto permite que el servidor acceda a la carpeta MEDIA
