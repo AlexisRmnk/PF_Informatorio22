@@ -1,3 +1,28 @@
 <!-- WIP -->
 
-<form action="{% url '' %}" method="post"></form>
+<form action="{% url 'contactos:enviar_contacto' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>
+            <h1>
+                CONTACTANOS
+            </h1>
+        </legend>
+
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="contacto_nombre_id" name="contacto_nombre_name" 
+            value="Ingresa tu nombre">
+        <br>
+
+        <label for="email">Email:</label><br>
+        <input type="text" id="contacto_email_id" name="contacto_email_name" 
+            value="Ingresa tu email">
+        <br>
+
+        
+
+    </fieldset>
+    <input type="submit" value="Submit">
+</form>
+
+    <!-- PENBDIENTE: AGREGAR HTML PARA CREAR FORM SIMPLE Y ENVIAR LA INFO A LA VISTA -->

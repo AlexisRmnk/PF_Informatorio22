@@ -1,7 +1,10 @@
 from django.db import models
 
 # es para contactarse con los dueños de la organizacion
+# NO va a ser necesario un modelo de formulario debido a que no vamos
+# a guardar estos datos en la BBDD
 
+'''
 class Formulario(models.Model):
     nombre = models.CharField(max_length=120)
     email = models.EmailField()
@@ -12,3 +15,4 @@ class Formulario(models.Model):
     
     def __str__(self) -> str:
         return self.mensaje
+'''
