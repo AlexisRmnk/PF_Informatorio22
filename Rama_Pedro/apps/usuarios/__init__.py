@@ -1,0 +1,1 @@
+# nota: por convencion, los nombres de aplicaciones van en PLURAL
