@@ -22,16 +22,16 @@ def listar(request):
     # la vista de noticias
     
     # PASARLO AL TEMPLATE
-    ctx['notis'] = todas_noticias
+    ctx['noticias'] = todas_noticias
     
     todas_categorias = Categoria.objects.all()
-    ctx["categs"] = todas_categorias
+    ctx["categorias"] = todas_categorias
     
     return render(request, 'noticias/listar_noticias.html', ctx) 
     # todo lo de return se envia al template (templates\noticias\listar_noticias.html)
     # el template no recibe el diccionario completo. Recibe variables.
     # Cada variable es la clave del diccionario.
-    # El template tendra una variable NOTIS.
+    # El template tendra una variable NOTICIAS.
     
 # EJEMPLO DE COMO EL TEMPLATE 'DESARMA' EL CTX
 # ctx['nombre'] = 'Juan'
@@ -51,8 +51,10 @@ def Detalle_Noticia_Funcion(request, pk): #de ejemplo, no se usa
 
 #VISTA BASADA EN CLASES
 class Detalle_Noticia_Clase(LoginRequiredMixin, DetailView):
-	model = Noticia
-	template_name = 'noticias/detalle_noticia.html'
+    model = Noticia
+    template_name = 'noticias/detalle_noticia.html'
+    context_object_name = "noticia"
+ 
     
 #SI USO UNA VISTA BASADA EN CLASE EL CONTEXTO SE LLAMA:
 # SI ES UNO SOLO object

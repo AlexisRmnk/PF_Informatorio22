@@ -6,7 +6,7 @@
 
     <h2>NOTICIAS ACTUALES</h2>
     <br>
-    {% for n in notis %}
+    {% for n in noticias %}
         <h2>{{ n.titulo }}</h2>
 
         {% if n.autor %}
@@ -29,8 +29,22 @@
         <a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
         <br>
     {% endfor %}
-    
     <br>
+
+    <h2>FILTRAR POR CATEGORIA</h2>
+
+    <form action="{% url 'APP:URL_NOMBRE' categoria_name.pk %}"> 
+      <!--    La idea es mandar el ID (o PK) de
+        la categoria como URL  .........      wip -->
+        <label for="categorias">Seleccione una categoria:</label> <br>
+        <select name="categoria_name" id="categoria_id">
+        {% for categoria in categorias %}
+            <option value="{{categoria}}">{{categoria}}</option>
+        {% endfor %}
+        </select> <br>
+        <input type="submit" value="Mostrar noticias para la categoria seleccionada">
+    </form>    
+
     {% include 'ejemplo_include.html' %}
     
     <!-- <a href="{_%_ url 'home' _%_}">VOLVER AL HOME</a> -->
