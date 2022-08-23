@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -27,7 +27,7 @@ def enviar_contacto(request):
         'mensaje':mensaje,
         }
     mensaje = f'''
-    From:\n\t\t{form_data['nombre']}\n
+    Desde:\n\t\t{form_data['nombre']}\n
     Mensaje:\n\t\t{form_data['mensaje']}\n
     Email:\n\t\t{form_data['email']}\n
     Telefono:\n\t\t{form_data['telefono']}\n

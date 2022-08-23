@@ -30,6 +30,7 @@
                 <a href="{% url 'logout' %}">LOGOUT</a>  
             {% else %}
                 <a href="{% url 'login' %}">LOGIN</a>
+                <a href="{% url 'usuarios:registro' %}">REGISTRARSE</a>
             {% endif %}
             <br>
             <a href="{% url 'contactos:info_contacto' %}">Info contactos</a> 

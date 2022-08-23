@@ -7,6 +7,8 @@
     <h2>NOTICIAS ACTUALES</h2>
     <br>
     {% for n in noticias %}
+<p>test dia de hoy: {{n.get_dia_de_hoy}} </p> <!-- TODO : hacer en vistas -->
+
         <h2>{{ n.titulo }}</h2>
 
         {% if n.autor %}
@@ -30,10 +32,11 @@
         <br>
     {% endfor %}
     <br>
+    <h2>FILTRO POR FECHA</h2> <!-- pasar con FORM  -->
 
-    <h2>FILTRAR POR CATEGORIA</h2>
 
-    <form action="{% url 'APP:URL_NOMBRE' categoria_name.pk %}"> 
+    <h2>FILTRAR POR CATEGORIA</h2> <!-- no prioritario -->
+    {% comment %} <form action="{% url 'APP:URL_NOMBRE' categoria_name.pk %}">  {% endcomment %}
       <!--    La idea es mandar el ID (o PK) de
         la categoria como URL  .........      wip -->
         <label for="categorias">Seleccione una categoria:</label> <br>
