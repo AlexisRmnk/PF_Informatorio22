@@ -64,7 +64,12 @@
                         <li><a href="#">Recursos</a></li>
                     </ul>
                     <div class="login__container">
+                        {% if user.is_authenticated %}
+                            <span>Bienvenido/a {{user.username}}!!</span>
+                            <a href="{% url 'logout' %}" class="btn"><button>Cerrar Sesion</button></a>
+                        {% else %}
                         <a href="{% url 'login' %}" class="btn"><button>Iniciar Sesion</button></a>
+                        {% endif %}
                     </div>
                 </nav>
             </div>        
@@ -175,7 +180,44 @@
 
     </div>
     
-
+    <footer class="footer">
+        <div class="container">
+            <img class="IMG1" src="{% static 'img/Logo1.png' %}" alt="">
+            <p>© 2022</p>
+        </div>
+        <div class="container">
+            <div class="son1">
+                <ul>
+                    <p>Section</p>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div class="son2">
+                <ul>
+                    <p>Section</p>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div class="son3">
+                <ul>
+                    <p>Section</p>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
     <script src="{% static 'js/index.js'%}"></script>
 </body>

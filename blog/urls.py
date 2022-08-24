@@ -13,26 +13,36 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 
+# esto permite que el servidor acceda a la carpeta MEDIA (Imports)
 from django.conf.urls.static import static
 from django.conf import settings
 
-#URL LOGIN
-from django.contrib.auth import views as auth
+# para URL LOGIN
+from django.contrib.auth import views as auth_views
 
 from . import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('', views.Home, name = 'home'),
-    path('login/', views.Login, name = 'login'),
-    path('logout/',auth.LogoutView.as_view(),name="logout"),
-    path('register/', views.Register, name = 'register'),
+    
+    path('login/', 
+         auth_views.LoginView.as_view(template_name="usuarios/log_in.html"),
+         name = 'login'),
+    path('logout/', auth_views.LogoutView.as_view(), name = 'logout'),
     path('contact/', views.Contact, name = 'contact'),
-
-    #URL DE APLICACIONES
-    path('Noticias/', include('apps.noticias.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    
+    path('', views.Home, name = 'home'),
+    # URL DE APLICACIONES
+    path('Noticias/', include('apps.noticias.urls')),
+    path('Eventos/', include('apps.eventos.urls')),
+    path('Usuario/',include('apps.usuarios.urls')),
+    path('Contactos/', include('apps.contactos.urls')), # no olvidar coma al final
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
+    # esto permite que el servidor acceda a la carpeta MEDIA

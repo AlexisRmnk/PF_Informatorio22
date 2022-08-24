@@ -44,20 +44,20 @@
     
 <main class="form-signin">
   <form>
-    <img class="mb-4" src="{% static 'img/Logo1.png' %}" alt="" width="102" height="102"> 
+    <a href="{% url 'home' %}"><img class="mb-4" src="{% static 'img/Logo1.png' %}" alt="" width="102" height="102"></a>
     <h1 class="h3 mb-3 fw-normal">Iniciar Sesión</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="text" name="username" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Correo Electrónico</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Contraseña</label>
     </div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{% url 'register'%}">Registrarse</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'usuarios:registro'%}">Registrarse</a></li>
         <li class="breadcrumb-item"><a href="#">Olvide mi Contraseña</a></li>
       </ol>
     </nav>

@@ -59,25 +59,25 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="index.html" autocomplete="off">
+          <form action="{% url 'contactos:enviar_contacto' %}" method="post" autocomplete="off">{% csrf_token %}
             <h1><span class="title2"> Escríbenos...</span></h1>
             <div class="input-container">
-              <input type="text" name="name" class="input" />
+              <input type="text" name="contacto_nombre_name" class="input" />
               <label for="">Usuario</label>
               <span>Usuario</span>
             </div>
             <div class="input-container">
-              <input type="email" name="email" class="input" />
+              <input type="email" name="contacto_email_name" class="input" />
               <label for="">Email</label>
               <span>Email</span>
             </div>
             <div class="input-container">
-              <input type="tel" name="phone" class="input" />
+              <input type="tel" name="contacto_telefono_name" class="input" />
               <label for="">Tel</label>
               <span>Tel</span>
             </div>
             <div class="input-container textarea">
-              <textarea name="message" class="input"></textarea>
+              <textarea name="contacto_mensaje_name" class="input"></textarea>
               <label for="">Mensaje</label>
               <span>Escribí tu mensaje acá...</span>
             </div>

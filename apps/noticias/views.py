@@ -1,32 +1,49 @@
 from django.shortcuts import render
+from .models import Noticia, Categoria
+
+
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required # para funciones
+from django.contrib.auth.mixins import LoginRequiredMixin # para clases
 
-from .models import Noticia
+# Create your views here.
 
-def Listar(request):
-	#Creo el diccionario para pasar datos al temaplte
-	ctx = {}	
-	#BUSCAR LO QUE QUIERO EN LA BD
-	todas = Noticia.objects.all()
-	#PASARLO AL TEMPLATE
-	ctx['notis'] = todas
+def listar(request):
+    # creo diccionario CONTEXT para pasar datos al template
+    ctx = dict()
+    # BUSCAR LAS NOTICIAS EN LA BD
+    
+    # BUSCAR LO QUE QUIERTO EN LA BD
+    todas_noticias = Noticia.objects.all() # devuelve un diccionario de objeto
+    # de tipo Noticia
+    # print(todas_noticias) # esto se imprime en la consola del CMD cuando 
+    # iniciamos el servidor con 'python manage.py runserver' y luego vamos a
+    # la vista de noticias
+    
+    # PASARLO AL TEMPLATE
+    ctx['noticias'] = todas_noticias
+    
+    todas_categorias = Categoria.objects.all()
+    ctx["categorias"] = todas_categorias
+    
+    return render(request, 'noticias/listar_noticias.html', ctx) 
+    # todo lo de return se envia al template (templates\noticias\listar_noticias.html)
+    # el template no recibe el diccionario completo. Recibe variables.
+    # Cada variable es la clave del diccionario.
+    # El template tendra una variable NOTICIAS.
+    
+# EJEMPLO DE COMO EL TEMPLATE 'DESARMA' EL CTX
+# ctx['nombre'] = 'Juan'
+# ctx['notas'] = [7, 9, 6]
 
-	return render(request,'noticias/listar_noticias.html',ctx)
+# EL TEMPLATE 
+# nombre = 'Juan'
+# notas = [7, 9, 6]
 
-# EJEMPLO DE COMO DESARMA EL CTX EL TEMPLATE.
-# ctx['nombre'] = 'nicolas'
-# ctx['notas'] = [5,6,9]
-# EL TEMPLATE ya separa el diccionario
-# nombre = 'nicolas'
-# notas = [5,6,9]
-
-
-#VISTA BASADA EN FUNCIONES
-@login_required
-def Detalle_Noticia_Funcion(request, pk):
+# VISTA BASADA EN FUNCIONES
+@login_required #descorador, se ejecutan antes de las funciones
+def Detalle_Noticia_Funcion(request, pk): #de ejemplo, no se usa
 	ctx = {}
 	noticia = Noticia.objects.get(pk = pk)
 	ctx['resultado'] = noticia
@@ -34,9 +51,11 @@ def Detalle_Noticia_Funcion(request, pk):
 
 #VISTA BASADA EN CLASES
 class Detalle_Noticia_Clase(LoginRequiredMixin, DetailView):
-	model = Noticia
-	template_name = 'noticias/detalle_noticia.html'
-
+    model = Noticia
+    template_name = 'noticias/detalle_noticia.html'
+    context_object_name = "noticia"
+ 
+    
 #SI USO UNA VISTA BASADA EN CLASE EL CONTEXTO SE LLAMA:
 # SI ES UNO SOLO object
-# SI SON MUCHOS SE LLAMA obect_list
+# SI SON MUCHOS SE LLAMA object_list

@@ -1,2 +1,1 @@
-
-#VA A ESTAR VACIO AHSTA QUE SUBAMOS LA APP A INTERNET
+# vacio hasta que subamos la APP a internet

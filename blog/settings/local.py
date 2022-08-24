@@ -1,22 +1,33 @@
 from .base import *
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-2awi$098mo1txo-f%)ns!3@7h++aph&u1tc8vjm=237=y)z6i3'
 
-SECRET_KEY = 'django-insecure-cwd9bne^ytkj&r3fz4$zl3%v$tkoj#kejlo=0e+4s)x6yex=@@'
-
-
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+# Esto es para conectar a la BBDD de sqlite. Es mas ligero y simple. 
+# NO SE INSTALA. Solo se usa en entornos de PRUEBA
+# Es mas facil de compartir por GIT paraque todos los miembros de un grupo
+# trabajan sobre lo mismo. 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# https://sqlitebrowser.org/
+# para trabajar con sql lite
 
 
+# esto es para conectar a la BBDD de sql server
+# es mas 'poderoso' y seguro
 '''
 DATABASES = {
     'default': {
