@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block bloque_contenido %}
+
+	<h1>DETALLE EVENTO</h1>
+	<br>
+
+	<h2>Titulo: {{ evento.titulo }}</h2>
+    <p>Descripcion: {{ evento.descripcion}}</p>
+
+    <br>
+    <p>Es gratuito?</p>
+    {% if evento.es_gratuito %}
+    <p>Es gratuito</p>
+    {% else %}
+    <p>No es gratuito</p>
+    {% endif %}
+    
+    <br>
+    <p>Es presencial?</p>
+    {% if evento.es_presencial %}
+    <p>Es presencial</p>
+    {% else %}
+    <p>No es presencial</p>
+    {% endif %}
+
+    <p>ubicacion: {{evento.ubicacion}}</p>
+
+    <p>Tiene imagen?</p>
+    {% if evento.imagen %}
+    <img src="{{evento.imagen.url}}" width="350px" height="260px">
+    {% else %}
+        <p> NO TIENE IMAGEN </p>
+    {% endif %}
+
+
+{% endblock bloque_contenido %}

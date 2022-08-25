@@ -6,9 +6,14 @@
 
     <h2>NOTICIAS ACTUALES</h2>
     <br>
-    notis: {{notis}}
-    {% for n in notis %}
+    <p>test dia de hoy: {% now "d-m-Y H:i hs" %} </p>
+    {% for n in noticias %}
+        
         <h2>{{ n.titulo }}</h2>
+        <p>Creada: {{n.creado|date:"d m Y"}}</p> <!-- nota: no poner espacio entre date:_".." -->
+
+{% comment %} https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ {% endcomment %}
+
 
         {% if n.autor %}
         <p>Autor: {{ n.autor }}</p>
@@ -30,8 +35,23 @@
         <a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
         <br>
     {% endfor %}
-    
     <br>
+    <h2>FILTRO POR FECHA</h2> <!-- pasar con FORM  -->
+
+
+    <h2>FILTRAR POR CATEGORIA</h2> <!-- no prioritario -->
+    {% comment %} <form action="{% url 'APP:URL_NOMBRE' categoria_name.pk %}">  {% endcomment %}
+      <!--    La idea es mandar el ID (o PK) de
+        la categoria como URL  .........      wip -->
+        <label for="categorias">Seleccione una categoria:</label> <br>
+        <select name="categoria_name" id="categoria_id">
+        {% for categoria in categorias %}
+            <option value="{{categoria}}">{{categoria}}</option>
+        {% endfor %}
+        </select> <br>
+        <input type="submit" value="Mostrar noticias para la categoria seleccionada">
+    </form>    
+
     {% include 'ejemplo_include.html' %}
     
     <!-- <a href="{_%_ url 'home' _%_}">VOLVER AL HOME</a> -->

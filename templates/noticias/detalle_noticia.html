@@ -7,18 +7,40 @@
 	<h1>DETALLE NOTICIA</h1>
 	<br>
 
-	<h2>{{object.titulo}}</h2>
-	<p>CATEGORIA: {{ object.categoria.nombre }}</p>
-	{% if object.autor %}
-		<p>AUTOR: {{ object.autor }}</p>
+	<h2>{{noticia.titulo}}</h2>
+	<p>CATEGORIA: {{ noticia.categoria.nombre }}</p>
+	{% if noticia.autor %}
+		<p>AUTOR: {{ noticia.autor }}</p>
 	{% endif %}
 
-	<p>CUERPO: {{ object.cuerpo }}</p>
+	<p>CUERPO: {{ noticia.cuerpo }}</p>
 
-	{% if object.imagen %}
-		<img src="{{ object.imagen.url }}" width="100px" height="100px">
+	{% if noticia.imagen %}
+		<img src="{{ noticia.imagen.url }}" width="100px" height="100px">
 	{% else %}
 		<p>NO TIENE IMAGEN </p>
 	{% endif %}
 
+	<p>COMENTARIO NOTICIA</p> <!-- WIP -->
+	{% for x in noticia.get_comentarios_noticia %}
+		<p>Autor: {{x.autor}}</p>
+		<p>contenidotxt: {{x.contenido_txt}}</p>
+		<p>fecha creacion: {{x.fecha_creacion}}</p>
+		<p>--------------------------------------</p>
+	{% endfor %}
+
+	{% if user.is_authenticated %}
+		<form method="POST" action={% url 'noticias:agregar_comentario' noticia.pk %}>
+			{% csrf_token %} 
+			<!-- nota para FRONT: controlar que el comentario no este vacio
+			se puede hacer con un JS, por ejemplo-->
+			<textarea name="coment" id="" cols="30" rows="10">
+
+			</textarea>
+			<button type="submit">COMENTAR</button>
+		</form>
+		{% comment %} por defecto los forms viejan a la misma vista que levanto el form {% endcomment %}
+
+
+	{% endif %}
 {% endblock bloque_contenido %}

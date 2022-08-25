@@ -20,14 +20,22 @@
         alt="Texto alternativo de la imagen x">
         <div class="div-menu"> <!-- url 'nombre_app:nombre_url_en_urls.py_' -->
             <a href="{% url 'noticias:listar_noticias' %}">IR A LISTAR NOTICIAS</a>
+            <br>
+            <a href="{% url 'eventos:listar_eventos' %}">IR A LISTAR EVENTOS</a>
+            <br>
             <a href="{% url 'home' %}">HOME</a>
-            
+            <br>
             {% if user.is_authenticated %}
                 <span>Bienvenido {{user.username}}</span>
                 <a href="{% url 'logout' %}">LOGOUT</a>  
             {% else %}
                 <a href="{% url 'login' %}">LOGIN</a>
+                <a href="{% url 'usuarios:registro' %}">REGISTRARSE</a>
             {% endif %}
+            <br>
+            <a href="{% url 'contactos:info_contacto' %}">Info contactos</a> 
+            <br>
+            <a href="{% url 'contactos:contactanos' %}">CONTACTANOS</a>
         </div>
     </div>
     <br><br>

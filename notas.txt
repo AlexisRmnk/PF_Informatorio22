@@ -11,3 +11,7 @@ NombreModelo.objects.filter(campo1 = myFiltro1, campo2 = myFiltro2)
 
 NombreModelo.objects.all()
 # select * from NombreModelo
+
+
+NombreModelo.objects.create()
+# Insert into NombreModelo
