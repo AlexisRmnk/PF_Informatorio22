@@ -39,7 +39,7 @@ p {
   margin: auto;
   text-align: center;
 }
-ul {
+.column ul {
   margin: auto;
   padding: 0px 15%;
 }
