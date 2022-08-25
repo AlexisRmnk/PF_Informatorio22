@@ -37,6 +37,8 @@ class Noticia(models.Model):
     
     def __str__(self) -> str:
         return self.titulo
+    def get_comentarios_noticia(self):
+        return self.comentario_noticia.all() #similar a noticia.comentario_set.all
     
 # relacion   >>>   NOTICIA    1:N     COMENTARIOS
 # OPCIONAL: relacion   >>>   USUARIO    1:N     COMENTARIOS
@@ -45,9 +47,10 @@ class Comentario(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     
     noticia = models.ForeignKey(Noticia, on_delete = models.CASCADE, 
-                                null = False)
+                                null = False, related_name="comentario_noticia")
     autor = models.ForeignKey(Usuario, on_delete = models.CASCADE, 
-                                null = False)
+                                null = False, related_name="comentario_noticia") 
     # imagen_adjunta = archivo tipo imagen
+    
     
     

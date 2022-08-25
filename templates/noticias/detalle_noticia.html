@@ -22,6 +22,25 @@
 	{% endif %}
 
 	<p>COMENTARIO NOTICIA</p> <!-- WIP -->
-	
+	{% for x in noticia.get_comentarios_noticia %}
+		<p>Autor: {{x.autor}}</p>
+		<p>contenidotxt: {{x.contenido_txt}}</p>
+		<p>fecha creacion: {{x.fecha_creacion}}</p>
+		<p>--------------------------------------</p>
+	{% endfor %}
 
+	{% if user.is_authenticated %}
+		<form method="POST" action={% url 'noticias:agregar_comentario' noticia.pk %}>
+			{% csrf_token %} 
+			<!-- nota para FRONT: controlar que el comentario no este vacio
+			se puede hacer con un JS, por ejemplo-->
+			<textarea name="coment" id="" cols="30" rows="10">
+
+			</textarea>
+			<button type="submit">COMENTAR</button>
+		</form>
+		{% comment %} por defecto los forms viejan a la misma vista que levanto el form {% endcomment %}
+
+
+	{% endif %}
 {% endblock bloque_contenido %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from .models import Noticia, Categoria
-
+from .models import Noticia, Categoria, Comentario
+from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -70,3 +71,20 @@ class Detalle_Noticia_Clase(LoginRequiredMixin, DetailView):
 #SI USO UNA VISTA BASADA EN CLASE EL CONTEXTO SE LLAMA:
 # SI ES UNO SOLO object
 # SI SON MUCHOS SE LLAMA object_list
+
+
+def Agregar_Comentario(request, pk):
+    texto_comentario = request.POST.get('coment')
+    # 2 formas de crear un comentario
+    # forma 1:
+    noti = Noticia.objects.get(pk = pk)
+    Comentario.objects.create(noticia = noti, contenido_txt = texto_comentario, autor = request.user)
+    # forma 2
+    # c = Comentario()
+    # c.noticia = pk
+    # c.texto = texto_comentario
+    # c.autor = request.user
+    # c.save()
+    
+    return HttpResponseRedirect(reverse_lazy("noticias:detalle_noticias", kwargs={"pk":pk}))
+    

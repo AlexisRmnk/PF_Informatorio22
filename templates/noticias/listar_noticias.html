@@ -10,7 +10,7 @@
     {% for n in noticias %}
         
         <h2>{{ n.titulo }}</h2>
-        <p>Creada: {{n.creado}}</p>
+        <p>Creada: {{n.creado|date:"d m Y"}}</p> <!-- nota: no poner espacio entre date:_".." -->
         {% if n.autor %}
         <p>Autor: {{ n.autor }}</p>
         {% endif %}
