@@ -7,7 +7,7 @@ from .models import Usuario
 class RegistroForm(UserCreationForm):
     first_name = forms.CharField(label='Nombre', required=True)
     last_name = forms.CharField(label='Apellido', required=True)
-    user_name = forms.CharField(label='Usuario', required=True)
+    username = forms.CharField(label='Usuario', required=True)
     email = forms.EmailField(label='Correo', required=True)
     password1 = forms.CharField(
         label='Contraseña', widget=forms.PasswordInput, required=True)

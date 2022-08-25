@@ -37,8 +37,7 @@
           <h1 class="h3 mb-3 fw-normal col-12">Registrate</h1>
         </div>  
         
-        <form action="{% url "usuarios:registro" %}" method="post" class="row">
-          {% csrf_token %}
+        <form class="row" action="" method="POST">{% csrf_token %}
           <div class="form-floating mb-1 col-md-6">
               <input type="text" name="first_name" class="form-control" id="floatingInput" placeholder="ej: Gabriel" >
               <label for="floatingInput">Nombre</label>
@@ -50,7 +49,7 @@
           </div>
 
           <div class="form-floating mb-1 col-md-12">
-            <input type="user" name="user_name" class="form-control" id="floatingInput" placeholder="Usuario">
+            <input type="user" name="username" class="form-control" id="floatingInput" placeholder="Usuario">
             <label for="floatingInput">Usuario</label>
           </div>
           <div class="form-floating mb-1">

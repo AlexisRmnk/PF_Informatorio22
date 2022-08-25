@@ -9,8 +9,10 @@
     <title>Botella de Amor</title>    
     <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
     <link rel="icon" href="{% static 'img/Logo1.png' %}">
+    {% block css %}
     <script src="https://kit.fontawesome.com/8d53197554.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/scrollreveal.js'%}"></script>
+    {% endblock css %}
 </head>
 <body>
     
@@ -33,22 +35,13 @@
 
                 <nav class="navbar">
                     <ul>
-                        <li><a href="#" id="selected"></a></li>
-                        <li><a href="#">Sobre Nosotros</a>
-                            <ul>
-                                <li><a href="#">Desieño Grafico</a></li>
-                                <li><a href="#">Ordenadores</a></li>
-                                <li><a href="#">Servidores</a></li>
-                                <li><a href="#">Analista</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{% url 'home' %}" id="selected"></a></li>
+                        <li><a href="{% url 'sobrenosotros'%}">Sobre Nosotros</a></li>
                         <li><a href="#">Noticias</a>
                             <ul>
-                                <li><a href="#">Diseño Web</a></li>
-                                <li><a href="#">Desieño Grafico</a></li>
-                                <li><a href="#">Ordenadores</a></li>
-                                <li><a href="#">Servidores</a></li>
-                                <li><a href="#">Analista</a></li>
+                                <li><a href="{% url 'noticias'%}">Más Reciente</a></li>
+                                <li><a href="#">Más Antiguos</a></li>
+                                <li><a href="#">Más Destecados</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Contactos</a>
@@ -65,8 +58,10 @@
                     </ul>
                     <div class="login__container">
                         {% if user.is_authenticated %}
-                            <span>Bienvenido/a {{user.username}}!!</span>
-                            <a href="{% url 'logout' %}" class="btn"><button>Cerrar Sesion</button></a>
+                            <div class="cerrar_sesion">
+                                <span class="bienvenida">Bienvenido/a {{user.username}}!!</span>
+                                <a href="{% url 'logout' %}" class="btn"><button>Cerrar Sesion</button></a>
+                            </div>
                         {% else %}
                         <a href="{% url 'login' %}" class="btn"><button>Iniciar Sesion</button></a>
                         {% endif %}
@@ -75,6 +70,7 @@
             </div>        
         </div>
     </header>
+    {% block header %}
     <div class="noticias__container">
         <div class="letra__container"></div>
     </div>
@@ -220,5 +216,6 @@
     </footer>
 
     <script src="{% static 'js/index.js'%}"></script>
+    {% endblock header %}
 </body>
 </html>

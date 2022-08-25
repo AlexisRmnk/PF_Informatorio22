@@ -36,6 +36,8 @@ urlpatterns = [
          name = 'login'),
     path('logout/', auth_views.LogoutView.as_view(), name = 'logout'),
     path('contact/', views.Contact, name = 'contact'),
+    path('noticias/', views.Noticias, name = 'noticias'),
+    path('sobrenosotros/', views.SobreNosotros, name = 'sobrenosotros'),
     
     
     path('', views.Home, name = 'home'),
@@ -43,6 +45,6 @@ urlpatterns = [
     path('Noticias/', include('apps.noticias.urls')),
     path('Eventos/', include('apps.eventos.urls')),
     path('Usuario/',include('apps.usuarios.urls')),
-    path('Contactos/', include('apps.contactos.urls')), # no olvidar coma al final
+    path('Contactos/', include('apps.contactos.urls')) # no olvidar coma al final
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
     # esto permite que el servidor acceda a la carpeta MEDIA

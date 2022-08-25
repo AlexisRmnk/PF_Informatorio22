@@ -30,41 +30,41 @@
   <body class="text-center">
     <main class="d-flex justify-content-center">
       <section class="form-signup">
-
-        <img class="mb-4" src="{% static 'img/logo-1loopfaster.gif'%}" alt="logo de Botellas de Amor" width="170" height="170">
+    
+        <a href="{% url 'home' %}"><img class="mb-4" src="{% static 'img/logo-1loopfaster.gif'%}" alt="logo de Botellas de Amor" width="170" height="170"></a>
         
         <div class="registro-container">        
           <h1 class="h3 mb-3 fw-normal col-12">Registrate</h1>
         </div>  
         
-        <form class="row">
-          
+        <form class="row" action="" method="post">
+          {% csrf_token %}
           <div class="form-floating mb-1 col-md-6">
-              <input type="text" class="form-control" id="floatingInput" placeholder="ej: Gabriel" >
+              <input type="text" name="first_name" class="form-control" id="floatingInput" placeholder="ej: Gabriel" >
               <label for="floatingInput">Nombre</label>
           </div>
 
           <div class="form-floating mb-1 col-md-6">
-            <input type="text" class="form-control" id="floatingInput" placeholder="ej: Martínez">
+            <input type="text" name="last_name" class="form-control" id="floatingInput" placeholder="ej: Martínez">
             <label for="floatingInput">Apellido/s</label>
           </div>
 
           <div class="form-floating mb-1 col-md-12">
-            <input type="user" class="form-control" id="floatingInput" placeholder="Usuario">
+            <input type="user" name="user_name" class="form-control" id="floatingInput" placeholder="Usuario">
             <label for="floatingInput">Usuario</label>
           </div>
           <div class="form-floating mb-1">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput" src="{% static 'img/iconos/at.svg'%}"> Email</label>
           </div>
           
           <div class="form-floating mb-3 col-md-6">
-            <input type="password" class="form-control" id="floatingInput" placeholder="Password">
+            <input type="password" name="password1" class="form-control" id="floatingInput" placeholder="Password">
             <label for="floatingInput">Contraseña</label>
           </div>
 
           <div class="form-floating mb-3 col-md-6">
-            <input type="password" class="form-control" id="floatingInput" placeholder="Confirm-Password">
+            <input type="password" name="password2" class="form-control" id="floatingInput" placeholder="Confirm-Password">
             <label for="floatingInput">Confirma tu contraseña </label>
           </div>
 
