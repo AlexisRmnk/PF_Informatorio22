@@ -10,7 +10,7 @@ def Register(request):
     return render(request, 'usuarios/sign_up.html')
 
 def Contact(request):
-    return render(request, 'Contact-form.html')
+    return render(request, 'contactos/Contact-form.html')
 
 def Noticias(request):
     return render(request, 'noticias/noticias.html')

@@ -47,10 +47,6 @@
                         <li><a href="#">Contactos</a>
                             <ul>
                                 <li><a href="{% url 'contact'%}">Contactanos</a></li>
-                                <li><a href="#">Desieño Grafico</a></li>
-                                <li><a href="#">Ordenadores</a></li>
-                                <li><a href="#">Servidores</a></li>
-                                <li><a href="#">Analista</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Eventos</a></li>
@@ -75,17 +71,19 @@
         <div class="letra__container"></div>
     </div>
     <main class="main">
-        <div class="words1">
-            <h1 class="words">Botella de Amor</h1>
-            <h2 class="words__h2">Desplastificate</h2>
-        </div>
-        <div class="words2">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Odio doloremque eveniet nam cum ipsa culpa cumque voluptas quibusdam,<br><br>
-                maxime odit officiis ratione vero consectetur ut saepe voluptatum error doloribus eum.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br><br>
-                Repudiandae placeat saepe reprehenderit doloribus totam libero sit autem velit deserunt quaerat, enim, fugiat, 
-                illo accusamus qui consequatur suscipit molestias. Eligendi, ut.</p>                
+        <div class="container_main">
+            <div class="words1">
+                <h1 class="words">Botella de Amor</h1>
+                <h2 class="words__h2">Desplastificate</h2>
+            </div>
+            <div class="words2">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Odio doloremque eveniet nam cum ipsa culpa cumque voluptas quibusdam,<br><br>
+                    maxime odit officiis ratione vero consectetur ut saepe voluptatum error doloribus eum.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br><br>
+                    Repudiandae placeat saepe reprehenderit doloribus totam libero sit autem velit deserunt quaerat, enim, fugiat, 
+                    illo accusamus qui consequatur suscipit molestias. Eligendi, ut.</p>                
+            </div>
         </div>
     </main>
 
@@ -184,32 +182,22 @@
         <div class="container">
             <div class="son1">
                 <ul>
-                    <p>Section</p>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">About</a></li>
+                    <p>Noticias</p>                    
+                    <li><a href="{% url 'noticias'%}">Más Reciente</a></li>
+                    <li><a href="#">Más Antiguos</a></li>
+                    <li><a href="#">Más Destecados</a></li>
                 </ul>
             </div>
             <div class="son2">
                 <ul>
-                    <p>Section</p>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">About</a></li>
+                    <p>Contactos</p>
+                    <li><a href="{% url 'contact'%}">Contactanos</a></li>
                 </ul>
             </div>
             <div class="son3">
                 <ul>
-                    <p>Section</p>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">About</a></li>
+                    <p>Eventos</p>
+                    <li><a href="#">Calendario</a></li>
                 </ul>
             </div>
         </div>

@@ -134,10 +134,10 @@ nav > ul > li > a {
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 14px;
+    padding: 18px;
     color: black;
     text-transform: uppercase;
-    font-size: 1.71875vw;
+    font-size: 1.640625vw;
     transition: all 300ms ease;
 }
 
@@ -209,9 +209,13 @@ nav ul li ul li a:hover {
     color: #fff;
     transform: scale(1.1);
     padding-left: 30px;
-    font-size: 1.25vw;
+    font-size: 16px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
 
+}
+
+.cerrar_sesion span {
+    font-size: 1.25vw;
 }
 
 .btn button{
@@ -220,7 +224,7 @@ nav ul li ul li a:hover {
     font-size: 1.40625vw;
     font-weight: 700;
     color: black;
-    padding:  9px 25px;
+    padding:  0.703125vw 1.953125vw;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -246,7 +250,7 @@ nav ul li ul li a:hover {
     background-size: cover;
     background-position: center;
     width:  100%;
-    height: 90vh;
+    height: 64.8984375vw;
 }
 
 
@@ -254,7 +258,14 @@ nav ul li ul li a:hover {
 
 .main {
     width: 100%;
-    height: 43.5234375vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container_main {
+    margin: 45px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -266,19 +277,19 @@ nav ul li ul li a:hover {
     flex-direction: column;
 }
 
-.words__h2 {
-    font-family: 'DynaPuff', cursive;
-    font-size: 9.5vw;
-    padding: 20px 0;
-    color: #208507;
-}
-
 .words {
     font-family: 'DynaPuff', cursive;
-    font-size: 4.6875vw;
+    font-size: 6.25vw;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.words__h2 {
+    font-family: 'DynaPuff', cursive;
+    font-size: 11.71875vw;
+    padding: 20px 0;
+    color: #208507;
 }
 
 .words2 {
@@ -287,7 +298,7 @@ nav ul li ul li a:hover {
 
 .words2 p {
     font-family: 'Lora', serif;
-    font-size: 1.2558869701726845vw;
+    font-size: 1.25vw;
 }
 
 .sabias {
@@ -299,7 +310,7 @@ nav ul li ul li a:hover {
 
 .sabias h1 {
     font-family: 'DynaPuff', cursive;
-    font-size: 9.5vw;
+    font-size: 9.375vw;
     color: #FEF300;
 }
 
@@ -308,6 +319,7 @@ nav ul li ul li a:hover {
     background-color: #0d0d0de1;
     overflow: hidden;
     height: 100%;
+    margin-top: 20px;
 }
 
 /*cards*/
@@ -378,7 +390,7 @@ nav ul li ul li a:hover {
 
 .info__description h1{
     font-family: 'Lora', serif;
-    font-size: 1.2890625vw;
+    font-size: 16px;
     margin-top: 10px;
 }
 
@@ -446,7 +458,7 @@ nav ul li ul li a:hover {
 
 .emc1 {
     font-family: 'Lora', serif;
-    font-size: 5.46875vw;
+    font-size: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -455,30 +467,30 @@ nav ul li ul li a:hover {
 
 .emc2 {
     font-family: 'Lora', serif;
-    font-size: 1.484375vw;
+    font-size: 25px;
     color: #208507;
 }
 
 .emc3 {
     font-family: 'Lora', serif;
-    font-size: 3.125vw;
+    font-size: 35px;
     color: #bf4824;
 }
 
 .emc41{
     font-family: 'Lora', serif;
-    font-size: 1.5625vw;
+    font-size: 25px;
     color: black;
 }
 .emc4 {
     font-family: 'Lora', serif;
-    font-size: 3.515625vw;
+    font-size: 45px;
     color: #d6681e;
 }
 
 .emc5 {
     font-family: 'Lora', serif;
-    font-size: 3.125vw;
+    font-size: 45px;
     color: #d1c707d8;
 }
 
@@ -613,7 +625,11 @@ nav ul li ul li a:hover {
     }
 
     nav > ul > li > a {
-        font-size: 1.40625vw;
+        font-size: 14px;
+    }
+
+    nav > ul > li > ul > li > a {
+        font-size: 14px;
     }
 
     .bars__menu {
@@ -637,13 +653,18 @@ nav ul li ul li a:hover {
         height: 50vh;
     }
 
+
+    .words2 p {
+        font-size: 16px;
+    }
+
     /**/
       
 }
 
 @media screen and (max-width: 850px) {
-    .btn button {
-        visibility: hidden;
+    .cerrar_sesion {
+        display: none;
     }
 }
 
