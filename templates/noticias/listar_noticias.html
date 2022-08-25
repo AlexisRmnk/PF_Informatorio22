@@ -6,11 +6,11 @@
 
     <h2>NOTICIAS ACTUALES</h2>
     <br>
+    <p>test dia de hoy: {% now "d-m-Y H:i hs" %} </p>
     {% for n in noticias %}
-<p>test dia de hoy: {{n.get_dia_de_hoy}} </p> <!-- TODO : hacer en vistas -->
-
+        
         <h2>{{ n.titulo }}</h2>
-
+        <p>Creada: {{n.creado}}</p>
         {% if n.autor %}
         <p>Autor: {{ n.autor }}</p>
         {% endif %}

@@ -9,23 +9,34 @@ from django.contrib.auth.mixins import LoginRequiredMixin # para clases
 
 # Create your views here.
 
-def listar(request):
+def listar(request, reverse = False):
     # creo diccionario CONTEXT para pasar datos al template
     ctx = dict()
     # BUSCAR LAS NOTICIAS EN LA BD
     
-    # BUSCAR LO QUE QUIERTO EN LA BD
-    todas_noticias = Noticia.objects.all() # devuelve un diccionario de objeto
+    # BUSCAR LO QUE QUIERO EN LA BD
+    #  todas_noticias = Noticia.objects.all() # devuelve un diccionario de objeto
     # de tipo Noticia
     # print(todas_noticias) # esto se imprime en la consola del CMD cuando 
     # iniciamos el servidor con 'python manage.py runserver' y luego vamos a
     # la vista de noticias
     
+    noticias_ordenadas = Noticia.objects.order_by('creado')
+    
+    
+    
+    #test:
+    for n in noticias_ordenadas:
+        print(n.titulo, n.creado, type(n))
+    
+    
     # PASARLO AL TEMPLATE
-    ctx['noticias'] = todas_noticias
+    ctx['noticias'] = noticias_ordenadas
     
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
+    
+    
     
     return render(request, 'noticias/listar_noticias.html', ctx) 
     # todo lo de return se envia al template (templates\noticias\listar_noticias.html)

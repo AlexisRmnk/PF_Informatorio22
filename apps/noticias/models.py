@@ -37,8 +37,6 @@ class Noticia(models.Model):
     
     def __str__(self) -> str:
         return self.titulo
-    def get_dia_de_hoy(self, cadena):
-        return (cadena + str(date.today()))
     
 # relacion   >>>   NOTICIA    1:N     COMENTARIOS
 # OPCIONAL: relacion   >>>   USUARIO    1:N     COMENTARIOS
