@@ -9,4 +9,4 @@ from .forms import RegistroForm
 class Registro(CreateView):
 	form_class = RegistroForm
 	success_url = reverse_lazy('login')
-	template_name = 'usuarios/registro.html'
+	template_name = 'usuarios/sign_up.html'

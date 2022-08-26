@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escríbenos</title>
+    <link rel="icon" href="{% static 'img/Logo-Botellas-de-Amor.png'%}" />
+    <link rel="stylesheet" href="{% static 'css/style-contact-form.css' %}" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="media/shape.png" class="square" alt="" />
+      <img class="logo" src="{% static 'img/Logo-Botellas-de-Amor.png'%}">
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title1">Contactanos</h3>
+          
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
+          </p>
+          <div class="info">
+            <div class="information">
+              <img src="{% static 'img/locationlgreen.png'%}" class="icon" alt="" />
+              <p>Acá podemos poner dirección?</p>
+            </div>
+            <div class="information">
+              <img src="{% static 'img/emailgreen.png'%}" class="icon" alt="" />
+              <p>Email?</p>
+            </div>
+            <div class="information">
+              <img src="{% static 'img/phonegreen.png'%}" class="icon" alt="" />
+              <p>Telefono?</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Buscanos en nuestras redes sociales: </p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/botelladeamorresistencia/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/botelladeamorresistencia/?hl=es" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="{% url 'contactos:enviar_contacto' %}" method="post" autocomplete="off">{% csrf_token %}
+            <h1><span class="title2"> Escríbenos...</span></h1>
+            <div class="input-container">
+              <input type="text" name="contacto_nombre_name" class="input" />
+              <label for="">Usuario</label>
+              <span>Usuario</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="contacto_email_name" class="input" />
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="contacto_telefono_name" class="input" />
+              <label for="">Tel</label>
+              <span>Tel</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="contacto_mensaje_name" class="input"></textarea>
+              <label for="">Mensaje</label>
+              <span>Escribí tu mensaje acá...</span>
+            </div>
+            <input type="submit" value="Enviar" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/app.js'%}"></script>
+  </body>
+</html>
