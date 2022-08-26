@@ -1,0 +1,49 @@
+<!--{_%___%_} es lo que interpreta DJANGO! -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    
+    <!-- MENU -->
+    <div class="div-menu">
+        <img src="{% static 'img/arbol.jpg' %}" width="150" height="200" 
+        alt="Texto alternativo de la imagen x">
+        <div class="div-menu"> <!-- url 'nombre_app:nombre_url_en_urls.py_' -->
+            <a href="{% url 'noticias:listar_noticias' %}">IR A LISTAR NOTICIAS</a>
+            <br>
+            <a href="{% url 'eventos:listar_eventos' %}">IR A LISTAR EVENTOS</a>
+            <br>
+            <a href="{% url 'home' %}">HOME</a>
+            <br>
+            {% if user.is_authenticated %}
+                <span>Bienvenido {{user.username}}</span>
+                <a href="{% url 'logout' %}">LOGOUT</a>  
+            {% else %}
+                <a href="{% url 'login' %}">LOGIN</a>
+                <a href="{% url 'usuarios:registro' %}">REGISTRARSE</a>
+            {% endif %}
+            <br>
+            <a href="{% url 'contactos:info_contacto' %}">Info contactos</a> 
+            <br>
+            <a href="{% url 'contactos:contactanos' %}">CONTACTANOS</a>
+        </div>
+    </div>
+    <br><br>
+    <!-- FIN MENU -->
+
+    {% block bloque_contenido %}
+
+    {% endblock bloque_contenido %}
+
+</body>
+</html>
