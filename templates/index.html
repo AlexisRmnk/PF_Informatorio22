@@ -6,12 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botella de Amor</title>    
-    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+    <title>Botella de Amor</title>
     <link rel="icon" href="{% static 'img/Logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block css %}
     <script src="https://kit.fontawesome.com/8d53197554.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/scrollreveal.js'%}"></script>
+    <!--<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="{% static 'js/maps.js'%}"></script>-->
     {% endblock css %}
 </head>
 <body>
@@ -49,14 +51,19 @@
                                 <li><a href="{% url 'contact'%}">Contactanos</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Eventos</a>
+                            <ul>
+                                <li><a href="{% url 'contact'%}">Calendario</a></li>
+                                <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1QBrPiv4TC7PHydND-XuRq2vPXHZBIkAE&ll=-27.451452553253837%2C-58.982524376196295&z=14" target="_blank">Puntos de Acopio</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">Recursos</a></li>
                     </ul>
                     <div class="login__container">
                         {% if user.is_authenticated %}
                             <div class="cerrar_sesion">
                                 <span class="bienvenida">Bienvenido/a {{user.username}}!!</span>
-                                <a href="{% url 'logout' %}" class="btn"><button>Cerrar Sesion</button></a>
+                                <a href="{% url 'logout' %}" class="btn1"><button>Cerrar Sesion</button></a>
                             </div>
                         {% else %}
                         <a href="{% url 'login' %}" class="btn"><button>Iniciar Sesion</button></a>
@@ -173,10 +180,13 @@
         </div>
 
     </div>
+    {% endblock header %}
+
     
+    <hr>
     <footer class="footer">
-        <div class="container">
-            <img class="IMG1" src="{% static 'img/Logo1.png' %}" alt="">
+        <div class="container1">
+            <div class="img_footer"></div>
             <p>© 2022</p>
         </div>
         <div class="container">
@@ -200,10 +210,9 @@
                     <li><a href="#">Calendario</a></li>
                 </ul>
             </div>
-        </div>
-    </footer>
-
+        </div>   
+    </footer>    
     <script src="{% static 'js/index.js'%}"></script>
-    {% endblock header %}
+    
 </body>
 </html>
