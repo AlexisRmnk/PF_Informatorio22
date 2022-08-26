@@ -59,7 +59,7 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="{% url 'contactos:enviar_contacto' %}" method="post" autocomplete="off">{% csrf_token %}
+          <form action="{% url 'contactos:enviar_contacto' %}" method="POST" autocomplete="off">{% csrf_token %}
             <h1><span class="title2"> Escríbenos...</span></h1>
             <div class="input-container">
               <input type="text" name="contacto_nombre_name" class="input" />
