@@ -32,9 +32,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     path('login/', 
-         auth_views.LoginView.as_view(template_name="usuarios/login.html"),
+         auth_views.LoginView.as_view(template_name="usuarios/log_in.html"),
          name = 'login'),
     path('logout/', auth_views.LogoutView.as_view(), name = 'logout'),
+    path('contact/', views.Contact, name = 'contact'),
+    path('noticias/', views.Noticias, name = 'noticias'),
+    path('sobrenosotros/', views.SobreNosotros, name = 'sobrenosotros'),
+    path('calendario/', views.Calendario, name = 'calendario'),
+    
     
     path('', views.Home, name = 'home'),
     # URL DE APLICACIONES

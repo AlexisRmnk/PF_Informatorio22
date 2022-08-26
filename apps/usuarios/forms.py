@@ -5,9 +5,10 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Usuario
 
 class RegistroForm(UserCreationForm):
-    email = forms.EmailField(label='Correo', required=True)
     first_name = forms.CharField(label='Nombre', required=True)
     last_name = forms.CharField(label='Apellido', required=True)
+    username = forms.CharField(label='Usuario', required=True)
+    email = forms.EmailField(label='Correo', required=True)
     password1 = forms.CharField(
         label='Contraseña', widget=forms.PasswordInput, required=True)
     password2 = forms.CharField(

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+*{
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Dynabuff', sans-serif;
+}
+
+.footer {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 60px;
+    height: auto;
+    margin-top: -150px;
+    margin-left: 40px;
+}
+
+
+
+.container {
+    margin: 90px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.container div {
+    margin: 0px 100px;
+}
+
+.container div ul li {
+    margin: 15px 0px;
+}
+
+.container div ul p {
+    font-size: 20px;
+}
+
+.container div ul li a {
+    font-size: 16px;
+    color: #0d0d0de1;
+}
