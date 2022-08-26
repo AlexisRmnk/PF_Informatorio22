@@ -38,6 +38,7 @@ urlpatterns = [
     path('contact/', views.Contact, name = 'contact'),
     path('noticias/', views.Noticias, name = 'noticias'),
     path('sobrenosotros/', views.SobreNosotros, name = 'sobrenosotros'),
+    path('calendario/', views.Calendario, name = 'calendario'),
     
     
     path('', views.Home, name = 'home'),

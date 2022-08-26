@@ -17,3 +17,6 @@ def Noticias(request):
 
 def SobreNosotros(request):
     return render(request, 'sobre nosotros/about_us.html')
+
+def Calendario(request):
+    return render(request, 'eventos/calendario.html')
