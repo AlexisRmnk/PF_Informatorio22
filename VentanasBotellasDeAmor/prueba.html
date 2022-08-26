@@ -2,33 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <link rel="stylesheet" href="styles/style.css" />
-
-    <title>Document</title>
+    <title>Noticias</title>
   </head>
   <body>
     <!-- Esto es el header -->
-    <div class="header">
+    <div class="header row">
       <p>NOTICIAS</p>
     </div>
     <!-- Esto es el header -->
-    <div class="btn">
-      <form action="">
-        <label for="Noticias">Filtrar por:</label>
-        <select id="noticias" name="noticias">
-          <option value="volvo">Precio</option>
-          <option value="saab">Cantidad</option>
-          <option value="fiat">Fecha</option>
-        </select>
-      </form>
+    <div class="row alignEnd">
+      <div class="btn">
+        <form action="">
+          <label for="Noticias">Filtrar por:</label>
+          <select id="noticias" name="noticias">
+            <option value="volvo">Recientes</option>
+            <option value="saab">Antiguos</option>
+            <option value="fiat">Todo</option>
+          </select>
+        </form>
+      </div>
     </div>
     <!-- primer bloque -->
     <div class="container">
       <!-- primer card -->
-      <div class="card">
+      <div class="card inline">
         <figure>
-          <img src="Img1.png" />
+          <img src="images/Img1.png" />
         </figure>
         <div class="contenido">
           <h3>Noticia 1</h3>
@@ -40,54 +40,9 @@
         </div>
       </div>
       <!-- segunda card -->
-      <div class="card">
+      <div class="card inline">
         <figure>
-          <img src="Img2.png" />
-        </figure>
-        <div class="contenido">
-          <h3>Noticia 2</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-            aspernatur ...
-          </p>
-          <a href="#">Leer mas...</a>
-        </div>
-      </div>
-      <!-- tercer card -->
-      <div class="card">
-        <figure>
-          <img src="Img3.png" />
-        </figure>
-        <div class="contenido">
-          <h3>Noticia 3</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-            aspernatur ...
-          </p>
-          <a href="#">Leer mas...</a>
-        </div>
-      </div>
-      <!-- cuarta card -->
-      <div class="card">
-        <figure>
-          <img src="Img3.png" />
-        </figure>
-        <div class="contenido">
-          <h3>Noticia 4</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-            aspernatur ...
-          </p>
-          <a href="#">Leer mas...</a>
-        </div>
-      </div>
-    </div>
-    <!-- segundo bloque -->
-    <div class="container">
-      <!-- primer card -->
-      <div class="card">
-        <figure>
-          <img src="Img1.png" />
+          <img src="images/Img1.png" />
         </figure>
         <div class="contenido">
           <h3>Noticia 1</h3>
@@ -98,27 +53,13 @@
           <a href="#">Leer mas...</a>
         </div>
       </div>
-      <!-- segunda card -->
-      <div class="card">
-        <figure>
-          <img src="Img2.png" />
-        </figure>
-        <div class="contenido">
-          <h3>Noticia 2</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-            aspernatur ...
-          </p>
-          <a href="#">Leer mas...</a>
-        </div>
-      </div>
       <!-- tercer card -->
-      <div class="card">
+      <div class="card inline">
         <figure>
-          <img src="Img3.png" />
+          <img src="images/Img2.png" />
         </figure>
         <div class="contenido">
-          <h3>Noticia 3</h3>
+          <h3>Noticia 1</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
             aspernatur ...
@@ -127,12 +68,12 @@
         </div>
       </div>
       <!-- cuarta card -->
-      <div class="card">
+      <!-- <div class="card inline">
         <figure>
-          <img src="Img3.png" />
+          <img src="images/Img3.png" />
         </figure>
         <div class="contenido">
-          <h3>Noticia 4</h3>
+          <h3>Noticia 1</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
             aspernatur ...
@@ -140,15 +81,17 @@
           <a href="#">Leer mas...</a>
         </div>
       </div>
-    </div>
-    <!-- Paginacion -->
-    <div class="pagination">
-      <a href="#">&laquo;</a>
-      <a href="#" class="active">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
+    </div> -->
 
-      <a href="#">&raquo;</a>
+    <!-- Paginacion -->
+    <div class="row alignCenter">
+      <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">&raquo;</a>
+      </div>
     </div>
     <!-- Fin Paginacion -->
   </body>

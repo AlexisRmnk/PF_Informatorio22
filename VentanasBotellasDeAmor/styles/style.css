@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Alégre Sans;
+  src: url(../Font/Algre-Sans/Alégre\ Sans.ttf);
+}
 /* div {
   margin: 150px;
   width: 200px;
@@ -17,19 +21,38 @@ div:hover {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: Alégre Sans;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.alignEnd {
+  justify-content: end;
+}
+.alignCenter {
+  justify-content: center;
+}
+
 body {
   width: 100%;
   height: 100vh;
   display: inline-block;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 .header {
   background-image: url("Textura Fondo Header.jpg");
-  background-color: #7dce13;
+  background-color: #f0bb62;
   text-align: center;
+  font-size: 40px;
+  letter-spacing: 4px;
   width: 100%;
   height: 150px;
   padding: 20px;
@@ -39,14 +62,16 @@ body {
 }
 
 .container {
+  margin-bottom: 20px;
   width: 100%;
-  display: flex;
   max-width: 1100px;
+  text-align: center;
+  justify-content: flex-start;
 }
 .card {
-  width: 100%;
+  width: 220px;
   height: 250px;
-  margin: 20px;
+  margin: 5px;
   border-radius: 6px;
   overflow: hidden;
   background: #fff;
@@ -62,10 +87,7 @@ body {
   width: 100%;
   height: 100px;
 }
-.container {
-  padding: 15px;
-  text-align: center;
-}
+
 .container p {
   font-size: 12px;
   padding: 8px;
@@ -82,13 +104,13 @@ body {
   display: inline-block;
   padding: 6px;
   margin: 10px;
-  color: #7dce13;
-  border: 1px solid #7dce13;
+  color: #81b214;
+  border: 1px solid #81b214;
   border-radius: 4px;
   transition: all 400ms ease;
 }
 .container a:hover {
-  background: #7dce13;
+  background: #81b214;
   color: #fff;
 }
 .pagination {
@@ -102,22 +124,32 @@ body {
   float: left;
   padding: 4px 8px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: 0.3s;
   border: 1px solid #ddd;
 }
 
 .pagination a.active {
-  background-color: #4caf50;
+  background-color: #81b214;
   color: white;
   border: 1px solid #4caf50;
 }
 
 .pagination a:hover:not(.active) {
-  background-color: #ddd;
+  background-color: #81b214;
 }
 .btn {
   padding: 20px;
   display: flex;
   justify-content: end;
   align-items: center;
+}
+.box {
+  width: 250px;
+  height: 10px;
+  background-color: #ffcc29;
+  border: solid 1px black;
+  display: inline-block;
+}
+.inline {
+  display: inline-block;
 }
