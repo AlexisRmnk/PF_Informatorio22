@@ -36,24 +36,24 @@
         <br>
     {% endfor %}
 
-    
-
-    <br>
-    <h2>FILTRO POR FECHA</h2> <!-- pasar con FORM  -->
-
-
-    <h2>FILTRAR POR CATEGORIA</h2> <!-- no prioritario -->
-    {% comment %} <form action="{% url 'APP:URL_NOMBRE' categoria_name.pk %}">  {% endcomment %}
+    <h2>FILTRAR POR CATEGORIA</h2> 
+    <form method="post" action="{% url 'noticias:categorizar' %}">
+    {% csrf_token %}
       <!--    La idea es mandar el ID (o PK) de
         la categoria como URL  .........      wip -->
-        <label for="categorias">Seleccione una categoria:</label> <br>
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
         <select name="categoria_name" id="categoria_id">
+            <option value="todas">TODAS</option>
         {% for categoria in categorias %}
-            <option value="{{categoria}}">{{categoria}}</option>
+            <option value="{{forloop.counter}}"> {{categoria}} </option>
         {% endfor %}
         </select> <br>
         <input type="submit" value="Mostrar noticias para la categoria seleccionada">
     </form>    
+
+    {% if categorias_filtradas %}
+
+    {% endif %}
 
     {% include 'ejemplo_include.html' %}
     

@@ -103,3 +103,9 @@ def Agregar_Comentario(request, pk):
     
     return HttpResponseRedirect(reverse_lazy("noticias:detalle_noticias", kwargs={"pk":pk}))
     
+def categorizar(request):
+    categoria_id = request.POST.get("categoria_name")
+    categoria = Categoria.objects.get(pk = categoria_id)
+    print(f"Nombre categoria ES: {categoria.nombre}")
+    return HttpResponseRedirect(reverse_lazy("noticias:listar_noticias"))
+    

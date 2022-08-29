@@ -9,6 +9,7 @@ urlpatterns = [
     
     path('listar/', views.listar, name = 'listar_noticias'),
     path('listar_inv/', views.listar_inverso, name = 'listar_noticias_inverso'),
+    path('categorizar/', views.categorizar, name="categorizar"),
     # URL PARA VISTA BASADA EN FUNCION
     #path('detalle/<int:pk>', views.Detalle_Noticia_Funcion, name = 'detalle_noticias'),
     # URL PARA VISTA BASADA EN CLASE
