@@ -39,11 +39,11 @@
                     <ul>
                         <li><a href="{% url 'home' %}" id="selected"></a></li>
                         <li><a href="{% url 'sobrenosotros'%}">Sobre Nosotros</a></li>
-                        <li><a href="#">Noticias</a>
+                        <li><a href="{% url 'noticias'%}">Noticias</a>
                             <ul>
-                                <li><a href="{% url 'noticias'%}">Más Reciente</a></li>
-                                <li><a href="#">Más Antiguos</a></li>
-                                <li><a href="#">Más Destecados</a></li>
+                                <li><a href="{% url 'noticias:listar_noticias'%}">Más Reciente</a></li>
+                                <li><a href="{% url 'noticias:listar_noticias_inverso'%}">Más Antiguos</a></li>
+                                <li><a href="#">Más Destacados</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Contactos</a>

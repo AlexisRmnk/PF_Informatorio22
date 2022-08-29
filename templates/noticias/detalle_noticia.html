@@ -22,10 +22,10 @@
 	{% endif %}
 
 	<p>COMENTARIO NOTICIA</p> <!-- WIP -->
-	{% for x in noticia.get_comentarios_noticia %}
-		<p>Autor: {{x.autor}}</p>
-		<p>contenidotxt: {{x.contenido_txt}}</p>
-		<p>fecha creacion: {{x.fecha_creacion}}</p>
+	{% for comentario in noticia.get_comentarios_noticia %}
+		<p>Autor: {{comentario.autor}}</p>
+		<p>contenido txt: {{comentario.contenido_txt}}</p>
+		<p>fecha creacion: {{comentario.fecha_creacion}}</p>
 		<p>--------------------------------------</p>
 	{% endfor %}
 
