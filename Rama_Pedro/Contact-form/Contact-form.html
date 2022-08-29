@@ -10,6 +10,17 @@
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
+    
+    <!-- OPTION 1: -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> -->
+
+    <!-- OPTION 2: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  
   </head>
 
   <body>
@@ -57,7 +68,7 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="index.html" autocomplete="off">
+          <form action="#" autocomplete="off">
             <h1><span class="title2"> Escribinos...</span></h1>
             <div class="input-container">
               <input type="text" name="name" class="input" />
@@ -79,11 +90,28 @@
               <label for="">Mensaje</label>
               <span>Escribí tu mensaje acá...</span>
             </div>
-            <input type="submit" value="Enviar" class="btn" />
+            <input type="submit" value="Enviar" class="btn" onclick="openPopup()" />
           </form>
         </div>
       </div>
+
+      <!-- POP UP NOTIFICATION: OPTION 1 -->
+      <div class="popup" id="popup">
+        <img src="media/tick.png">
+        <h2>¡Muchas Gracias!</h2>
+        <p>Tu mensaje ha sido enviado con éxito. En breve nos estaremos comunicando con vos.</p>
+        <button type="button" onclick="closePopup()">OK</button>
+      </div>
     </div>
+
+    <script>let opopup = document.getElementById("popup")
+    function openPopup(){
+      popup.classList.add("open-popup");
+    }
+    function closePopup(){
+      popup.classList.remove("open-popup");
+    } 
+    </script>
 
     <script src="app.js"></script>
   </body>
