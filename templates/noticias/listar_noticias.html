@@ -37,15 +37,15 @@
     {% endfor %}
 
     <h2>FILTRAR POR CATEGORIA</h2> 
-    <form method="post" action="{% url 'noticias:categorizar' %}">
-    {% csrf_token %}
-      <!--    La idea es mandar el ID (o PK) de
-        la categoria como URL  .........      wip -->
+    <form method="post" action="{% url 'noticias:categorizar'  %}">
+    
+      <!--    La idea es mandar el nombre de
+        la categoria como URL ... recordar hacer unique el nombre en el modelo ...  wip -->
         <label for="categorias_label">Seleccione una categoria:</label> <br>
         <select name="categoria_name" id="categoria_id">
             <option value="todas">TODAS</option>
         {% for categoria in categorias %}
-            <option value="{{forloop.counter}}"> {{categoria}} </option>
+            <option value="categoria.nombre"> {{categoria.nombre}} </option>
         {% endfor %}
         </select> <br>
         <input type="submit" value="Mostrar noticias para la categoria seleccionada">
