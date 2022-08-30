@@ -6,169 +6,105 @@
 {% endblock css %}
 
 {% block header %}
-    <div>
-      <div class="row" id="row1">
-        <div class="column" id="colaa">
-          <p>
-            Somos un proyecto sin fines de lucro dedicado al desarrollo
-            sostenible y mejoramiento de las condiciones de vida de las
-            comunidades
-          </p>
-        </div>
-        <div class="column" id="colba">
-          <img src="{% static 'img/Img1.png' %}" alt="hola" id="imgrow1" />
-        </div>
+<div>
+  <div class="row" id="row1">
+    <div class="column" id="colaa">
+      <p>
+        BIENVENIDOS! somos<b> Botellas de Amor </b> un proyecto sin fines de
+        lucro <br />dedicado al desarrollo sostenible y mejoramiento de las
+        condiciones de vida <br />de las comunidades.
+      </p>
+    </div>
+    <div class="column" id="colba">
+      <img src="{% static 'img/RRR2.jpg' %}" alt="hola" id="imgrow1" />
+    </div>
+  </div>
+  <div class="row" id="row2">
+    <div class="column verticalText" id="colab">
+      <p>¿Qué hacemos?</p>
+    </div>
+    <div class="column" id="colbb">
+      <p>
+        Le damos trazabilidad a las <br />
+        <b>Botellas de Amor</b> que son fruto del trabajo de miles de
+        personas<br />
+        a lo largo y ancho del país que voluntariamente separan sus residuos
+        plásticos, <br />brindándoles una opción para que puedan ser
+        recuperados.<br />
+        Para ello, desde agosto del 2020, constituimos a Resistencia como
+        punto de acopio, para juntar las botellas en un solo lugar y poder
+        enviarlas a Buenos Aires donde eran recicladas. Actualmente,
+        cerramos un acuerdo con una empresa local, Ecoqiru, que recibe las
+        botellas, las recicla y las transforma en madera plástica en
+        Margarita Belén.
+      </p>
+    </div>
+    <div class="column" id="colcb"><p></p></div>
+  </div>
+  <div class="row" id="row3">
+    <div class="column" id="colac">
+      <img src="{% static 'img/MundoTextoBlanco.png' %}" alt="hola" id="imgrow1" />
+    </div>
+    <div class="column" id="colbc">
+      <p>
+        Nuestro objetivo es promover un cambio de hábito en la comunidad
+        para reducir los residuos, impulsar el reciclaje, el consumo
+        responsable y la economía circular.
+      </p>
+    </div>
+  </div>
+  <div class="row" id="row4">
+    <div class="column" id="colad"><p>¿Cómo funciona?</p></div>
+    <div class="column" id="colbd">
+      <ul>
+        <li>
+          En una botella de plástico se colocan plásticos de un solo uso,
+          cuidando que estén limpios y secos, y compactando para que entre
+          la mayor cantidad posible.
+        </li>
+        <li>Se llevan las botellas completas a un punto de acopio</li>
+        <li>
+          Se envían a Ecoqiru, para ser procesadas y transformadas en madera
+          plástica y luego en muebles y juegos de niños.
+        </li>
+        <li>
+          Nos regresan un porcentaje de lo enviado en muebles y juegos de
+          niños que serán donados a instituciones que lo necesiten en
+          nuestra comunidad.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="row5">
+    <div id="faces">
+      <div class="verticalText">
+        <p>Integrantes</p>
       </div>
-      <div class="row" id="row2">
-        <div class="column verticalText" id="colab">
-          <p>¿Qué hacemos?</p>
-        </div>
-        <div class="column" id="colbb">
-          <p>
-            Le damos trazabilidad a las BOTELLAS DE AMOR que son fruto del
-            trabajo de miles de personas a lo largo y ancho del país que
-            voluntariamente separan sus residuos plásticos, brindándoles una
-            opción para que puedan ser recuperados. Para ello, desde agosto del
-            2020, constituimos a Resistencia como punto de acopio, para juntar
-            las botellas en un solo lugar y poder enviarlas a Buenos Aires donde
-            eran recicladas. Actualmente, cerramos un acuerdo con una empresa
-            local, Ecoqiru, que recibe las botellas, las recicla y las
-            transforma en madera plástica en Margarita Belén
-          </p>
-        </div>
-        <div class="column" id="colcb"><p></p></div>
+      <div class="animated">
+        <img class="roundedImg" src="{% static 'img/face3.png' %}" alt="hola" />
+        <p>Celeste Lestani</p>
       </div>
-      <div class="row" id="row3">
-        <div class="column" id="colac">
-          <img src="{% static 'img/Img3.png' %}" alt="hola" id="imgrow1" />
-        </div>
-        <div class="column" id="colbc">
-          <p>
-            Promover un cambio de hábito en la comunidad para reducir los
-            residuos, impulsar el reciclaje, el consumo responsable y la
-            economía circular.
-          </p>
-        </div>
+      <div class="animated">
+        <img class="roundedImg" src="{% static 'img/face2.png' %}" alt="hola" />
+        <p>Cecilia Gil de Muro</p>
       </div>
-      <div class="row" id="row4">
-        <div class="column" id="colad"><p>¿Cómo funciona?</p></div>
-        <div class="column" id="colbd">
-          <ul>
-            <li>
-              En una botella de plástico se colocan plásticos de un solo uso,
-              cuidando que estén limpios y secos, y compactando para que entre
-              la mayor cantidad posible.
-            </li>
-            <li>Se llevan las botellas completas a un punto de acopio</li>
-            <li>
-              Se envían a Ecoqiru, para ser procesadas y transformadas en madera
-              plástica y luego en muebles y juegos de niños.
-            </li>
-            <li>
-              Nos regresan un porcentaje de lo enviado en muebles y juegos de
-              niños que serán donados a instituciones que lo necesiten en
-              nuestra comunidad.
-            </li>
-          </ul>
-        </div>
+      <div class="animated">
+        <img class="roundedImg" src="{% static 'img/face4.png' %}" alt="hola" />
+        <p>Maite Gil de Muro</p>
       </div>
-      <div id="row5">
-        <div id="faces">
-          <div class="verticalText">
-            <p>Integrantes</p>
-          </div>
-          <div>
-            <img class="roundedImg" src="{% static 'img/face1.png' %}" alt="hola" />
-            <p>Rocio Blota</p>
-          </div>
-          <div>
-            <img class="roundedImg" src="{% static 'img/face2.png' %}" alt="hola" />
-            <p>Cecilia de Muro</p>
-          </div>
-          <div>
-            <img class="roundedImg" src="{% static 'img/face3.png' %}" alt="hola" />
-            <p>Celeste Lestani</p>
-          </div>
-          <div>
-            <img class="roundedImg" src="{% static 'img/face4.png' %}" alt="hola" />
-            <p>Maite de Muro</p>
-          </div>
-        </div>
+      <div class="animated">
+        <img class="roundedImg" src="{% static 'img/face1.png' %}" alt="hola" />
+        <p>Rocio Blota</p>
       </div>
     </div>
-    <!-- <div class="container">
-      <div class="col1">
-        <div class="txt card border halfWith" id="Primero">
-          Somos un proyecto sin fines de lucro dedicado al desarrollo sostenible
-          y mejoramiento de las condiciones de vida de las comunidades
-        </div>
-        <div class="img border halfWith">
-          <img src="./Img1.png" alt="hola" />
-        </div>
-      </div>
-      <div class="col1">
-        <div class="txt2 card border" id="SegundoA">text2</div>
-        <div class="img2 card2 border">
-          Le damos trazabilidad a las BOTELLAS DE AMOR que son fruto del trabajo
-          de miles de personas a lo largo y ancho del país que voluntariamente
-          separan sus residuos plásticos, brindándoles una opción para que
-          puedan ser recuperados. Para ello, desde agosto del 2020, constituimos
-          a Resistencia como punto de acopio, para juntar las botellas en un
-          solo lugar y poder enviarlas a Buenos Aires donde eran recicladas.
-          Actualmente, cerramos un acuerdo con una empresa local, Ecoqiru, que
-          recibe las botellas, las recicla y las transforma en madera plástica
-          en Margarita Belén
-        </div>
-        <div class="txt2 border" id="SegundoB">text2</div>
-      </div>
-      <div class="col1">
-        <div class="txt border halfWith">
-          <img src="./Img1.png" alt="hola" />
-        </div>
-        <div class="img card border halfWith" id="Tercero">
-          Promover un cambio de hábito en la comunidad para reducir los
-          residuos, impulsar el reciclaje, el consumo responsable y la economía
-          circular.
-        </div>
-      </div>
-      <div class="col1">
-        <div class="txt2 border">text</div>
-        <div class="card border unNombre">
-          1. En una botella de plástico se colocan plásticos de un solo uso,
-          cuidando que estén limpios y secos, y compactando para que entre la
-          mayor cantidad posible. 2. Se llevan las botellas completas a un punto
-          de acopio 3. Se envían a Ecoqiru, para ser procesadas y transformadas
-          en madera plástica y luego en muebles y juegos de niños. 4. Nos
-          regresan un porcentaje de lo enviado en muebles y juegos de niños que
-          serán donados a instituciones que lo necesiten en nuestra comunidad.
-        </div>
-      </div>
-      <div id="faces">
-        <div>
-          <img class="roundedImg" src="./face1.png" alt="hola" />
-          <p>Rocio Blota</p>
-        </div>
-        <div>
-          <img class="roundedImg" src="./face2.png" alt="hola" />
-          <p>Cecilia de Muro</p>
-        </div>
-        <div>
-          <img class="roundedImg" src="./face3.png" alt="hola" />
-          <p>Celeste Lestani</p>
-        </div>
-        <div>
-          <img class="roundedImg" src="./face4.png" alt="hola" />
-          <p>Maite de Muro</p>
-        </div>
-      </div>
-      <div class="col1">
-        <div class="txt border halfWith">text</div>
-        <div class="txt card border halfWith">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          dolorum numquam expedita, veniam perspiciatis ab magni inventore
-          labore rem velit quas omnis culpa tempore ullam autem hic accusantium
-          vel commodi.
-        </div>
-      </div>
-    </div> -->
+  </div>
+  <div>
+    <h3>
+      <marquee>
+        Porque para tomar conciencia hay que saber amar y valorar lo que nos
+        rodea. &#10084;
+      </marquee>
+    </h3>
+  </div>
+</div>
 {% endblock header %}

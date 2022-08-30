@@ -18,7 +18,7 @@ div:hover {
   padding: 0px;
   box-sizing: border-box;
 }
-body {
+.container_noticias {
   width: 100%;
   height: 100vh;
   display: inline-block;
