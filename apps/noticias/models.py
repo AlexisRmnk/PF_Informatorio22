@@ -16,6 +16,8 @@ class Categoria(models.Model):
     
     def __str__(self) -> str:
         return self.nombre
+    def get_noticias_categoria(self):
+        return self.noticia_set.all()
 
  
 class Noticia(models.Model):

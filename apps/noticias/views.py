@@ -24,21 +24,40 @@ def listar(request):
     # iniciamos el servidor con 'python manage.py runserver' y luego vamos a
     # la vista de noticias
     
-    noticias_ordenadas = Noticia.objects.order_by('-creado') #las mas nuevas 
-                                                            #  primero
-
-    #test:
-    for n in noticias_ordenadas:
-        print(n.titulo, n.creado, type(n))
+    # orden_noticias = request.POST.get('orden_noticias_name')
+    # mas_antiguas // mas_recientes
     
+    if request.method == "POST":
+        categoria_id = request.POST.get('categoria_name', 'todas')
+        orden_noticias = request.POST.get('orden_noticias_name','mas_recientes')
+        if categoria_id == "todas":
+            noticias = Noticia.objects.all()
+        else:
+            cate = Categoria.objects.get(pk = categoria_id)
+            print(f"Nombre categoria es: {cate.nombre}")
+            noticias = cate.get_noticias_categoria()
+        for n in noticias:
+            print(n)
+        
+        if orden_noticias == 'mas_recientes':
+            noticias = noticias.order_by("-creado")
+        else:
+            noticias = noticias.order_by("creado")
+    else: 
+        noticias = Noticia.objects.order_by('-creado') #las mas nuevas primero
+
+        #test:
+        for n in noticias:
+            print(n.titulo, n.creado, type(n))
+    
+    
+    # poner paginacion aca  
     
     # PASARLO AL TEMPLATE
-    ctx['noticias'] = noticias_ordenadas
+    ctx['noticias'] = noticias
     
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
-    
-    
     
     return render(request, 'noticias/listar_noticias.html', ctx) 
     # todo lo de return se envia al template (templates\noticias\listar_noticias.html)
@@ -102,10 +121,3 @@ def Agregar_Comentario(request, pk):
     # c.save()
     
     return HttpResponseRedirect(reverse_lazy("noticias:detalle_noticias", kwargs={"pk":pk}))
-    
-def categorizar(request):
-    categoria_id = request.POST.get("categoria_name")
-    categoria = Categoria.objects.get(pk = categoria_id)
-    print(f"Nombre categoria ES: {categoria.nombre}")
-    return HttpResponseRedirect(reverse_lazy("noticias:listar_noticias"))
-    
