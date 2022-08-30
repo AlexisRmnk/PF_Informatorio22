@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="{% static 'css/noticias_comentarios.css' %}" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>Modal Header</h2>
+        </div>
+
+        <div class="main row">
+          <!-- empieza la card -->
+          <div class="card column">
+            <img
+              class="borderRadius imgCard"
+              src="https://www.lavoz.com.ar/resizer/h-VmJwbrUPgkA-CH_QMZ9mNrJno=/1023x682/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/JYZDEHUTEVB23PBY77CMXE7YRE.jpg"
+              alt="coquita"
+              height="100%"
+              width="70%"
+            />
+            <div class="description">
+              <p>
+                Welcome to the jungle, we've got fun and games We got everything
+                you want honey, we know the names We are the people that can
+                find whatever you may need If you got the money, honey, we got
+                your disease
+              </p>
+              <div class="interaction row alignEnd">
+                <!-- <span style="font-size: 50px">&#10084;</span> -->
+                <img
+                  style="display: block"
+                  onclick="changeColor()"
+                  src="heart3.png"
+                  width="30"
+                  alt="corazon"
+                  id="heartImg"
+                />
+                <img
+                  style="display: none"
+                  onclick="changeColor1()"
+                  src="heart2.png"
+                  width="30"
+                  alt="corazon"
+                  id="heartImg1"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- termina la card -->
+        <!-- comentarios -->
+        <div class="col commentsContainer">
+          <div class="row comments">
+            <div class="row">
+              <div class="column">
+                <img
+                  src="images/face1.png"
+                  width="50px"
+                  height="50px"
+                  class="avatar"
+                />
+              </div>
+              <div class="column commentContent">
+                <div><b>Nombre Apellido</b></div>
+                <div>Welcome to the Jungle</div>
+              </div>
+            </div>
+          </div>
+          <div class="row comments">
+            <div class="row">
+              <div class="column">
+                <img
+                  src="images/face2.png"
+                  width="50px"
+                  height="50px"
+                  class="avatar"
+                />
+              </div>
+              <div class="column commentContent">
+                <div><b>Nombre Apellido</b></div>
+                <div>
+                  we've got fun and games
+                  <span style="font-size: 20px">&#128070;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row comments">
+            <div class="row">
+              <div class="column">
+                <img
+                  src="images/face3.png"
+                  width="50px"
+                  height="50px"
+                  class="avatar"
+                />
+              </div>
+              <div class="column commentContent">
+                <div><b>Nombre Apellido</b></div>
+                <div>We got everything you want honey</div>
+              </div>
+            </div>
+          </div>
+          <!-- if commentarios.length > muchos ... -->
+          <a class="row" href="">Ver mas comentarios</a>
+          <form class="row comments" id="inputComment" autocomplete="off">
+            <input
+              type="text"
+              name="fname"
+              placeholder="Escribe un comentario..."
+              style="width: 100%; height: 30px; border-radius: 8px"
+            />
+            <input
+              type="submit"
+              value="Comentar"
+              style="border-radius: 8px"
+              class="imputBtn"
+            />
+          </form>
+        </div>
+        <!-- comentarios -->
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'js/utils.js' %}"></script>
+</html>

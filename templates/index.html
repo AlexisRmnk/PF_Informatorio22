@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block css %}
     
-    {% endblock css %}
+    {% endblock css %}  
     <script src="https://kit.fontawesome.com/8d53197554.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/scrollreveal.js'%}"></script>    
 </head>
@@ -37,7 +37,7 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="{% url 'home' %}" id="selected"></a></li>
-                        <div class="inicio_responsive">
+                        <!--<div class="inicio_responsive">
                             {% if user.is_authenticated %}
                                 <div class="cerrar_sesion">
                                     <span class="bienvenida">Bienvenido/a {{user.username}}!!</span>
@@ -46,19 +46,18 @@
                             {% else %}
                             <a href="{% url 'login' %}" id="selected">Iniciar Sesion</a>
                             {% endif %}
-                        </div>
+                        </div>-->
                         <li></li>
-                        <li><a href="{% url 'sobrenosotros'%}">Sobre Nosotros</a></li>
-                        <li><a href="#">Noticias</a>
+                        <li><a href="#">Sobre Nosotros</a>
                             <ul>
-                                <li><a href="{% url 'noticias'%}">Más Reciente</a></li>
-                                <li><a href="#">Más Antiguos</a></li>
-                                <li><a href="#">Más Destecados</a></li>
+                                <li><a href="{% url 'sobrenosotros'%}">¿Que Hacemos?</a></li>
+                                <li><a href="{% url 'preguntasFQ' %}">Preguntas Frecuentes</a></li>
                             </ul>
                         </li>
+                        <li><a href="{% url 'noticias:listar_noticias' %}">Noticias</a></li>
                         <li><a href="#">Contactos</a>
                             <ul>
-                                <li><a href="{% url 'contact'%}" target="_blank">Contactanos</a></li>
+                                <li><a href="{% url 'contactos:contactanos'%}" target="_blank">Contactanos</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Eventos</a>
@@ -194,34 +193,33 @@
 
 
     <footer class="footer">
-        <div class="container">
-            <div class="row">
+        <div class="container_footer">
+            <div class="row_footer">
                 <div class="footer-col">
                     <h4>Sobre Nosotros</h4>
                     <ul>
-                        <li><a href="#">¿Que Hacemos?</a></li>
+                        <li><a href="{% url 'sobrenosotros'%}">¿Que Hacemos?</a></li>
+                        <li><a href="{% url 'preguntasFQ' %}">Preguntas Frecuentes</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Noticias</h4>
                     <ul>
-                        <li><a href="#">Mas Reciente</a></li>
-                        <li><a href="#">Mas Antiguos</a></li>
-                        <li><a href="#">Mas Destacados</a></li>
+                        <li><a href="{% url 'noticias:listar_noticias' %}">Noticias</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Eventos</h4>
                     <ul>
-                        <li><a href="#">Calendario</a></li>
-                        <li><a href="#">Puntos de Acopio</a></li>
+                        <li><a href="{% url 'calendario'%}" target="_blank">Calendario</a></li>
+                        <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1QBrPiv4TC7PHydND-XuRq2vPXHZBIkAE&ll=-27.451452553253837%2C-58.982524376196295&z=14" target="_blank">Puntos de Acopio</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contactos</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/botelladeamorresistencia/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/botelladeamorresistencia/?hl=es"target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
                     </div>                    
                 </div>
             </div>

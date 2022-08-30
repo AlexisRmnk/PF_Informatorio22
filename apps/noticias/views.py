@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin # para clases
 
 # Create your views here.
 
-def listar(request, reverse = False):
+def listar(request):
     # creo diccionario CONTEXT para pasar datos al template
     ctx = dict()
     # BUSCAR LAS NOTICIAS EN LA BD
@@ -22,7 +22,7 @@ def listar(request, reverse = False):
     # iniciamos el servidor con 'python manage.py runserver' y luego vamos a
     # la vista de noticias
     
-    noticias_ordenadas = Noticia.objects.order_by('creado')
+    noticias_ordenadas = Noticia.objects.order_by('-creado')
     
     
     
@@ -39,7 +39,7 @@ def listar(request, reverse = False):
     
     
     
-    return render(request, 'noticias/listar_noticias.html', ctx) 
+    return render(request, 'noticias/news.html', ctx) 
     # todo lo de return se envia al template (templates\noticias\listar_noticias.html)
     # el template no recibe el diccionario completo. Recibe variables.
     # Cada variable es la clave del diccionario.
