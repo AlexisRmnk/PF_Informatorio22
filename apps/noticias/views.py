@@ -3,6 +3,7 @@ from .models import Noticia, Categoria, Comentario
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
+from django.core.paginator import Paginator
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required # para funciones
@@ -24,6 +25,10 @@ def listar(request):
     
     # orden_noticias = request.POST.get('orden_noticias_name')
     # mas_antiguas // mas_recientes
+    noticias1 = Noticia.objects.all()
+    pag = Paginator(noticias1, 1)
+    page = request.GET.get('page')
+    notis = pag.get_page(page)
     
     if request.method == "POST":
         categoria_id = request.POST.get('categoria_name', 'todas')
@@ -45,12 +50,12 @@ def listar(request):
         noticias = Noticia.objects.order_by('-creado') #las mas nuevas primero
 
         #test:
-        for n in noticias:
+        for n in notis:
             print(n.titulo, n.creado, type(n))   
     # poner paginacion aca  
     
     # PASARLO AL TEMPLATE
-    ctx['noticias'] = noticias
+    ctx['noticias'] = notis
     
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
@@ -72,12 +77,18 @@ def listar(request):
 # notas = [7, 9, 6]
 
 def listar_inverso(request):
+    
+    noticias1 = Noticia.objects.order_by('creado')
+    p = Paginator(noticias1, 1)
+    page = request.GET.get('page')
+    notis = p.get_page(page)
+    
     ctx = dict()
     noticias_orden_inverso = Noticia.objects.order_by('creado') #las mas  
                                                             # viejas primero
-    for n in noticias_orden_inverso:
+    for n in notis:
         print(n.titulo, n.creado, type(n))
-    ctx['noticias'] = noticias_orden_inverso
+    ctx['noticias'] = notis
 
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
