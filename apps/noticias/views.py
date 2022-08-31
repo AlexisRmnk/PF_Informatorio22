@@ -10,8 +10,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin # para clases
 
 # Create your views here.
 
-                                                     
-
 def listar(request):
     # creo diccionario CONTEXT para pasar datos al template
     ctx = dict()
@@ -49,7 +47,12 @@ def listar(request):
         #test:
         for n in noticias:
             print(n.titulo, n.creado, type(n))
+=======
+    noticias_ordenadas = Noticia.objects.order_by('-creado')
+>>>>>>> Rama-Misael
     
+    
+    # poner paginacion aca  
     
     # poner paginacion aca  
     
@@ -59,7 +62,9 @@ def listar(request):
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
     
-    return render(request, 'noticias/listar_noticias.html', ctx) 
+    
+    
+    return render(request, 'noticias/news.html', ctx) 
     # todo lo de return se envia al template (templates\noticias\listar_noticias.html)
     # el template no recibe el diccionario completo. Recibe variables.
     # Cada variable es la clave del diccionario.

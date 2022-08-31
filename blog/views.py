@@ -9,14 +9,14 @@ def Login(request):
 def Register(request):
     return render(request, 'usuarios/sign_up.html')
 
-def Contact(request):
-    return render(request, 'contactos/Contact-form.html')
-
-def Noticias(request):
-    return render(request, 'noticias/noticias.html')
-
 def SobreNosotros(request):
-    return render(request, 'sobre nosotros/about_us.html')
+    return render(request, 'sobre nosotros/sobre_nosotros.html')
 
 def Calendario(request):
     return render(request, 'eventos/calendario.html')
+
+def PreguntasFQ(request):
+    return render(request, 'sobre nosotros/preguntas_frecuentes.html')
+
+def NoticiaDetalles(request):
+    return render(request, 'noticias/ModalNoticias.html')

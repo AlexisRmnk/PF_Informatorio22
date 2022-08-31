@@ -1,2 +1,30 @@
-<p>Correo enviado con exito</p>
-<a href="{% url 'home' %}">VOLVER AL HOME</a>
+{% extends 'contactos/contactanos.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/exitos.css' %}">
+{% endblock css %}
+
+
+{% block exitos %}
+<!-- POP UP NOTIFICATION: OPTION 1 -->
+<div class="popup" id="popup">
+    <img src="{% static 'img/tick.png' %}">
+    <h2>¡Muchas Gracias!</h2>
+    <p>Tu mensaje ha sido enviado con éxito. En breve nos estaremos comunicando con vos.</p>
+    <button type="button" onclick="closePopup()" {% url 'home' %}>OK</button>
+  </div>
+</div>
+
+<script>let opopup = document.getElementById("popup")
+function openPopup(){
+  popup.classList.add("open-popup");
+}
+function closePopup(){
+  popup.classList.remove("open-popup");
+} 
+</script>
+
+<script src="{% static 'js/app.js'%}"></script>
+{% endblock exitos %}

@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static %}
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
+    {% endblock css %}
+
+    {% block header %}
+    <div class="row alignEnd">
+      <div class="btn_noticias">
+        <form action="">
+          <label for="Noticias">Filtrar por:</label>
+          <select id="noticias" name="noticias">
+            <option value="volvo">Recientes</option>
+            <option value="saab">Antiguos</option>
+          </select>
+        </form>
+      </div>
+    </div>
+    <!-- primer bloque -->
+    <div class="container_noticias">
+      {% for noti in noticias %}
+        <div class="card_noticias inline">
+          <figure>
+            {% if noti.imagen %}
+              <img src="{{noti.imagen.url}}" />
+            {% else %}
+              <img src="{% static 'img/3dgifmaker78797.gif' %}" />
+            {% endif %}
+          </figure>
+          <div class="contenido">
+            <h3>{{noti.titulo}}</h3>
+            <p>{{noti.creado}}</p>
+            <p>{{noti.cuerpo|truncatechars:100|wordwrap:10}}</p>
+            <a href="{% url 'noticias:detalle_noticias' noti.pk  %}">Leer mas...</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Paginacion -->
+    <div class="row alignCenter">
+      <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">&raquo;</a>
+      </div>
+    </div>
+    {% endblock header %}
