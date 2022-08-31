@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="modalStyle.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Noticias</title>
   </head>
   <body>
@@ -28,61 +30,64 @@
       <!-- primer card -->
       <div class="card inline">
         <figure>
-          <img src="images/Img1.png" />
+          <img src="images/Img1.png" id="firstImg" />
         </figure>
         <div class="contenido">
-          <h3>Noticia 1</h3>
-          <p>
+          <h3 id="firstTitle">Noticia 1</h3>
+          <p id="firstCommnet">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
             aspernatur ...
           </p>
-          <a href="#">Leer mas...</a>
+          <a
+            href="#"
+            onclick="openModal('firstTitle','firstCommnet','firstImg')"
+            target="_self"
+            id="myBtn"
+            >Leer mas...</a
+          >
         </div>
       </div>
-      <!-- segunda card -->
-      <div class="card inline">
-        <figure>
-          <img src="images/Img1.png" />
-        </figure>
-        <div class="contenido">
-          <h3>Noticia 1</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-            aspernatur ...
-          </p>
-          <a href="#">Leer mas...</a>
-        </div>
-      </div>
-      <!-- tercer card -->
-      <div class="card inline">
-        <figure>
-          <img src="images/Img2.png" />
-        </figure>
-        <div class="contenido">
-          <h3>Noticia 1</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-            aspernatur ...
-          </p>
-          <a href="#">Leer mas...</a>
-        </div>
-      </div>
-      <!-- cuarta card -->
-      <!-- <div class="card inline">
-        <figure>
-          <img src="images/Img3.png" />
-        </figure>
-        <div class="contenido">
-          <h3>Noticia 1</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-            aspernatur ...
-          </p>
-          <a href="#">Leer mas...</a>
-        </div>
-      </div>
-    </div> -->
 
+      <div class="card inline">
+        <figure>
+          <img src="images/Img2.png" id="secondImg" />
+        </figure>
+        <div class="contenido">
+          <h3 id="secondTitle">Noticia 2</h3>
+          <p id="secondComment">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+            aspernatur ...
+          </p>
+          <a
+            href="#"
+            onclick="openModal('secondTitle','secondComment','secondImg')"
+            target="_self"
+            id="myBtn"
+            >Leer mas...</a
+          >
+        </div>
+      </div>
+
+      <div class="card inline">
+        <figure>
+          <img src="images/Img3.png" id="thirdImg" />
+        </figure>
+        <div class="contenido">
+          <h3 id="thirdTitle">Noticia 3</h3>
+          <p id="thirdComment">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+            aspernatur ...
+          </p>
+          <a
+            href="#"
+            onclick="openModal('thirdTitle','thirdComment','thirdImg')"
+            target="_self"
+            id="myBtn"
+            >Leer mas...</a
+          >
+        </div>
+      </div>
+    </div>
     <!-- Paginacion -->
     <div class="row alignCenter">
       <div class="pagination">
@@ -93,6 +98,9 @@
         <a href="#">&raquo;</a>
       </div>
     </div>
+    <div id="displayContent"></div>
+
     <!-- Fin Paginacion -->
   </body>
+  <script src="utils.js"></script>
 </html>
