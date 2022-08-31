@@ -25,12 +25,19 @@ def listar(request):
     # orden_noticias = request.POST.get('orden_noticias_name')
     # mas_antiguas // mas_recientes
     
+<<<<<<< Updated upstream
     #paginación
     noticias1 = Noticia.objects.all()
     p = Paginator(noticias1, 2)
     page = request.GET.get('page')
     notis = p.get_page(page)
     
+=======
+    noticias1 = Noticia.objects.all()
+    pag = Paginator(noticias1, 2)
+    page = request.GET.get('page')
+    notis = pag.get_page(page)
+>>>>>>> Stashed changes
     
     if request.method == "POST":
         categoria_id = request.POST.get('categoria_name', 'todas')
@@ -85,7 +92,7 @@ def listar_inverso(request):
     notis = p.get_page(page)
     
     ctx = dict()
-    noticias_orden_inverso = Noticia.objects.order_by('creado') #las mas  
+    # noticias_orden_inverso = Noticia.objects.order_by('creado') #las mas  
                                                             # viejas primero
     for n in notis:
         print(n.titulo, n.creado, type(n))
@@ -118,7 +125,7 @@ class Detalle_Noticia_Clase(LoginRequiredMixin, DetailView):
 
 
 def Agregar_Comentario(request, pk):
-    texto_comentario = request.POST.get('coment')
+    texto_comentario = request.POST.get('comment')
     # 2 formas de crear un comentario
     # forma 1:
     noti = Noticia.objects.get(pk = pk)
