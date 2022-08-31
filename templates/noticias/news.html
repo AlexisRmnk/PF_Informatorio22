@@ -2,7 +2,9 @@
 {% load static %}
 
     {% block css %}
-    <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
+    <link rel="stylesheet" href="{% static 'css/noticias.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style_noticias.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style_noticiasMODALS.css' %}" />
     {% endblock css %}
 
     {% block header %}
@@ -13,14 +15,15 @@
           <select id="noticias" name="noticias">
             <option value="volvo">Recientes</option>
             <option value="saab">Antiguos</option>
+            <option value="fiat">Todo</option>
           </select>
         </form>
       </div>
     </div>
     <!-- primer bloque -->
-    <div class="container_noticias">
+    <div class="container">
       {% for noti in noticias %}
-        <div class="card_noticias inline">
+        <div class="card inline">
           <figure>
             {% if noti.imagen %}
               <img src="{{noti.imagen.url}}" />
@@ -31,13 +34,18 @@
           <div class="contenido">
             <h3>{{noti.titulo}}</h3>
             <p>{{noti.creado}}</p>
-            <p>{{noti.cuerpo|truncatechars:100|wordwrap:10}}</p>
-            <a href="{% url 'noticias:detalle_noticias' noti.pk  %}">Leer mas...</a>
+            <p>{{noti.cuerpo|truncatechars:50|wordwrap:10}}</p>
+            <a
+              href="{% url 'noticias:detalle_noticias' noti.pk  %}"
+              onclick="openModal('firstTitle','firstCommnet','firstImg')"
+              target="_self"
+              id="myBtn"
+              >Leer mas...</a>
           </div>
         </div>
       {% endfor %}
     </div>
-
+    
     <!-- Paginacion -->
     <div class="row alignCenter">
       <div class="pagination">
@@ -48,4 +56,9 @@
         <a href="#">&raquo;</a>
       </div>
     </div>
-    {% endblock header %}
+    <div id="displayContent"></div>
+
+    <!-- Fin Paginacion -->
+  <script src="{% static 'js/utils.js' %}"></script>
+  {% endblock header %}
+
