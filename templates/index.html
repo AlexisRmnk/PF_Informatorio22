@@ -48,6 +48,9 @@
                             {% endif %}
                         </div>-->
                         <li></li>
+                        {% if request.user.is_staff %}
+                        <li><a href="admin/">SECCION ADMIN -prueba-</a>
+                        {% endif %}
                         <li><a href="#">Sobre Nosotros</a>
                             <ul>
                                 <li><a href="{% url 'sobrenosotros'%}">¿Que Hacemos?</a></li>
