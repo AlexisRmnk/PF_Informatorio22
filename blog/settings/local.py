@@ -18,12 +18,8 @@ ALLOWED_HOSTS = ['*']
 # trabajan sobre lo mismo. 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.pg2',
-        'NAME': 'd73pvhhal9ggt6',
-        'USER': 'okrydsichrcxwi',
-        'PASSWORD': '2cb81e64853b6206ee455506ed737ed47deae06f591b786409d480604607b079',
-        'HOST': 'ec2-35-168-122-84.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 # https://sqlitebrowser.org/
