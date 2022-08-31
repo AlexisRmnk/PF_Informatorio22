@@ -3,10 +3,35 @@
 
 {% block bloque_contenido %}
     <!-- aca se recibe un diccionario con las claves de las noticias -->
+    <br/></br/>
+    {{ noticias }}
+    <br/></br/>
+    Has Previous: {{ noticias.has_previous}}
+    <br/>
+    Has Next: {{ noticias.has_next}}
+    <br/>
+    Current Page: {{ noticias.number}}
+    <br/>
+    Number of Pages: {{ noticias.paginator.num_pages}}
+    <br/>
+    {% if noticias.has_previous %}
+        <a href="?page=1">Primera</a>
+        <a href="?page={{ noticias.previous_page_number }}"> &laquo Anterior</a>
+    {% endif %}
 
-    <h2>NOTICIAS ORDENADAS FORMA INVERSA/h2>
+    Página {{ noticias.number }} de {{noticias.paginator.num_pages}}
+
+    {% if noticias.has_next %}
+    <a href="?page={{ noticias.next_page_number }}">Siguiente</a>
+    <a href="?page={{ noticias.paginator.num_pages }}">Última &raquo</a>
+    {% endif %}
+
+    <h2>NOTICIAS ORDENADAS FORMA INVERSA</h2>
     <br>
     <p>test dia de hoy: {% now "d-m-Y H:i hs" %} </p>
+
+    
+
     {% for n in noticias %}
         
         <h2>{{ n.titulo }}</h2>

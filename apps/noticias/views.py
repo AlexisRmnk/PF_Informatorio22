@@ -3,6 +3,7 @@ from .models import Noticia, Categoria, Comentario
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
+from django.core.paginator import Paginator
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required # para funciones
@@ -20,12 +21,16 @@ def listar(request):
     # BUSCAR LO QUE QUIERO EN LA BD
     #  todas_noticias = Noticia.objects.all() # devuelve un diccionario 
     # de objeto de tipo Noticia
-    # print(todas_noticias) # esto se imprime en la consola del CMD cuando 
-    # iniciamos el servidor con 'python manage.py runserver' y luego vamos a
-    # la vista de noticias
-    
+    # print(todas_noticias) # esto se imprime en la consola del CMD cuando     
     # orden_noticias = request.POST.get('orden_noticias_name')
     # mas_antiguas // mas_recientes
+    
+    #paginación
+    noticias1 = Noticia.objects.all()
+    p = Paginator(noticias1, 2)
+    page = request.GET.get('page')
+    notis = p.get_page(page)
+    
     
     if request.method == "POST":
         categoria_id = request.POST.get('categoria_name', 'todas')
@@ -47,14 +52,13 @@ def listar(request):
         noticias = Noticia.objects.order_by('-creado') #las mas nuevas primero
 
         #test:
-        for n in noticias:
+        for n in notis:
             print(n.titulo, n.creado, type(n))
     
-    
-    # poner paginacion aca  
+     
     
     # PASARLO AL TEMPLATE
-    ctx['noticias'] = noticias
+    ctx['noticias'] = notis
     
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
@@ -74,12 +78,18 @@ def listar(request):
 # notas = [7, 9, 6]
 
 def listar_inverso(request):
+    
+    noticias1 = Noticia.objects.order_by('creado')
+    p = Paginator(noticias1, 2)
+    page = request.GET.get('page')
+    notis = p.get_page(page)
+    
     ctx = dict()
     noticias_orden_inverso = Noticia.objects.order_by('creado') #las mas  
                                                             # viejas primero
-    for n in noticias_orden_inverso:
+    for n in notis:
         print(n.titulo, n.creado, type(n))
-    ctx['noticias'] = noticias_orden_inverso
+    ctx['noticias'] = notis
 
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
@@ -121,3 +131,6 @@ def Agregar_Comentario(request, pk):
     # c.save()
     
     return HttpResponseRedirect(reverse_lazy("noticias:detalle_noticias", kwargs={"pk":pk}))
+
+
+    

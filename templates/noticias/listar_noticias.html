@@ -2,7 +2,35 @@
 {% load static %}
 
 {% block bloque_contenido %}
+
     <!-- aca se recibe un diccionario con las claves de las noticias -->
+    <br/></br/>
+    {{ noticias }}
+    <br/></br/>
+    Has Previous: {{ noticias.has_previous}}
+    <br/>
+    Has Next: {{ noticias.has_next}}
+    <br/>
+    Current Page: {{ noticias.number}}
+    <br/>
+    Number of Pages: {{ noticias.paginator.num_pages}}
+    <br/>
+    {% if noticias.has_previous %}
+        <a href="?page=1">Primera</a>
+        <a href="?page={{ noticias.previous_page_number }}"> &laquo Anterior</a>
+    {% endif %}
+
+    Página {{ noticias.number }} de {{noticias.paginator.num_pages}}
+
+    {% if noticias.has_next %}
+    <a href="?page={{ noticias.next_page_number }}">Siguiente</a>
+    <a href="?page={{ noticias.paginator.num_pages }}">Última &raquo</a>
+    {% endif %}
+
+
+
+    
+
 
     <h2>NOTICIAS ACTUALES</h2>
     <br>
@@ -35,6 +63,8 @@
         <a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
         <br>
     {% endfor %}
+
+    
 
     <h2>FILTRAR POR CATEGORIA</h2> 
     <form method="POST">
