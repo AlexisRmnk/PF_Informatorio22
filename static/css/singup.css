@@ -1,0 +1,151 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+    padding-bottom: 40px;
+    background-image: url(../img/Botella7.png);
+    background-size: cover;
+    opacity: 2;
+}
+
+
+/* FORMS STYLES */
+.form-signup {
+    max-width: 500px;
+}
+
+.form-signup .checkbox {
+    font-weight: 400;
+}
+   
+.form-control {
+    opacity: 0.5;
+}
+
+.form-signup .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signup input[type="text"]::placeholder {
+    background-image:url(../img/iconos/user.png);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: left center;
+
+}
+
+.form-signup input[type="user"]::placeholder {
+    background-image:url(../img/iconos/user2.png);
+    background-size: 18px 20px;
+    background-repeat: no-repeat;
+    background-position: left center;
+
+}
+
+.form-signup input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 22;
+    border-bottom-left-radius: 22;
+}
+
+.form-signup input[type="email"]::placeholder {
+    background-image:url(../img/iconos/at.png);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.form-signup input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signup input[type="password"]::placeholder{
+    background-image:url(../img/iconos/asterisk.png);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.w-100 {
+    background-color: #54b929;
+
+}
+
+.w-100:hover {
+    background-color: #aafa8b;
+} 
+
+.registro-container{
+    margin-top: -40px;
+    padding-bottom: 20px;
+}
+
+
+/* ANIMACIÓN DE TÍTULO: REGISTRATE */
+
+/* .h3 {
+    display: inline-block;
+    margin: 0 0.5rem;
+  
+    animation: bounceIn; 
+    animation-duration: 2s; 
+}  */
+
+
+/* ANIMACIÓN */
+
+
+/* .burbuja{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(67, 11, 11, 0);
+    opacity: .8;
+
+    position: absolute;
+    bottom: -150;
+    left: 5%;
+
+    animation: burbujas 3s linear infinite;
+}
+
+.burbuja:nth-child(1){
+    width: 80px;
+    height: 80px;
+    left: 5%;
+    animation-duration: 3s;
+    animation-delay: 3s;
+
+}
+
+.burbuja:nth-child(2){
+    width: 100px;
+    height: 100px;
+    left: 35%;
+    animation-duration: 3s;
+    animation-delay: 5s;
+
+}
+
+@keyframes burbujas{
+    0% {
+        bottom: 0;
+        opacity: 0;
+    }
+    30% {
+        transform:translateX(30px);
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+    }
+} */
+
+  

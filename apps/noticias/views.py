@@ -10,34 +10,54 @@ from django.contrib.auth.mixins import LoginRequiredMixin # para clases
 
 # Create your views here.
 
-def listar(request, reverse = False):
+                                                     
+
+def listar(request):
     # creo diccionario CONTEXT para pasar datos al template
     ctx = dict()
     # BUSCAR LAS NOTICIAS EN LA BD
     
     # BUSCAR LO QUE QUIERO EN LA BD
-    #  todas_noticias = Noticia.objects.all() # devuelve un diccionario de objeto
-    # de tipo Noticia
+    #  todas_noticias = Noticia.objects.all() # devuelve un diccionario 
+    # de objeto de tipo Noticia
     # print(todas_noticias) # esto se imprime en la consola del CMD cuando 
     # iniciamos el servidor con 'python manage.py runserver' y luego vamos a
     # la vista de noticias
     
-    noticias_ordenadas = Noticia.objects.order_by('creado')
+    # orden_noticias = request.POST.get('orden_noticias_name')
+    # mas_antiguas // mas_recientes
+    
+    if request.method == "POST":
+        categoria_id = request.POST.get('categoria_name', 'todas')
+        orden_noticias = request.POST.get('orden_noticias_name','mas_recientes')
+        if categoria_id == "todas":
+            noticias = Noticia.objects.all()
+        else:
+            cate = Categoria.objects.get(pk = categoria_id)
+            print(f"Nombre categoria es: {cate.nombre}")
+            noticias = cate.get_noticias_categoria()
+        for n in noticias:
+            print(n)
+        
+        if orden_noticias == 'mas_recientes':
+            noticias = noticias.order_by("-creado")
+        else:
+            noticias = noticias.order_by("creado")
+    else: 
+        noticias = Noticia.objects.order_by('-creado') #las mas nuevas primero
+
+        #test:
+        for n in noticias:
+            print(n.titulo, n.creado, type(n))
     
     
-    
-    #test:
-    for n in noticias_ordenadas:
-        print(n.titulo, n.creado, type(n))
-    
+    # poner paginacion aca  
     
     # PASARLO AL TEMPLATE
-    ctx['noticias'] = noticias_ordenadas
+    ctx['noticias'] = noticias
     
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
-    
-    
     
     return render(request, 'noticias/listar_noticias.html', ctx) 
     # todo lo de return se envia al template (templates\noticias\listar_noticias.html)
@@ -52,6 +72,20 @@ def listar(request, reverse = False):
 # EL TEMPLATE 
 # nombre = 'Juan'
 # notas = [7, 9, 6]
+
+def listar_inverso(request):
+    ctx = dict()
+    noticias_orden_inverso = Noticia.objects.order_by('creado') #las mas  
+                                                            # viejas primero
+    for n in noticias_orden_inverso:
+        print(n.titulo, n.creado, type(n))
+    ctx['noticias'] = noticias_orden_inverso
+
+    todas_categorias = Categoria.objects.all()
+    ctx["categorias"] = todas_categorias
+            
+    return render(request, 'noticias/listar_noticias_inv.html', ctx)    
+
 
 # VISTA BASADA EN FUNCIONES
 @login_required #descorador, se ejecutan antes de las funciones
@@ -87,4 +121,3 @@ def Agregar_Comentario(request, pk):
     # c.save()
     
     return HttpResponseRedirect(reverse_lazy("noticias:detalle_noticias", kwargs={"pk":pk}))
-    

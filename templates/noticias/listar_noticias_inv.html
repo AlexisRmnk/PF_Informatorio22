@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bloque_contenido %}
+    <!-- aca se recibe un diccionario con las claves de las noticias -->
+
+    <h2>NOTICIAS ORDENADAS FORMA INVERSA/h2>
+    <br>
+    <p>test dia de hoy: {% now "d-m-Y H:i hs" %} </p>
+    {% for n in noticias %}
+        
+        <h2>{{ n.titulo }}</h2>
+        <p>Creada: {{n.creado|date:"d m Y"}}</p> <!-- nota: no poner espacio entre date:_".." -->
+
+{% comment %} https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ {% endcomment %}
+
+
+        {% if n.autor %}
+        <p>Autor: {{ n.autor }}</p>
+        {% endif %}
+        
+        <p>Cuerpo: {{ n.cuerpo }}</p>
+        
+        {% if n.imagen %}
+            <img src="{{n.imagen.url}}" width="350px" height="260px">
+        {% else %}
+            <p> NO TIENE IMAGEN </p>
+        {% endif %}
+
+        {% if n.categoria %}
+            <p>Categoria: {{ n.categoria.nombre }}</p>
+        {% else %}
+            <p> NO TIENE CATEGORIA </p>
+        {% endif %}
+        <a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
+        <br>
+    {% endfor %}
+
+
+{% endblock bloque_contenido %}

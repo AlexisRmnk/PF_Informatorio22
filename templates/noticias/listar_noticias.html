@@ -35,25 +35,91 @@
         <a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
         <br>
     {% endfor %}
-    <br>
-    <h2>FILTRO POR FECHA</h2> <!-- pasar con FORM  -->
 
-
-    <h2>FILTRAR POR CATEGORIA</h2> <!-- no prioritario -->
-    {% comment %} <form action="{% url 'APP:URL_NOMBRE' categoria_name.pk %}">  {% endcomment %}
-      <!--    La idea es mandar el ID (o PK) de
-        la categoria como URL  .........      wip -->
-        <label for="categorias">Seleccione una categoria:</label> <br>
+    <h2>FILTRAR POR CATEGORIA</h2> 
+    <form method="POST">
+        {% csrf_token %}
+      <!--    La idea es mandar el nombre de
+        la categoria como URL ... recordar hacer unique el nombre en el modelo ...  wip -->
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
         <select name="categoria_name" id="categoria_id">
+            <option value="todas">TODAS</option>
         {% for categoria in categorias %}
-            <option value="{{categoria}}">{{categoria}}</option>
+            <option value={{categoria.id}}> {{categoria.nombre}} </option>
         {% endfor %}
         </select> <br>
+
         <input type="submit" value="Mostrar noticias para la categoria seleccionada">
+
     </form>    
+
+    <h2>FILTRAR POR FECHA</h2>  
+
+    <form method="POST">
+        {% csrf_token %}
+      <!--    La idea es mandar el nombre de
+        la categoria como URL ... recordar hacer unique el nombre en el modelo ...  wip -->
+        <label for="categorias_label">Seleccione una fecha:</label> <br>
+        <select name="orden_noticias_name" id="orden_noticias_id">
+            <option value="mas_recientes">mas_recientes</option>
+            <option value="mas_antiguas">mas_antiguas</option>
+        </select> <br>
+        <input type="submit" value="Mostrar noticias ordenadas">
+    </form> 
+
+    
+    <h2>FILTRAR POR CATEGORIA Y FECHA</h2> 
+    <form method="POST">
+        {% csrf_token %}
+      <!--    La idea es mandar el nombre de
+        la categoria como URL ... recordar hacer unique el nombre en el modelo ...  wip -->
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
+        <select name="categoria_name" id="categoria_id">
+            <option value="todas">TODAS</option>
+        {% for categoria in categorias %}
+            <option value={{categoria.id}}> {{categoria.nombre}} </option>
+        {% endfor %}
+        </select> <br> <hr>
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
+        <select name="orden_noticias_name" id="orden_noticias_id">
+            <option value="mas_recientes">mas_recientes</option>
+            <option value="mas_antiguas">mas_antiguas</option>
+        </select> <br>
+        
+        <input type="submit" value="Mostrar noticias para la categoria seleccionada en la fecha seleccionada">
+
+    </form>    
+
+
 
     {% include 'ejemplo_include.html' %}
     
     <!-- <a href="{_%_ url 'home' _%_}">VOLVER AL HOME</a> -->
 
-{% endblock bloque_contenido %}
+
+
+
+
+<div class="container_noticias">
+    <div class="card_noticias inline">
+    {% for noticia in noticias %}
+        <figure>
+        {% if noticia.imagen %}
+            <img src="{{noticia.imagen.url}}" />
+        {% else %}
+            <img src="{% static 'img/arbol3.jpg' %}" alt="imagen generica de un arbol"
+            width="100px" height="100px">
+        {% endif %}
+        </figure>
+        <div class="contenido">
+            <h3>{{noticia.titulo}}</h3>
+            <p>
+            {{noticia.cuerpo}}
+            </p>
+            <a href="{% url 'noticias:detalle_noticias' noticia.pk %}">Leer mas...</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% endblock bloque_contenido %}
