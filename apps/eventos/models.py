@@ -23,7 +23,7 @@ class Evento(models.Model):
     ubicacion =  models.CharField(max_length = 120)
     imagen = models.ImageField(verbose_name="Imagen opcional",
                                upload_to = 'eventos', null = True, blank = True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     
     def __str__(self) -> str:
         return self.titulo
