@@ -46,14 +46,7 @@ def listar(request):
 
         #test:
         for n in noticias:
-            print(n.titulo, n.creado, type(n))
-=======
-    noticias_ordenadas = Noticia.objects.order_by('-creado')
->>>>>>> Rama-Misael
-    
-    
-    # poner paginacion aca  
-    
+            print(n.titulo, n.creado, type(n))   
     # poner paginacion aca  
     
     # PASARLO AL TEMPLATE
