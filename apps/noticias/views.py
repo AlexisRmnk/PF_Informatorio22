@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
 from django.core.paginator import Paginator
-from django.views.generic.list import ListView
+#from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required # para funciones
 from django.contrib.auth.mixins import LoginRequiredMixin # para clases
@@ -25,10 +25,6 @@ def listar(request):
     
     # orden_noticias = request.POST.get('orden_noticias_name')
     # mas_antiguas // mas_recientes
-    noticias1 = Noticia.objects.all()
-    pag = Paginator(noticias1, 1)
-    page = request.GET.get('page')
-    notis = pag.get_page(page)
     
     if request.method == "POST":
         categoria_id = request.POST.get('categoria_name', 'todas')
@@ -48,14 +44,13 @@ def listar(request):
             noticias = noticias.order_by("creado")
     else: 
         noticias = Noticia.objects.order_by('-creado') #las mas nuevas primero
-
-        #test:
-        for n in notis:
-            print(n.titulo, n.creado, type(n))   
-    # poner paginacion aca  
+    
+    pag = Paginator(noticias, 1)
+    page = request.GET.get('page')
+    noticias_paginadas = pag.get_page(page)
     
     # PASARLO AL TEMPLATE
-    ctx['noticias'] = notis
+    ctx['noticias'] = noticias_paginadas
     
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
@@ -76,28 +71,9 @@ def listar(request):
 # nombre = 'Juan'
 # notas = [7, 9, 6]
 
-def listar_inverso(request):
-    
-    noticias1 = Noticia.objects.order_by('creado')
-    p = Paginator(noticias1, 1)
-    page = request.GET.get('page')
-    notis = p.get_page(page)
-    
-    ctx = dict()
-    noticias_orden_inverso = Noticia.objects.order_by('creado') #las mas  
-                                                            # viejas primero
-    for n in notis:
-        print(n.titulo, n.creado, type(n))
-    ctx['noticias'] = notis
-
-    todas_categorias = Categoria.objects.all()
-    ctx["categorias"] = todas_categorias
-            
-    return render(request, 'noticias/listar_noticias_inv.html', ctx)    
-
 
 # VISTA BASADA EN FUNCIONES
-@login_required #descorador, se ejecutan antes de las funciones
+#@login_required #descorador, se ejecutan antes de las funciones
 def Detalle_Noticia_Funcion(request, pk): #de ejemplo, no se usa
 	ctx = {}
 	noticia = Noticia.objects.get(pk = pk)
@@ -105,7 +81,8 @@ def Detalle_Noticia_Funcion(request, pk): #de ejemplo, no se usa
 	return render(request,'noticias/detalle_noticia.html',ctx)
 
 #VISTA BASADA EN CLASES
-class Detalle_Noticia_Clase(LoginRequiredMixin, DetailView):
+#class Detalle_Noticia_Clase(LoginRequiredMixin, DetailView):
+class Detalle_Noticia_Clase(DetailView):
     model = Noticia
     template_name = 'noticias/detalle_noticia.html'
     context_object_name = "noticia"

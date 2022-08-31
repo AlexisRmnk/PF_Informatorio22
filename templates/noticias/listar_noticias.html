@@ -53,7 +53,7 @@
 
     </form>    
 
-    <h2>FILTRAR POR FECHA</h2>  
+    <h2>FILTRAR POR MAS ANTIGUA/RECIENTE</h2>  
 
     <form method="POST">
         {% csrf_token %}
@@ -68,7 +68,7 @@
     </form> 
 
     
-    <h2>FILTRAR POR CATEGORIA Y FECHA</h2> 
+    <h2>FILTRAR POR CATEGORIA Y MAS ANTIGUA/RECIENTE</h2> 
     <form method="POST">
         {% csrf_token %}
       <!--    La idea es mandar el nombre de
@@ -85,9 +85,7 @@
             <option value="mas_recientes">mas_recientes</option>
             <option value="mas_antiguas">mas_antiguas</option>
         </select> <br>
-        
         <input type="submit" value="Mostrar noticias para la categoria seleccionada en la fecha seleccionada">
-
     </form>    
 
 
@@ -98,7 +96,7 @@
 
 
 
-
+<!-- Ejemplo -->
 
 <div class="container_noticias">
     <div class="card_noticias inline">
