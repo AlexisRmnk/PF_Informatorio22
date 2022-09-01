@@ -45,10 +45,46 @@
       {% endfor %}
     </div>
     
+    <div class="row alignCenter">
+    <h2>FILTRAR POR CATEGORIA Y MAS ANTIGUA/RECIENTE</h2> 
+    <form method="POST">
+        {% csrf_token %}
+      <!--    La idea es mandar el nombre de
+        la categoria como URL ... recordar hacer unique el nombre en el modelo ...  wip -->
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
+        <select name="categoria_name" id="categoria_id">
+            <option value="todas">TODAS</option>
+        {% for categoria in categorias %}
+            <option value={{categoria.id}}> {{categoria.nombre}} </option>
+        {% endfor %}
+        </select> <br> <hr>
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
+        <select name="orden_noticias_name" id="orden_noticias_id">
+            <option value="mas_recientes">mas_recientes</option>
+            <option value="mas_antiguas">mas_antiguas</option>
+        </select> <br>
+        <input type="submit" value="Mostrar noticias para la categoria seleccionada en la fecha seleccionada">
+    </form>   
+  </div>
+
     <!-- Paginacion -->
     <div class="row alignCenter">
       <div class="pagination">
-        {% if noticias.has_previous %}
+        <span class="step-links">
+          {% if noticias.has_previous %}
+              <a href="?page=1">&laquo; primera</a>
+              <a href="?page={{ noticias.previous_page_number }}">anterior</a>
+          {% endif %}
+  
+          {% if noticias.has_next %}
+              <a href="?page={{ noticias.next_page_number }}">siguiente</a>
+              <a href="?page={{ noticias.paginator.num_pages }}">ultima &raquo;</a>
+          {% endif %}
+          <span class="current">
+            Pagina {{ noticias.number }} de {{ noticias.paginator.num_pages }}.
+          </span>
+        </span>    
+        {% comment %} {% if noticias.has_previous %}
         <a href="?page={{ noticias.previous_page_number }}">&laquo;</a>
         {% endif %}
         <a href="?page=1" class="active">1</a>
@@ -56,7 +92,7 @@
         <a href="?page=3">3</a>
         {% if noticias.has_next %}
         <a href="?page={{ noticias.next_page_number }}">&raquo;</a>
-        {% endif %}
+        {% endif %} {% endcomment %}
       </div>
     </div>
 

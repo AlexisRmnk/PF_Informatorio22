@@ -45,12 +45,12 @@ def listar(request):
     else: 
         noticias = Noticia.objects.order_by('-creado') #las mas nuevas primero
     
-    pag = Paginator(noticias, 8)
-    page = request.GET.get('page')
-    noticias_paginadas = pag.get_page(page)
+    todas_noticias_paginadas = Paginator(noticias, 4) # por defecto 8
+    pagina_solicitada = request.GET.get('page')
+    noticias_paginadas_solicitada = todas_noticias_paginadas.get_page(pagina_solicitada)
     
     # PASARLO AL TEMPLATE
-    ctx['noticias'] = noticias_paginadas
+    ctx['noticias'] = noticias_paginadas_solicitada
     
     todas_categorias = Categoria.objects.all()
     ctx["categorias"] = todas_categorias
