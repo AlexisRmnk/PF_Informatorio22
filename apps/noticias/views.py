@@ -78,13 +78,13 @@ def Detalle_Noticia_Funcion(request, pk): #de ejemplo, no se usa
 	ctx = {}
 	noticia = Noticia.objects.get(pk = pk)
 	ctx['resultado'] = noticia
-	return render(request,'noticias/detalle_noticia.html',ctx)
+	return render(request,'noticias/Mientras/ModalNoticias.html',ctx)
 
 #VISTA BASADA EN CLASES
 #class Detalle_Noticia_Clase(LoginRequiredMixin, DetailView):
 class Detalle_Noticia_Clase(DetailView):
     model = Noticia
-    template_name = 'noticias/detalle_noticia.html'
+    template_name = 'noticias/Mientras/ModalNoticias.html'
     context_object_name = "noticia"
  
     
