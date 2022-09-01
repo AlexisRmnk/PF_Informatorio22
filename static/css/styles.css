@@ -29,6 +29,35 @@
     border: 3px solid #c7c7c773;
   }
 
+/* PRELOADER */
+.loader{
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    background: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.disppear{
+    animation: vanish 1s forwards;
+}
+
+@keyframes vanish {
+    100%{
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+
+
 * {
     padding: 0;
     margin: 0;

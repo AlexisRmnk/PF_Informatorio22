@@ -1,5 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
+/* PRELOADER */
+.loader{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  background: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disppear{
+  animation: vanish 1s forwards;
+}
+
+@keyframes vanish {
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
