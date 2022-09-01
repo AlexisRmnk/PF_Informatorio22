@@ -1,1 +1,1 @@
-web: gunicorn informatorio2022.wsgi
+web: gunicorn informatorio2022.blog.wsgi
