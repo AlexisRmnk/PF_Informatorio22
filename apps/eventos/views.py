@@ -7,7 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin # para clases
 from django.core.paginator import Paginator
 from django.utils.safestring import mark_safe
 from .utils import Calendar
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
+import calendar
 # Create your views here.
 
 #UNUSED
@@ -74,6 +75,7 @@ class CalendarView(ListView):
 
         # Call the formatmonth method, which returns our calendar as a table
         html_cal = cal.formatmonth(withyear=True)
+        d = get_date(self.request.GET.get('month', None))
         context['calendar'] = mark_safe(html_cal)
         return context
 
@@ -82,3 +84,4 @@ def get_date(req_day):
         year, month = (int(x) for x in req_day.split('-'))
         return date(year, month, day=1)
     return datetime.today()
+
