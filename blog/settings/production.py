@@ -20,11 +20,11 @@ ALLOWED_HOSTS = ['informatorio2022.herokuapp.com']
 # trabajan sobre lo mismo. 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.pg2',
-        'NAME': 'd73pvhhal9ggt6',
-        'USER': 'okrydsichrcxwi',
-        'PASSWORD': '2cb81e64853b6206ee455506ed737ed47deae06f591b786409d480604607b079',
-        'HOST': 'ec2-35-168-122-84.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd9o32ljn8ro7j4',
+        'USER': 'ijuvicfrdnejfe',
+        'PASSWORD': '83928143467a1c158928bc8619812122fcd8ccf57878f0a40d3e8073c3e281cd',
+        'HOST': 'ec2-34-227-135-211.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
