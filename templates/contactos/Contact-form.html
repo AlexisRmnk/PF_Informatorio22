@@ -81,12 +81,27 @@
               <label for="">Mensaje</label>
               <span>Escribí tu mensaje acá...</span>
             </div>
-            <input type="submit" value="Enviar" class="btn" />
+            <input type="submit" value="Enviar" class="btn" onclick="openPopup()"/>
           </form>
         </div>
       </div>
+      <!-- POP UP NOTIFICATION: OPTION 1 -->
+      <div class="popup" id="popup">
+        <img src="{% static 'img/tick.png' %}">
+        <h2>¡Muchas Gracias!</h2>
+        <p>Tu mensaje ha sido enviado con éxito. En breve nos estaremos comunicando con vos.</p>
+        <button type="button" onclick="closePopup()">OK</button>
+      </div>
     </div>
 
+    <script>let opopup = document.getElementById("popup")
+      function openPopup(){
+        popup.classList.add("open-popup");
+      }
+      function closePopup(){
+        popup.classList.remove("open-popup");
+      } 
+      </script>
     <script src="{% static 'js/app.js'%}"></script>
   </body>
 </html>

@@ -34,4 +34,4 @@ def enviar_contacto(request):
     '''
     send_mail('Solicitud de contacto desde BOTELLAS_DE_AMOR', mensaje, '',
               ['testgrupo5pf@outlook.com.ar']) 
-    return render(request, 'contactos/exito.html')
+    return render(request, 'index.html')
