@@ -34,9 +34,12 @@
 			{% csrf_token %} 
 			<!-- nota para FRONT: controlar que el comentario no este vacio
 			se puede hacer con un JS, por ejemplo-->
-			<textarea name="coment" id="" cols="30" rows="10">
+			{% comment %} <textarea name="coment" id="" cols="30" rows="10"></textarea> {% endcomment %}
+			
+			<input type="text" name="coment" id="" placeholder="Escribe un comentario..." style="width: 100%; height: 30px; border-radius: 8px">
 
-			</textarea>
+			{% comment %} <input type="text" name="coment2" id="coment2"> {% endcomment %}
+
 			<button type="submit">COMENTAR</button>
 		</form>
 		{% comment %} por defecto los forms viejan a la misma vista que levanto el form {% endcomment %}
