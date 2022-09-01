@@ -51,3 +51,6 @@ class DetalleEvento(DetailView):
     model = Evento
     context_object_name = "evento"
     template_name = 'eventos/detalle_evento.html'
+    
+def Calendario(request):
+    return render(request, 'eventos/calendario.html')

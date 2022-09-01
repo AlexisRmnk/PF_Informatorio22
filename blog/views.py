@@ -12,8 +12,7 @@ def Register(request):
 def SobreNosotros(request):
     return render(request, 'sobre nosotros/sobre_nosotros.html')
 
-def Calendario(request):
-    return render(request, 'eventos/calendario.html')
+
 
 def PreguntasFQ(request):
     return render(request, 'sobre nosotros/preguntas_frecuentes.html')

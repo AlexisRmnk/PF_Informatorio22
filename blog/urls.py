@@ -36,7 +36,6 @@ urlpatterns = [
          name = 'login'),
     path('logout/', auth_views.LogoutView.as_view(), name = 'logout'),
     path('sobrenosotros/', views.SobreNosotros, name = 'sobrenosotros'),
-    path('calendario/', views.Calendario, name = 'calendario'),
     path('preguntasFQ/', views.PreguntasFQ, name = 'preguntasFQ'),
     path('noticia_detalles/', views.NoticiaDetalles, name = 'noticia_detalles'),
     
