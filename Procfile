@@ -1,1 +1,1 @@
-web: gunicorn PF_Informatorio22.wsgi
+web: gunicorn informatorio2022.wsgi
