@@ -2,9 +2,8 @@ asgiref==3.5.2
 colorama==0.4.5
 dj-database-url==1.0.0
 dj-static==0.0.6
-Django==3.2
+Django==4.1
 django-heroku==0.3.1
-django-on-heroku==1.1.2
 gunicorn==20.1.0
 itsdangerous==2.1.2
 Jinja2==3.1.2
