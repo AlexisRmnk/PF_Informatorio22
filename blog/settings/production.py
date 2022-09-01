@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-2awi$098mo1txo-f%)ns!3@7h++aph&u1tc8vjm=237=y)z6i3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['botellitasdeamor.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 
