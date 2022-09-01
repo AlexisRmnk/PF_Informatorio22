@@ -45,7 +45,7 @@ def listar(request):
     else: 
         noticias = Noticia.objects.order_by('-creado') #las mas nuevas primero
     
-    pag = Paginator(noticias, 1)
+    pag = Paginator(noticias, 8)
     page = request.GET.get('page')
     noticias_paginadas = pag.get_page(page)
     

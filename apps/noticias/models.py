@@ -46,7 +46,6 @@ class Noticia(models.Model):
 # OPCIONAL: relacion   >>>   USUARIO    1:N     COMENTARIOS
 class Comentario(models.Model):
     contenido_txt = models.TextField()
-    contenido_num = models.TextField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     noticia = models.ForeignKey(Noticia, on_delete = models.CASCADE, 
                                 null = False, related_name="comentario_noticia")

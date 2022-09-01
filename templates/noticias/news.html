@@ -49,14 +49,17 @@
     <!-- Paginacion -->
     <div class="row alignCenter">
       <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">&raquo;</a>
+        {% if noticias.has_previous %}
+        <a href="?page={{ noticias.previous_page_number }}">&laquo;</a>
+        {% endif %}
+        <a href="?page=1" class="active">1</a>
+        <a href="?page=2">2</a>
+        <a href="?page=3">3</a>
+        {% if noticias.has_next %}
+        <a href="?page={{ noticias.next_page_number }}">&raquo;</a>
+        {% endif %}
       </div>
     </div>
-    <div id="displayContent"></div>
 
     <!-- Fin Paginacion -->
   <script src="{% static 'js/utils.js' %}"></script>
