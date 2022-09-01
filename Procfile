@@ -1,1 +1,1 @@
-web: gunicorn informatorio2022.wsgi:application --log-file - --log-level debug
+web: gunicorn blog.wsgi:application
