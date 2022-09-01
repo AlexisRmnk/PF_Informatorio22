@@ -2,8 +2,12 @@ from django.shortcuts import render
 from .models import Evento, Categoria
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+
 from django.contrib.auth.mixins import LoginRequiredMixin # para clases
 from django.core.paginator import Paginator
+from django.utils.safestring import mark_safe
+from .utils import Calendar
+from datetime import datetime, date
 # Create your views here.
 
 #UNUSED
@@ -52,5 +56,29 @@ class DetalleEvento(DetailView):
     context_object_name = "evento"
     template_name = 'eventos/detalle_evento.html'
     
-def Calendario(request):
+def Calendario(request): #del calendario sin back
     return render(request, 'eventos/calendario.html')
+
+class CalendarView(ListView):
+    model = Evento
+    template_name = 'eventos/calendarioV2.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # use today's date for the calendar
+        d = get_date(self.request.GET.get('day', None))
+
+        # Instantiate our calendar class with today's year and date
+        cal = Calendar(d.year, d.month)
+
+        # Call the formatmonth method, which returns our calendar as a table
+        html_cal = cal.formatmonth(withyear=True)
+        context['calendar'] = mark_safe(html_cal)
+        return context
+
+def get_date(req_day):
+    if req_day:
+        year, month = (int(x) for x in req_day.split('-'))
+        return date(year, month, day=1)
+    return datetime.today()
