@@ -30,6 +30,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin_redirect/', views.AdminRedirect, name="admin_redirect"),
     
     path('login/', 
          auth_views.LoginView.as_view(template_name="usuarios/log_in.html"),

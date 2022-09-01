@@ -56,7 +56,7 @@
                             </div>-->
                             <li></li>
                             {% if request.user.is_staff %}
-                            <li><a href="admin/">SECCION ADMIN -prueba-</a>
+                            <li><a href="{% url 'admin_redirect' %}">SECCION ADMIN </a>
                             {% endif %}
                             <li><a href="#">Sobre Nosotros</a>
                                 <ul>
