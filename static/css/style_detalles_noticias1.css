@@ -59,10 +59,7 @@
   border-radius: 16px;
   padding: 8px 16px;
 }
-.description {
-  border: 3px solid red;
-  margin-top: 20px;
-}
+
 .description p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: x-large;

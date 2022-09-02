@@ -345,7 +345,7 @@
 
 .body__page {
     background-color: #0d0d0de1;
-    overflow: hidden;
+    overflow: visible;
     height: 100%;
     margin-top: 20px;
 }

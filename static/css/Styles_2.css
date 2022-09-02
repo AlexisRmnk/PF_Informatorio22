@@ -333,7 +333,7 @@
     font-size: 34px;
 }
 .sabias {
-    display: flex;
+    display: outside;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
@@ -647,6 +647,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: row;
+
   }
   .single-footer {
     width: 230px;
@@ -723,7 +724,7 @@
     height: 45px;
     right: 0;
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
   }
   .footer-wave {
     background-image: url(../img/footer-shape.png);
