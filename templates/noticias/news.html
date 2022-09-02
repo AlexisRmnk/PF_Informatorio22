@@ -7,18 +7,30 @@
     {% endblock css %}
 
     {% block header %}
-    <div class="row alignEnd">
-      <div class="btn_noticias">
-        <form action="">
-          <label for="Noticias">Filtrar por:</label>
-          <select id="noticias" name="noticias">
-            <option value="volvo">Recientes</option>
-            <option value="saab">Antiguos</option>
-            <option value="fiat">Todo</option>
-          </select>
-        </form>
-      </div>
+    <div class="btn_noticias">
+      <form class="form_noticias" method="POST">{% csrf_token %}
+          <div class="div_categorias">
+            <label for="categorias_label">Elija una categoria:</label> 
+            <br>
+            <select name="categoria_name" id="categoria_id">
+                <option value="todas">TODAS</option>
+            {% for categoria in categorias %}
+                <option value={{categoria.id}}> {{categoria.nombre}} </option>
+            {% endfor %}
+            </select> 
+          </div>
+          <br> <hr>
+          <div class="div_categorias">
+            <label for="categorias_label">Ordenados por:</label> <br>
+            <select name="orden_noticias_name" id="orden_noticias_id">
+                <option value="mas_recientes">Más Recientes</option>
+                <option value="mas_antiguas">más antiguas</option>
+            </select> <br>
+          </div>
+          <input class="btn_cambios" type="submit" value="Aplicar Cambios">
+      </form>   
     </div>
+
     <!-- primer bloque -->
     <div class="container">
       {% for noti in noticias %}
@@ -45,43 +57,23 @@
       {% endfor %}
     </div>
     
-    <div class="row alignCenter">
-    <h2>FILTRAR POR CATEGORIA Y MAS ANTIGUA/RECIENTE</h2> 
-    <form method="POST">
-        {% csrf_token %}
-      <!--    La idea es mandar el nombre de
-        la categoria como URL ... recordar hacer unique el nombre en el modelo ...  wip -->
-        <label for="categorias_label">Seleccione una categoria:</label> <br>
-        <select name="categoria_name" id="categoria_id">
-            <option value="todas">TODAS</option>
-        {% for categoria in categorias %}
-            <option value={{categoria.id}}> {{categoria.nombre}} </option>
-        {% endfor %}
-        </select> <br> <hr>
-        <label for="categorias_label">Seleccione una categoria:</label> <br>
-        <select name="orden_noticias_name" id="orden_noticias_id">
-            <option value="mas_recientes">mas_recientes</option>
-            <option value="mas_antiguas">mas_antiguas</option>
-        </select> <br>
-        <input type="submit" value="Mostrar noticias para la categoria seleccionada en la fecha seleccionada">
-    </form>   
-  </div>
-
     <!-- Paginacion -->
     <div class="row alignCenter">
       <div class="pagination">
         <span class="step-links">
-          {% if noticias.has_previous %}
-              <a href="?page=1">&laquo; primera</a>
-              <a href="?page={{ noticias.previous_page_number }}">anterior</a>
-          {% endif %}
-  
-          {% if noticias.has_next %}
-              <a href="?page={{ noticias.next_page_number }}">siguiente</a>
-              <a href="?page={{ noticias.paginator.num_pages }}">ultima &raquo;</a>
-          {% endif %}
+          <div>
+            {% if noticias.has_previous %}
+                <a href="?page=1">&laquo; primera</a>
+                <a href="?page={{ noticias.previous_page_number }}">anterior</a>
+            {% endif %}
+    
+            {% if noticias.has_next %}
+                <a href="?page={{ noticias.next_page_number }}">siguiente</a>
+                <a href="?page={{ noticias.paginator.num_pages }}">ultima &raquo;</a>
+            {% endif %}
+          </div>
           <span class="current">
-            Pagina {{ noticias.number }} de {{ noticias.paginator.num_pages }}.
+            Pagina {{ noticias.number }} de {{ noticias.paginator.num_pages }}
           </span>
         </span>    
         {% comment %} {% if noticias.has_previous %}

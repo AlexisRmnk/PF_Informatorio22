@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Botella de Amor</title>
         <link rel="icon" href="{% static 'img/Logo1.png' %}">
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Styles_1.css' %}">
         {% block css %}
         
         {% endblock css %}  
@@ -27,7 +27,7 @@
         <header class="Header">
             <div class="container__menu">
                 <div class="logo">
-                    <img src="{% static 'img/Logo-Nombre.png'%}" alt="">
+                    <a href="{% url 'home' %}"><img src="{% static 'img/Logo-Nombre.png'%}" alt=""></a>
                 </div>
                 <div class="menu">
                     <input type="checkbox" id="check__menu">
@@ -65,18 +65,13 @@
                                 </ul>
                             </li>
                             <li><a href="{% url 'noticias:listar_noticias' %}">Noticias</a></li>
-                            <li><a href="#">Contactos</a>
-                                <ul>
-                                    <li><a href="{% url 'contactos:contactanos'%}" target="_blank">Contactanos</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{% url 'contactos:contactanos'%}" target="_blank">Contactanos</a></li>
                             <li><a href="#">Eventos</a>
                                 <ul>
                                     <li><a href="{% url 'eventos:calendario'%}" target="_blank">Calendario</a></li>
                                     <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1QBrPiv4TC7PHydND-XuRq2vPXHZBIkAE&ll=-27.451452553253837%2C-58.982524376196295&z=14" target="_blank">Puntos de Acopio</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Recursos</a></li>
                         </ul>
                         <div class="login__container">
                             {% if user.is_authenticated %}
@@ -102,7 +97,7 @@
                     <h1 class="words">Botella de Amor</h1>
                     <h2 class="words__h2">Desplastificate</h2>
                 </div>
-                <div class="words2">
+                <div class="words2" id="WORDS">
                     <p>Fomentamos reducir el consumo de plásticos de un solo uso.
                         Acopiamos botellas llenas de plásticos de un solo uso para que sean recicladas.</p>                
                 </div>
