@@ -1,19 +1,26 @@
+
 WARNING
-CONFLICTOS POR RESOLVER (mayormente front
+para editar rama_Front_Inclusión o cualquier otra apta para heroku cambiar
+en manage.py ->production por local
+en wsgi.py  ->production por local
 
 
-front
--cuando se loguea el admin y se agrega el botón "sección admin", todos los demás botones del header se desacomodan ligeramente
+
+CONFLICTOS POR RESOLVER (mayormente front)
+
+
+FRONT
+
+--cuando se loguea el admin y se agrega el botón "sección admin", todos los demás botones del header se desacomodan ligeramente
 admin: super	
 pw: 1234
 
+--FOOTER de eventos no se adecúa al ancho de la página
 
 
--FOOTER de eventos no se adecúa al ancho de la página
+BACK
 
-
-back 
--IMÁGENES de eventos y noticias se pierden con cada push nuevo a heroku ((muy posiblemente problema sin solución ya que es por parte de cómo administra heroku su Base de datos online)), imágenes perdidas están en un word en chat "charlas" del discord
+--IMÁGENES de eventos y noticias se pierden con cada push nuevo a heroku ((muy posiblemente problema sin solución ya que es por parte de cómo administra heroku su Base de datos online)), imágenes perdidas están en un word en chat "charlas" del discord
 
 
 
