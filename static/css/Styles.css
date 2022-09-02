@@ -109,6 +109,8 @@
 
 /*Barra Menu*/
 
+
+
 .container__menu {
     display: flex;
     align-items: center;
@@ -333,8 +335,7 @@
     font-size: 34px;
 }
 .sabias {
-    display: outside;
-    align-items: center;
+    display: flex;
     justify-content: center;
     margin-top: 20px;
 }
@@ -808,6 +809,10 @@
   }
 
 
+.inicio_responsive {
+    display: none;
+}
+
 .bars__menu {
     width: 30px;
     height: 30px;
@@ -850,6 +855,18 @@
         width: 140px;
     }
 
+    .inicio_responsive {
+        display: block;
+    }
+
+    .inicio_responsive a {
+        color: black;
+        padding: 6px;
+        margin-left: 40%;
+        margin-top: 10px;
+        font-size: 16;
+    }
+
     .header__superior {
         margin: 0px 20px;
     }
@@ -862,7 +879,6 @@
         left: 0;
         top: 70px;
         width: 100%;
-        height: 300px;
         transition: all 300ms all;
         z-index: 100;
         border-radius: 25px;
@@ -924,19 +940,9 @@
 
     .words2 p {
         font-size: 16px;
-    }
-
-    
+    } 
 
     /**/
       
-}
-
-@media screen and (max-width: 850px) {
-    .cerrar_sesion {
-        display: none;
-    }
-
-    
 }
 

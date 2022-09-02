@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from datetime import datetime
 from .models import Evento, Categoria
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -23,11 +24,7 @@ def listar(request):
             eventos = Evento.objects.all()
         else:
             cate = Categoria.objects.get(pk = categoria_id)
-            print(f"Nombre categoria es: {cate.nombre}")
             eventos = cate.get_eventos_categoria()
-        for n in eventos:
-            print(n)
-        
         if orden_eventos == 'mas_proximos':
             eventos = eventos.order_by("fecha")
         else:
@@ -35,7 +32,9 @@ def listar(request):
     else: 
         eventos = Evento.objects.order_by('fecha') #los mas proximos primero
 
-    # por si se desean paginar (sin usar!)
+    hoy = datetime.today()
+    eventos = eventos.filter(fecha__gte = hoy)
+
     pag = Paginator(eventos, 3)
     page = request.GET.get('page')
     eventos_paginados = pag.get_page(page) 

@@ -56,7 +56,6 @@
             </div>
           {% endfor %}
           <!-- if commentarios.length > muchos ... -->
-          <a class="row" href="">Ver mas comentarios</a>
           {% if user.is_authenticated %}
             <form method="POST" action={% url 'noticias:agregar_comentario' noticia.pk %} class="row comments" id="inputComment">
               {% csrf_token %} 

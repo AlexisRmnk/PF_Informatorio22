@@ -44,11 +44,7 @@
     box-sizing: border-box;
 }
 
-html,
 body {
-    height: 100vh;
-    display: grid;
-    place-items: center;
     font-family: var(--font-family);
     background-color: var(--bg-body);
 }
