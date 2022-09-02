@@ -22,10 +22,10 @@
 	{% endif %}
 
 	<p>COMENTARIO NOTICIA</p> <!-- WIP -->
-	{% for x in noticia.get_comentarios_noticia %}
-		<p>Autor: {{x.autor}}</p>
-		<p>contenidotxt: {{x.contenido_txt}}</p>
-		<p>fecha creacion: {{x.fecha_creacion}}</p>
+	{% for comentario in noticia.get_comentarios_noticia %}
+		<p>Autor: {{comentario.autor}}</p>
+		<p>contenido txt: {{comentario.contenido_txt}}</p>
+		<p>fecha creacion: {{comentario.fecha_creacion}}</p>
 		<p>--------------------------------------</p>
 	{% endfor %}
 
@@ -34,13 +34,14 @@
 			{% csrf_token %} 
 			<!-- nota para FRONT: controlar que el comentario no este vacio
 			se puede hacer con un JS, por ejemplo-->
-			<textarea name="coment" id="" cols="30" rows="10">
+			{% comment %} <textarea name="coment" id="" cols="30" rows="10"></textarea> {% endcomment %}
+			
+			<input type="text" name="coment" id="" placeholder="Escribe un comentario..." style="width: 100%; height: 30px; border-radius: 8px">
 
-			</textarea>
+			{% comment %} <input type="text" name="coment2" id="coment2"> {% endcomment %}
+
 			<button type="submit">COMENTAR</button>
 		</form>
 		{% comment %} por defecto los forms viejan a la misma vista que levanto el form {% endcomment %}
-
-
 	{% endif %}
 {% endblock bloque_contenido %}

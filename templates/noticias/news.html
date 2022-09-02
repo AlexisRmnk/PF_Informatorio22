@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+{% load static %}
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/noticias1.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style_noticias2.css' %}" />
+    {% endblock css %}
+
+    {% block header %}
+    <div class="btn_noticias">
+      <form class="form_noticias" method="POST">{% csrf_token %}
+        <div class="div_categorias">
+          <label for="categorias_label">Elija una categoria:</label> 
+          <br>
+          <select name="categoria_name" id="categoria_id">
+              <option value="todas">TODAS</option>
+          {% for categoria in categorias %}
+              <option value={{categoria.id}}> {{categoria.nombre}} </option>
+          {% endfor %}
+          </select> 
+        </div>
+        <br> <hr>
+        <div class="div_categorias">
+          <label for="categorias_label">Ordenados por:</label> <br>
+          <select name="orden_noticias_name" id="orden_noticias_id">
+              <option value="mas_recientes">Más Recientes</option>
+              <option value="mas_antiguas">más antiguas</option>
+          </select> <br>
+        </div>
+          <input class="btn_cambios" type="submit" value="Aplicar Cambios">
+      </form>   
+    </div>
+
+    <!-- primer bloque -->
+    <div class="container">
+      {% for noti in noticias %}
+        <div class="card inline">
+          <figure>
+            {% if noti.imagen %}
+              <img src="{{noti.imagen.url}}" />
+            {% else %}
+              <img src="{% static 'img/3dgifmaker78797.gif' %}" />
+            {% endif %}
+          </figure>
+          <div class="contenido">
+            <h3>{{noti.titulo}}</h3>
+            <p>{{noti.creado}}</p>
+            <p>{{noti.cuerpo|truncatechars:50|wordwrap:10}}</p>
+            <a
+              href="{% url 'noticias:detalle_noticias' noti.pk  %}"
+              onclick="openModal('firstTitle','firstCommnet','firstImg')"
+              target="_self"
+              id="myBtn"
+              >Leer mas...</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Paginacion -->
+    <div class="row alignCenter">
+      <div class="pagination">
+        <span class="step-links">
+          <div>
+            {% if noticias.has_previous %}
+                <a href="?page=1">&laquo; primera</a>
+                <a href="?page={{ noticias.previous_page_number }}">anterior</a>
+            {% endif %}
+    
+            {% if noticias.has_next %}
+                <a href="?page={{ noticias.next_page_number }}">siguiente</a>
+                <a href="?page={{ noticias.paginator.num_pages }}">ultima &raquo;</a>
+            {% endif %}
+          </div>
+          <span class="current">
+            Pagina {{ noticias.number }} de {{ noticias.paginator.num_pages }}
+          </span>
+        </span>    
+      </div>
+    </div>
+
+    <!-- Fin Paginacion -->
+  <script src="{% static 'js/utils.js' %}"></script>
+  {% endblock header %}
+

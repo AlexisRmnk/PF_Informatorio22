@@ -16,6 +16,8 @@ class Categoria(models.Model):
     
     def __str__(self) -> str:
         return self.nombre
+    def get_noticias_categoria(self):
+        return self.noticia_set.all()
 
  
 class Noticia(models.Model):
@@ -45,11 +47,10 @@ class Noticia(models.Model):
 class Comentario(models.Model):
     contenido_txt = models.TextField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-    
     noticia = models.ForeignKey(Noticia, on_delete = models.CASCADE, 
                                 null = False, related_name="comentario_noticia")
     autor = models.ForeignKey(Usuario, on_delete = models.CASCADE, 
-                                null = False, related_name="comentario_noticia") 
+                                null = False, related_name="comentario_autor") 
     # imagen_adjunta = archivo tipo imagen
     
     

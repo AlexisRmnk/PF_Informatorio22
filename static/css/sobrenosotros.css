@@ -1,0 +1,148 @@
+#faces {
+    height: 300px;
+    margin: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+  }
+  .roundedImg {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+  }
+  .animated {
+    transition: 0.5s;
+  }
+
+  .animated p {
+    font-size: 25px;
+  }
+
+  .animated:hover {
+    transform: scale(1.3, 1.3);
+  }
+  marquee {
+    background-color: #81b214;
+    padding: 10px;
+    letter-spacing: 3px;
+  }
+  .row {
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #row2 {
+    height: 500px;
+  }
+  #row4 {
+    height: 450px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .column p {
+    margin: auto;
+    text-align: center;
+  }
+  
+  .column ul {
+    margin: auto;
+    padding: 0px 15%;
+  }
+  .column img {
+    width: 100%;
+    height: 100%;
+  }
+  .verticalText p {
+    transform: rotate(-90deg);
+    letter-spacing: 5px;
+    font-size: 30px;
+    font-weight: 900;
+  }
+  /* row1 */
+  #colaa {
+    width: 100%;
+    background-color: #00af91;
+  }
+
+  #colaa p {
+    font-size: 24px;
+  }
+
+  #colba {
+    width: 70%;
+  }
+  #colaa b {
+    font-family: Alégre Sans;
+    letter-spacing: 2px;
+    color: #f0bb62;
+  }
+  /* row2 */
+  #colab {
+    width: 25%;
+    background-color: #f0bb62;
+  }
+  #colab p {
+    margin-left: 0%;
+    font-size: 40px;
+    white-space: nowrap;
+  }
+  #colbb {
+    width: 50%;
+  }
+
+  #colbb b {
+    color: #f0bb62;
+    letter-spacing: 3px;
+  }
+
+  #colbb p {
+    font-size: 24px;
+    padding: 20px 150px;
+    text-align: start;
+  }
+  #colcb {
+    width: 25%;
+    background-color: #81b214;
+  }
+  /* row3 */
+  #colac {
+    width: 70%;
+  }
+  
+  #colbc {
+    width: 100%;
+    background-color: #f4eea9;
+  }
+
+  #colbc p {
+    font-size: 24px;
+  }
+
+  /* row4 */
+  #colad {
+    width: 25%;
+    background-color: #00af91;
+  }
+  #colad p {
+    letter-spacing: 5px;
+    font-size: 33px;
+    transform: rotate(-90deg);
+    margin-left: 5%;
+    white-space: nowrap;
+    font-weight: 900;
+  }
+  #colbd {
+    width: 75%;
+    background-color: #f0bb62;
+  }
+
+  #colbd ul li {
+    font-size: 24px;
+    list-style: disc;
+  }

@@ -30,15 +30,15 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin_redirect/', views.AdminRedirect, name="admin_redirect"),
     
     path('login/', 
          auth_views.LoginView.as_view(template_name="usuarios/log_in.html"),
          name = 'login'),
     path('logout/', auth_views.LogoutView.as_view(), name = 'logout'),
-    path('contact/', views.Contact, name = 'contact'),
-    path('noticias/', views.Noticias, name = 'noticias'),
     path('sobrenosotros/', views.SobreNosotros, name = 'sobrenosotros'),
-    path('calendario/', views.Calendario, name = 'calendario'),
+    path('preguntasFQ/', views.PreguntasFQ, name = 'preguntasFQ'),
+    path('noticia_detalles/', views.NoticiaDetalles, name = 'noticia_detalles'),
     
     
     path('', views.Home, name = 'home'),

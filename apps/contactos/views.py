@@ -9,7 +9,7 @@ def info_contacto(request):
 
 # pendiente: ver como hacer el INPUT del que se contacte
 def contactanos(request):
-    return render(request, 'Contact-form.html')
+    return render(request, 'contactos/Contact-form.html')
 
 # referencia: 
 # https://martinfritz.medium.com/create-contact-form-and-send-emails-to-your-gmail-account-using-django-86ac6f739a86
@@ -34,4 +34,4 @@ def enviar_contacto(request):
     '''
     send_mail('Solicitud de contacto desde BOTELLAS_DE_AMOR', mensaje, '',
               ['testgrupo5pf@outlook.com.ar']) 
-    return render(request, 'contactos/exito.html')
+    return render(request, 'index.html')

@@ -24,21 +24,20 @@
           <h3 class="title1">Contactanos</h3>
           
           <p class="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            dolorum adipisci recusandae praesentium dicta!
+            Ante cualquier inquietud que te surja, no dudes en contactarnos mediante nuestro mail o redes!
           </p>
           <div class="info">
             <div class="information">
               <img src="{% static 'img/locationlgreen.png'%}" class="icon" alt="" />
-              <p>Acá podemos poner dirección?</p>
+              <p>Buscanos en los centros de acopio o en nuestros eventos!</p>
             </div>
             <div class="information">
               <img src="{% static 'img/emailgreen.png'%}" class="icon" alt="" />
-              <p>Email?</p>
+              <p>botellas@amor.com</p>
             </div>
             <div class="information">
               <img src="{% static 'img/phonegreen.png'%}" class="icon" alt="" />
-              <p>Telefono?</p>
+              <p>3624-BOTELLAS</p>
             </div>
           </div>
 
@@ -59,7 +58,7 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="{% url 'contactos:enviar_contacto' %}" method="POST" autocomplete="off">{% csrf_token %}
+          <form action="{% url 'contactos:enviar_contacto' %}" method="post" autocomplete="off">{% csrf_token %}
             <h1><span class="title2"> Escríbenos...</span></h1>
             <div class="input-container">
               <input type="text" name="contacto_nombre_name" class="input" />
@@ -81,12 +80,27 @@
               <label for="">Mensaje</label>
               <span>Escribí tu mensaje acá...</span>
             </div>
-            <input type="submit" value="Enviar" class="btn" />
+            <input type="submit" value="Enviar" class="btn" onclick="openPopup()"/>
           </form>
         </div>
       </div>
+      <!-- POP UP NOTIFICATION: OPTION 1 -->
+      <div class="popup" id="popup">
+        <img src="{% static 'img/tick.png' %}">
+        <h2>¡Muchas Gracias!</h2>
+        <p>Tu mensaje ha sido enviado con éxito. En breve nos estaremos comunicando con vos.</p>
+        <button type="button" onclick="closePopup()">OK</button>
+      </div>
     </div>
 
+    <script>let opopup = document.getElementById("popup")
+      function openPopup(){
+        popup.classList.add("open-popup");
+      }
+      function closePopup(){
+        popup.classList.remove("open-popup");
+      } 
+      </script>
     <script src="{% static 'js/app.js'%}"></script>
   </body>
 </html>

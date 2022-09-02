@@ -1,0 +1,229 @@
+@font-face {
+    font-family: Alégre Sans;
+    src: url(../Font/Algre-Sans/Alégre\ Sans.ttf);
+  }
+  /* div {
+    margin: 150px;
+    width: 200px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+    transition: 0.3s;
+  }
+  div:hover {
+    transform: scale(1.05, 1.05);
+    transition: 0.5s;
+  
+    box-shadow: 2px 2px 10px black;
+  } */
+  
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Alégre Sans;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  .alignEnd {
+    justify-content: end;
+  }
+  .alignCenter {
+    justify-content: center;
+  }
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    /* font-family: sans-serif; */
+  }
+  .header {
+    background-image: url("Textura Fondo Header.jpg");
+    background-color: #f0bb62;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 4px;
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container_noticias {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+    justify-content: flex-start;
+  }
+  .card_noticias {
+    width: 220px;
+    height: 250px;
+    margin: 5px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+  }
+  .card_noticias:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+  }
+  .card_noticias img {
+    width: 100%;
+    height: 100px;
+  }
+  
+  .container_noticias p {
+    font-size: 12px;
+    padding: 8px;
+    line-height: 1.5;
+    color: #6a6a6a;
+  }
+  .container_noticias h3 {
+    margin-top: 8px;
+    font-weight: 400;
+  }
+  .container_noticias a {
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px;
+    margin: 10px;
+    color: #81b214;
+    border: 1px solid #81b214;
+    border-radius: 4px;
+    transition: all 400ms ease;
+  }
+  .container_noticias a:hover {
+    background: #81b214;
+    color: #fff;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 4px 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 1px solid #ddd;
+  }
+  
+  .pagination a.active {
+    background-color: #81b214;
+    color: white;
+    border: 1px solid #4caf50;
+  }
+  
+  .pagination a:hover:not(.active) {
+    background-color: #81b214;
+  }
+  .btn_noticias {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form_noticias {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .div_categorias {
+    margin-right: 15px;
+  }
+  
+  .div_categorias label {
+    font-size: 20px;
+    margin-left: 14%;
+  }
+  
+  .div_categorias select {
+    width: 150px;
+    height: 35px;
+    font-size: 18px;
+    background-color: #81b214;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .div_categorias select option {
+    font-size: 18px;
+    background-color: #FEF201;
+  }
+  
+  .div_ordenados {
+    margin-right: 15px;
+  }
+  
+  .btn_cambios {
+    width: 110px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #81b214;
+    border-radius: 5px;
+    transition: all 0.4s;
+  }
+  
+  .btn_cambios:hover{
+    width: 110px;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #4caf50;
+    border-radius: 5px;
+    transform: scale(1.1);
+  }
+  
+  
+  /*Paginación*/
+  
+  .step-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .step-links div a {
+    font-size: 20px;
+  }
+  
+  .step-links span {
+    font-size: 20px;
+  }
+  
+  .box {
+    width: 250px;
+    height: 10px;
+    background-color: #ffcc29;
+    border: solid 1px black;
+    display: inline-block;
+  }
+  .inline {
+    display: inline-block;
+  }
+  

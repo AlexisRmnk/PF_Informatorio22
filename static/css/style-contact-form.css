@@ -1,5 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
+/* PRELOADER */
+.loader{
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  background: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disppear{
+  animation: vanish 1s forwards;
+}
+
+@keyframes vanish {
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -415,4 +442,57 @@ textarea.input {
   .btn {
     padding: 0.45rem 1.2rem;
   }
+}
+
+/* POP UP NOTIFICATION */
+.popup{
+  width: 400px;
+  background:rgb(255, 255, 255);
+  border-radius: 8px;
+  position: absolute;
+  z-index: 12;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+
+}
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img{
+  width: 90px;
+  margin-top: -50px;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popup h2{
+  font-size: 50px;
+  /* font-family: 'Bebas Neue', cursive; */
+  font-family: 'Satisfy', cursive;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popup button{
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background: radial-gradient(#6fd649,#59de29);
+  color: #fff;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+
 }

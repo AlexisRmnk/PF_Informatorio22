@@ -1,0 +1,163 @@
+.a_detalles {
+  text-align: start;
+  text-decoration: none;
+  padding-left: 5%;
+}
+.a_detalles:visited {
+  color: #000;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+#row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.header {
+  background-color: green;
+}
+.alignEnd {
+  justify-content: flex-end;
+}
+.alignCenter {
+  justify-content: center;
+}
+.alignStart {
+  justify-content: flex-start;
+}
+
+.borderRadius {
+  border-radius: 8px;
+}
+.avatar {
+  margin: 0px 10px;
+  background-color: #f0bb62;
+  border-radius: 50px;
+}
+.interaction {
+  margin-right: 30px;
+}
+.comments {
+  margin: 20px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.commentsContainer {
+  padding: 0px 10%;
+}
+.commentContent {
+  background-color: #fff;
+  text-align: left;
+  border-radius: 16px;
+  padding: 8px 16px;
+}
+
+.description p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  margin: 0px;
+}
+
+.imgCard {
+  margin: auto;
+  margin-top: 20px;
+}
+#card {
+  padding-top: 20px;
+  margin-left: 8%;
+}
+#inputComment {
+  padding: 0px 20px;
+}
+.main {
+  background-color: #fff;
+}
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 0px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  /* background-color: #6bc995; */
+  background-image: linear-gradient(45deg, #6bc995 0%, #f9e061 100%);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  padding-top: 12px;
+  color: white;
+  float: left;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  /* background-color: #5cb85c; */
+  color: white;
+  background-image: linear-gradient(45deg, #6bc995 0%, #f9e061 100%);
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+.imputBtn {
+  background-color: #f4eea9;
+}

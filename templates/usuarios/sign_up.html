@@ -38,6 +38,7 @@
         </div>  
         
         <form class="row" action="" method="POST">{% csrf_token %}
+          {{form.errors}}
           <div class="form-floating mb-1 col-md-6">
               <input type="text" name="first_name" class="form-control" id="floatingInput" placeholder="ej: Gabriel" >
               <label for="floatingInput">Nombre</label>

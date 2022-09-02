@@ -39,7 +39,7 @@ function load() {
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   
   const dateString = firstDayOfMonth.toLocaleDateString('en-us', {
-    weekday: 'long',
+    weekday: 'short',
     year: 'numeric',
     month: 'numeric',
     day: 'numeric',
