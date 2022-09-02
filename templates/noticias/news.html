@@ -2,28 +2,39 @@
 {% load static %}
 
     {% block css %}
-    <link rel="stylesheet" href="{% static 'css/noticias.css' %}">
+    <link rel="stylesheet" href="{% static 'css/noticias.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style_noticias.css' %}" />
     {% endblock css %}
 
     {% block header %}
-
-  
-
-    <div class="row alignEnd">
-      <div class="btn_noticias">
-        <form action="">
-          <label for="Noticias">Filtrar por:</label>
-          <select id="noticias" name="noticias">
-            <option value="volvo">Recientes</option>
-            <option value="saab">Antiguos</option>
-          </select>
-        </form>
-      </div>
+    <div class="btn_noticias">
+      <form class="form_noticias" method="POST">{% csrf_token %}
+          <div class="div_categorias">
+            <label for="categorias_label">Elija una categoria:</label> 
+            <br>
+            <select name="categoria_name" id="categoria_id">
+                <option value="todas">TODAS</option>
+            {% for categoria in categorias %}
+                <option value={{categoria.id}}> {{categoria.nombre}} </option>
+            {% endfor %}
+            </select> 
+          </div>
+          <br> <hr>
+          <div class="div_categorias">
+            <label for="categorias_label">Ordenados por:</label> <br>
+            <select name="orden_noticias_name" id="orden_noticias_id">
+                <option value="mas_recientes">Más Recientes</option>
+                <option value="mas_antiguas">más antiguas</option>
+            </select> <br>
+          </div>
+          <input class="btn_cambios" type="submit" value="Aplicar Cambios">
+      </form>   
     </div>
+
     <!-- primer bloque -->
-    <div class="container_noticias">
+    <div class="container">
       {% for noti in noticias %}
-        <div class="card_noticias inline">
+        <div class="card inline">
           <figure>
             {% if noti.imagen %}
               <img src="{{noti.imagen.url}}" />
@@ -34,18 +45,38 @@
           <div class="contenido">
             <h3>{{noti.titulo}}</h3>
             <p>{{noti.creado}}</p>
-            <p>{{noti.cuerpo|truncatechars:100|wordwrap:10}}</p>
-            <a href="{% url 'noticias:detalle_noticias' noti.pk  %}">Leer mas...</a>
+            <p>{{noti.cuerpo|truncatechars:50|wordwrap:10}}</p>
+            <a
+              href="{% url 'noticias:detalle_noticias' noti.pk  %}"
+              onclick="openModal('firstTitle','firstCommnet','firstImg')"
+              target="_self"
+              id="myBtn"
+              >Leer mas...</a>
           </div>
         </div>
       {% endfor %}
     </div>
-
+    
     <!-- Paginacion -->
-
     <div class="row alignCenter">
       <div class="pagination">
-        {% if noticias.has_previous %}
+        <span class="step-links">
+          <div>
+            {% if noticias.has_previous %}
+                <a href="?page=1">&laquo; primera</a>
+                <a href="?page={{ noticias.previous_page_number }}">anterior</a>
+            {% endif %}
+    
+            {% if noticias.has_next %}
+                <a href="?page={{ noticias.next_page_number }}">siguiente</a>
+                <a href="?page={{ noticias.paginator.num_pages }}">ultima &raquo;</a>
+            {% endif %}
+          </div>
+          <span class="current">
+            Pagina {{ noticias.number }} de {{ noticias.paginator.num_pages }}
+          </span>
+        </span>    
+        {% comment %} {% if noticias.has_previous %}
         <a href="?page={{ noticias.previous_page_number }}">&laquo;</a>
         {% endif %}
         <a href="?page=1" class="active">1</a>
@@ -53,12 +84,10 @@
         <a href="?page=3">3</a>
         {% if noticias.has_next %}
         <a href="?page={{ noticias.next_page_number }}">&raquo;</a>
-        {% endif %}
+        {% endif %} {% endcomment %}
       </div>
     </div>
 
-    
-    
-    
-    
-    {% endblock header %}
+    <!-- Fin Paginacion -->
+  <script src="{% static 'js/utils.js' %}"></script>
+  {% endblock header %}
