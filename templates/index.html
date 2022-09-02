@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Botella de Amor</title>
         <link rel="icon" href="{% static 'img/Logo1.png' %}">
-        <link rel="stylesheet" href="{% static 'css/Styles_1.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Styles2.css' %}">
         {% block css %}
         
         {% endblock css %}  
@@ -91,7 +91,7 @@
         <div class="noticias__container">
             <div class="letra__container"></div>
         </div>
-        <main class="main">
+        <main class="main_index">
             <div class="container_main">
                 <div class="words1">
                     <h1 class="words">Botella de Amor</h1>
@@ -193,7 +193,7 @@
         {% endblock header %}
 
 
-        <footer class="footer">
+        <!--<footer class="footer">
             <div class="container_footer">
                 <div class="row_footer">
                     <div class="footer-col">
@@ -225,10 +225,54 @@
                     </div>
                 </div>
             </div>
-        </footer>
-
-        <script src="{% static 'js/index.js'%}"></script>
+        </footer>-->
+        <div class="footer_sabias">
+            <footer class="footer-area">
+                <div class="footer-wave-box">
+                    <div class="footer-wave footer-animation"></div>
+                </div>
+                <div class="main_index">
+                    <div class="footer">
+                        <div class="single-footer">
+                            <h4>SOBRE NOSOTROS</h4>
+                            <ul>
+                                <li><a href="{% url 'sobrenosotros' %}"><i class="fas fa-chevron-right"></i> ¿Qué hacemos? </a></li>
+                                <li><a href="{% url 'preguntasFQ' %}"><i class="fas fa-chevron-right"></i> Preguntas Frecuentes </a></li>
+                            </ul>
+        
+                        </div>
+                        <div class="single-footer">
+                            <h4>MENU</h4>
+                            <ul>
+                                <li><a href="{% url 'home' %}"><i class="fas fa-chevron-right"></i> Inicio </a></li>
+                                <li><a href="{% url 'noticias:listar_noticias' %}"><i class="fas fa-chevron-right"></i> Noticias</a></li>
+                                <li><a href="{% url 'eventos:calendario' %}"><i class="fas fa-chevron-right"></i> Calendario</a></li>
+                                <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1QBrPiv4TC7PHydND-XuRq2vPXHZBIkAE&ll=-27.451452553253837%2C-58.982524376196295&z=14"><i class="fas fa-chevron-right"></i> Puntos de acopio</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="single-footer">
+                            <h4>REDES SOCIALES</h4>
+                            <div class="footer-social">
+                                <a href="https://www.facebook.com/botelladeamorresistencia/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/botelladeamorresistencia/?hl=es" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="single-footer">
+                            <h4>CONTACTANOS</h4>
+                            <ul>
+                                <li><a href="{% url 'contactos:contactanos' %}"><i class="far fa-envelope"></i> Envianos un mensaje</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="copy">
+                        <p>&copy; Botella de Amor- Resistencia - 2022</p>
+                    </div>
+                </div>
+            </footer>   
+        </div>     
     {% endblock body_contact %}    
+    <script src="{% static 'js/index1.js'%}"></script>
     <script src=" {% static 'js/pre.js' %}" charset="utf-8"></script>
     
 </body>

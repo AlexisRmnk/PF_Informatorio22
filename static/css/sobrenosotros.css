@@ -14,6 +14,11 @@
   .animated {
     transition: 0.5s;
   }
+
+  .animated p {
+    font-size: 25px;
+  }
+
   .animated:hover {
     transform: scale(1.3, 1.3);
   }
@@ -26,7 +31,6 @@
     height: 300px;
     display: flex;
     flex-direction: row;
-    /* border: 1px solid black; */
     align-items: center;
   }
   #row2 {
@@ -39,7 +43,6 @@
   .column {
     display: flex;
     flex-direction: column;
-    /* border: 1px solid black; */
     height: 100%;
   }
   .column p {
@@ -57,17 +60,14 @@
   }
   .verticalText p {
     transform: rotate(-90deg);
-    letter-spacing: 4px;
-    font-size: 24px;
+    letter-spacing: 5px;
+    font-size: 30px;
     font-weight: 900;
-    /* margin-left: 55%; */
   }
   /* row1 */
   #colaa {
     width: 100%;
-    /* background-color: #e6e15a; */
     background-color: #00af91;
-    /* color: #ffff; */
   }
 
   #colaa p {
@@ -85,9 +85,7 @@
   /* row2 */
   #colab {
     width: 25%;
-    /* background-color: #fedb39; */
     background-color: #f0bb62;
-    /* font-family: Copperplate; */
   }
   #colab p {
     margin-left: 0%;
@@ -100,6 +98,7 @@
 
   #colbb b {
     color: #f0bb62;
+    letter-spacing: 3px;
   }
 
   #colbb p {
@@ -109,7 +108,6 @@
   }
   #colcb {
     width: 25%;
-    /* background-color: #ffee63; */
     background-color: #81b214;
   }
   /* row3 */
@@ -119,7 +117,6 @@
   
   #colbc {
     width: 100%;
-    /* background-color: #ffd8a9; cambiar color */
     background-color: #f4eea9;
   }
 
@@ -133,7 +130,7 @@
     background-color: #00af91;
   }
   #colad p {
-    letter-spacing: 4px;
+    letter-spacing: 5px;
     font-size: 33px;
     transform: rotate(-90deg);
     margin-left: 5%;
@@ -147,4 +144,5 @@
 
   #colbd ul li {
     font-size: 24px;
+    list-style: disc;
   }

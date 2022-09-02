@@ -54,13 +54,10 @@ class DetalleEvento(DetailView):
     model = Evento
     context_object_name = "evento"
     template_name = 'eventos/detalle_evento.html'
-    
-def Calendario(request): #del calendario sin back
-    return render(request, 'eventos/calendario.html')
 
 class CalendarView(ListView):
     model = Evento
-    template_name = 'eventos/calendarioV2.html'
+    template_name = 'eventos/calendarioV3.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

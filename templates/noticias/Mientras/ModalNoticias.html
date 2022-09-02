@@ -3,7 +3,7 @@
     {% block css %}
     <title>Botella de Amor</title>
     <link rel="icon" href="{% static 'img/Logo1.png' %}">
-    <link rel="stylesheet" href="{% static 'css/style_detalles_noticias.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style_detalles_noticias1.css' %}" />
     <script src="https://kit.fontawesome.com/8d53197554.js" crossorigin="anonymous"></script>
     {% endblock css %}
 
@@ -15,7 +15,7 @@
           <h2>{{noticia.titulo}}</h2>
         </div>
 
-        <div class="main row">
+        <div class="main">
           <!-- empieza la card -->
           <div class="card column">
             {% if noticia.imagen %}
@@ -23,14 +23,14 @@
                 class="borderRadius imgCard"
                 src="{{ noticia.imagen.url }}" 
                 alt="Imagen"
-                height="100%"
-                width="70%"
+                height="470px"
+                width="750px"
               />
             {% else %}
               <img src="{% static 'img/3dgifmaker78797.gif' %}" />
             {% endif %}
             <div class="description">
-              <p>{{ noticia.cuerpo }}</p>
+              <p>{{noticia.cuerpo}}</p>
             </div>
           </div>
         </div>
