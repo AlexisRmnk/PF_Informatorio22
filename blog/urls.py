@@ -21,13 +21,31 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+# para URL LOGIN
+from django.contrib.auth import views as auth_views
+
 from . import views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.Home, name = 'home'),
+    path('admin_redirect/', views.AdminRedirect, name="admin_redirect"),
     
+    path('login/', 
+         auth_views.LoginView.as_view(template_name="usuarios/log_in.html"),
+         name = 'login'),
+    path('logout/', auth_views.LogoutView.as_view(), name = 'logout'),
+    path('sobrenosotros/', views.SobreNosotros, name = 'sobrenosotros'),
+    path('preguntasFQ/', views.PreguntasFQ, name = 'preguntasFQ'),
+    path('noticia_detalles/', views.NoticiaDetalles, name = 'noticia_detalles'),
+    
+    
+    path('', views.Home, name = 'home'),
     # URL DE APLICACIONES
     path('Noticias/', include('apps.noticias.urls')),
+    path('Eventos/', include('apps.eventos.urls')),
+    path('Usuario/',include('apps.usuarios.urls')),
+    path('Contactos/', include('apps.contactos.urls')), # no olvidar coma al final
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
     # esto permite que el servidor acceda a la carpeta MEDIA

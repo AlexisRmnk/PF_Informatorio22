@@ -1,0 +1,77 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link href="{% static 'css/singup.css'%}" rel="stylesheet">
+    <link rel="icon" href="{% static 'img/Logo-Botellas-de-Amor.png'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      } 
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  
+  <body class="text-center">
+    <main class="d-flex justify-content-center">
+      <section class="form-signup">
+    
+        <a href="{% url 'home' %}"><img class="mb-4" src="{% static 'img/logo-1loopfaster.gif'%}" alt="logo de Botellas de Amor" width="170" height="170"></a>
+        
+        <div class="registro-container">        
+          <h1 class="h3 mb-3 fw-normal col-12">Registrate</h1>
+        </div>  
+        
+        <form class="row" action="" method="POST">{% csrf_token %}
+          {{form.errors}}
+          <div class="form-floating mb-1 col-md-6">
+              <input type="text" name="first_name" class="form-control" id="floatingInput" placeholder="ej: Gabriel" >
+              <label for="floatingInput">Nombre</label>
+          </div>
+
+          <div class="form-floating mb-1 col-md-6">
+            <input type="text" name="last_name" class="form-control" id="floatingInput" placeholder="ej: Martínez">
+            <label for="floatingInput">Apellido/s</label>
+          </div>
+
+          <div class="form-floating mb-1 col-md-12">
+            <input type="user" name="username" class="form-control" id="floatingInput" placeholder="Usuario">
+            <label for="floatingInput">Usuario</label>
+          </div>
+          <div class="form-floating mb-1">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput" src="{% static 'img/iconos/at.svg'%}"> Email</label>
+          </div>
+          
+          <div class="form-floating mb-3 col-md-6">
+            <input type="password" name="password1" class="form-control" id="floatingInput" placeholder="Password">
+            <label for="floatingInput">Contraseña</label>
+          </div>
+
+          <div class="form-floating mb-3 col-md-6">
+            <input type="password" name="password2" class="form-control" id="floatingInput" placeholder="Confirm-Password">
+            <label for="floatingInput">Confirma tu contraseña </label>
+          </div>
+
+          <button class="w-100 btn btn-lg" type="submit">Registrarse</button>
+          <p class="mt-4 mb-3 text-muted">&copy; Botellas de Amor
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

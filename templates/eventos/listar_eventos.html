@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bloque_contenido %}
+    <!-- aca se recibe un diccionario con las claves de las eventos -->
+
+    <h2>EVENTOS ACTUALES</h2>
+    <br>
+    {% for ev in eventos %}
+        <h2>Titulo: {{ ev.titulo }}</h2>
+        <p>Descripcion: {{ ev.descripcion}}</p>
+
+        <br>
+        <p>Es gratuito?</p>
+        {% if ev.es_gratuito %}
+        <p>Es gratuito</p>
+        {% else %}
+        <p>No es gratuito</p>
+        {% endif %}
+        
+        <br>
+        <p>Es presencial?</p>
+        {% if ev.es_presencial %}
+        <p>Es presencial</p>
+        {% else %}
+        <p>No es presencial</p>
+        {% endif %}
+
+        <p>ubicacion: {{ev.ubicacion}}</p>
+
+        <p>Tiene imagen?</p>
+        {% if ev.imagen %}
+        <img src="{{ev.imagen.url}}" width="350px" height="260px">
+        {% else %}
+            <p> NO TIENE IMAGEN </p>
+        {% endif %}
+        <a href="{% url 'eventos:detalle_eventos' ev.pk %}">VER MAS</a>
+    {% endfor %}
+    
+    
+    <!-- <a href="{_%_ url 'home' _%_}">VOLVER AL HOME</a> -->
+
+    <h2>FILTRAR POR CATEGORIA Y MAS ANTIGUA/RECIENTE</h2> 
+    <form method="POST">
+        {% csrf_token %}
+      <!-- recordar hacer unique el nombre en el modelo ...  wip -->
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
+        <select name="categoria_name" id="categoria_id">
+            <option value="todos">TODOS</option>
+        {% for categoria in categorias %}
+            <option value={{categoria.id}}> {{categoria.titulo}} </option>
+        {% endfor %}
+        </select> <br> <hr>
+        <label for="categorias_label">Seleccione una categoria:</label> <br>
+        <select name="orden_eventos_name" id="orden_eventos_id">
+            <option value="mas_proximos">mas_proximos</option>
+            <option value="mas_lejanos">mas_lejanos</option>
+        </select> <br>
+        <input type="submit" value="Mostrar eventos para la categoria seleccionada en la fecha seleccionada">
+    </form>   
+
+
+{% endblock bloque_contenido %}
