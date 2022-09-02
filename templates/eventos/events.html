@@ -4,7 +4,7 @@
     {% block css %}
     <title>Calendario</title>
     <link rel="stylesheet" href="{% static 'css/calendario.css' %}">
-    <link rel="stylesheet" href="{% static 'css/calendario_detalles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendariodetalles.css' %}">
     {% endblock css %}
 
 
@@ -16,11 +16,13 @@
             {% for ev in eventos %}
                 <div class="container_detalles">
                     <div class="card_eventos">
-                        {% if ev.imagen %}
-                            <img src="{{ev.imagen.url}}">
-                        {% else %}
-                            <img src="{% static 'img/3dgifmaker78797.gif' %}" />
-                        {% endif %}
+                        <div class="container_img_detalles">
+                            {% if ev.imagen %}
+                                <img src="{{ev.imagen.url}}">
+                            {% else %}  
+                                <img src="{% static 'img/3dgifmaker78797.gif' %}" />
+                            {% endif %}
+                        </div>
                         <div class="container_eventos">
                             <h1>{{ ev.fecha }}</h1>
                             <h1>{{ev.ubicacion}}</h1>

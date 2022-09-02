@@ -22,7 +22,6 @@
     width: 440px;
     height: 100%;
     margin-right: 220px;
-    background-color: aliceblue;
 }
 
 .card_eventos {
@@ -31,18 +30,30 @@
     align-items: center;
     border-radius: 30px;
     height: 100%;
+    background-color: #81b214;
 }
 
-.card_eventos img {
-    margin-top: 20px;
-    width: 50%;
-    border-radius: 30px;
+.container_img_detalles {
+    display: flex;
+    justify-content: center;
+    background-color: #FEF201;
+    width: 100%;
+    border-radius: 30px
+}
+
+.container_img_detalles img {
+    width: 75%;
+    margin: 20px 0px;
+    border-radius: 20px 10px;
 }
 
 .container_eventos {
+    margin-top: 20px;
     width: 80%;
     display: flex;
     justify-content: space-between;
+    text-shadow: 1px 1px #ebf1df;
+    color: #0520b9;
 }
 
 .container_eventos2 {
@@ -53,24 +64,37 @@
 
 .container_eventos2 h2 {
     margin-top: 10px;
+    color: #ebf1df;
+    text-shadow: 2px 3px #0520b9;
+    font-size: 35px;
 }
 
 .container_eventos2 p {
+    text-transform: lowercase;
+    margin-top: 15px;
     width: 90%;
+    letter-spacing: 0.3px;
 }
 
 .container_cate {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-bottom: 15px;
-    width: 100%;
+    width: 85%;
 }
 
 #hijo1 {
+    font-size: 26px;
     margin-left: 15px;
+    text-shadow: 3px 4px black;
+    color: #FEF201;
 }
 
 #hijo2 {
     margin-right: 15px;
+    font-size: 26px;
+    margin-left: 15px;
+    text-shadow: 3px 4px black;
+    color: #FEF201;
 }
