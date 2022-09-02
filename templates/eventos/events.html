@@ -1,0 +1,88 @@
+{% extends 'index.html' %}
+{% load static%}
+
+    {% block css %}
+    <title>Calendario</title>
+    <link rel="stylesheet" href="{% static 'css/calendario.css' %}">
+    <link rel="stylesheet" href="{% static 'css/calendario_detalles.css' %}">
+    {% endblock css %}
+
+
+{% block header %}
+<body class="light">
+
+    <div class="contenedor_total">
+        <div class="container_ubicaciones">
+            {% for ev in eventos %}
+                <div class="container_detalles">
+                    <div class="card_eventos">
+                        {% if ev.imagen %}
+                            <img src="{{ev.imagen.url}}">
+                        {% else %}
+                            <img src="{% static 'img/3dgifmaker78797.gif' %}" />
+                        {% endif %}
+                        <div class="container_eventos">
+                            <h1>{{ ev.fecha }}</h1>
+                            <h1>{{ev.ubicacion}}</h1>
+                        </div>
+                        <div class="container_eventos2">
+                            <h2>{{ ev.titulo }}</h2>
+                            <p>{{ ev.descripcion}}</p>
+                        </div>
+                        <div class="container_cate">
+                            {% if ev.es_gratuito %}
+                                <h3 id="hijo1">Gratuito</h3>
+                            {% else %}
+                                <h3 id="hijo1">No Gratuito</h3>
+                            {% endif %}
+                            {% if ev.es_presencial %}
+                                <h3 id="hijo2">Presencial</h3>
+                            {% else %}
+                                <h3 id="hijo2">No Presencial</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="contenedor_calendario">
+            <div class="calendar">
+                <div class="calendar-header">
+                    <span class="month-picker" id="month-picker">February</span>
+                    <div class="year-picker">
+                        <span class="year-change" id="prev-year">
+                            <pre><</pre>
+                        </span>
+                        <span id="year">2021</span>
+                        <span class="year-change" id="next-year">
+                            <pre>></pre>
+                        </span>
+                    </div>
+                </div>
+                <div class="calendar-body">
+                    <div class="calendar-week-day">
+                        <div>Dom</div>
+                        <div>Lun</div>
+                        <div>Mar</div>
+                        <div>Mie</div>
+                        <div>Jue</div>
+                        <div>Vier</div>
+                        <div>Sab</div>
+                    </div>
+                    <div class="calendar-days"></div>
+                </div>
+                <div class="calendar-footer">
+                    <div class="toggle">
+                        <span>Modo ♻️​🌱​</span>
+                        <div class="dark-mode-switch">
+                            <div class="dark-mode-switch-ident"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="month-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/calendarioV3.js' %}"></script>
+</body>
+{% endblock header %}

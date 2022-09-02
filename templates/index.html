@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Botella de Amor</title>
         <link rel="icon" href="{% static 'img/Logo1.png' %}">
-        <link rel="stylesheet" href="{% static 'css/Styles2.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Styles_2.css' %}">
         {% block css %}
         
         {% endblock css %}  
@@ -188,41 +188,6 @@
 
         </div>
         {% endblock header %}
-
-
-        <!--<footer class="footer">
-            <div class="container_footer">
-                <div class="row_footer">
-                    <div class="footer-col">
-                        <h4>Sobre Nosotros</h4>
-                        <ul>
-                            <li><a href="{% url 'sobrenosotros'%}">¿Que Hacemos?</a></li>
-                            <li><a href="{% url 'preguntasFQ' %}">Preguntas Frecuentes</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Noticias</h4>
-                        <ul>
-                            <li><a href="{% url 'noticias:listar_noticias' %}">Noticias</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Eventos</h4>
-                        <ul>
-                            <li><a href="{% url 'eventos:calendario'%}" target="_blank">Calendario</a></li>
-                            <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1QBrPiv4TC7PHydND-XuRq2vPXHZBIkAE&ll=-27.451452553253837%2C-58.982524376196295&z=14" target="_blank">Puntos de Acopio</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Contactos</h4>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com/botelladeamorresistencia/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/botelladeamorresistencia/?hl=es"target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-                        </div>                    
-                    </div>
-                </div>
-            </div>
-        </footer>-->
         <div class="footer_sabias">
             <footer class="footer-area">
                 <div class="footer-wave-box">
@@ -243,7 +208,7 @@
                             <ul>
                                 <li><a href="{% url 'home' %}"><i class="fas fa-chevron-right"></i> Inicio </a></li>
                                 <li><a href="{% url 'noticias:listar_noticias' %}"><i class="fas fa-chevron-right"></i> Noticias</a></li>
-                                <li><a href="{% url 'eventos:calendario' %}"><i class="fas fa-chevron-right"></i> Calendario</a></li>
+                                <li><a href="{% url 'eventos:listar_eventos' %}"><i class="fas fa-chevron-right"></i> Eventos</a></li>
                                 <li><a href="https://www.google.com/maps/d/u/0/viewer?mid=1QBrPiv4TC7PHydND-XuRq2vPXHZBIkAE&ll=-27.451452553253837%2C-58.982524376196295&z=14"><i class="fas fa-chevron-right"></i> Puntos de acopio</a></li>
                             </ul>
                         </div>

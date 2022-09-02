@@ -1,0 +1,76 @@
+
+
+.calendar {
+    margin-top: 50px;
+    position: sticky;
+    top: 0;
+    height: 500px;
+}
+
+.contenedor_total {
+    display: flex;
+}
+
+.container_ubicaciones {
+    display: flex;
+    flex-direction: column;
+}
+
+.container_detalles {
+    margin-top: 50px;
+    border-radius: 30px;
+    width: 440px;
+    height: 100%;
+    margin-right: 220px;
+    background-color: aliceblue;
+}
+
+.card_eventos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    height: 100%;
+}
+
+.card_eventos img {
+    margin-top: 20px;
+    width: 50%;
+    border-radius: 30px;
+}
+
+.container_eventos {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container_eventos2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container_eventos2 h2 {
+    margin-top: 10px;
+}
+
+.container_eventos2 p {
+    width: 90%;
+}
+
+.container_cate {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#hijo1 {
+    margin-left: 15px;
+}
+
+#hijo2 {
+    margin-right: 15px;
+}
