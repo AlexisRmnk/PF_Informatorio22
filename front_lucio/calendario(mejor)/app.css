@@ -1,17 +1,20 @@
 :root {
-    --dark-body: #4d4c5a;
-    --dark-main: #141529;
+    --dark-body: #FFEE63;
+    --dark-main: #F4EEA9;
     --dark-second: #79788c;
     --dark-hover: #323048;
-    --dark-text: #f8fbff;
+    --dark-text: #ffcc29;
+    
+    
+    
 
-    --light-body: #f3f8fe;
-    --light-main: #fdfdfd;
-    --light-second: #c3c2c8;
+    --light-body:#BABD42;
+    --light-main: #FFEF82;
+    --light-second: #79788c;
     --light-hover: #edf0f5;
-    --light-text: #151426;
+    --light-text: #ffcc29;
 
-    --blue: #0000ff;
+    --blue: #4caf50;
     --white: #fff;
 
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -53,12 +56,15 @@ body {
 .calendar {
     height: max-content;
     width: max-content;
-    background-color: var(--bg-main);
+    
     border-radius: 30px;
     padding: 20px;
     position: relative;
     overflow: hidden;
     /* transform: scale(1.25); */
+    background-image: url(/img/arbol2.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .light .calendar {
