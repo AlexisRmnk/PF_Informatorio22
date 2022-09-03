@@ -1,135 +1,84 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="{% static 'css/noticias_comentarios.css' %}" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+    {% block css %}
+    <title>Botella de Amor</title>
+    <link rel="icon" href="{% static 'img/Logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style_detalles_noticias1.css' %}" />
+    <script src="https://kit.fontawesome.com/8d53197554.js" crossorigin="anonymous"></script>
+    {% endblock css %}
+
+    {% block header %}
     <div id="myModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <span class="close">&times;</span>
-          <h2>Modal Header</h2>
+          <a class="close" href="{% url 'noticias:listar_noticias' %}"><i class="fa-solid fa-arrow-left"></i></a></li>
+          <h2>{{noticia.titulo}}</h2>
         </div>
 
-        <div class="main row">
+        <div class="main">
           <!-- empieza la card -->
           <div class="card column">
-            <img
-              class="borderRadius imgCard"
-              src="https://www.lavoz.com.ar/resizer/h-VmJwbrUPgkA-CH_QMZ9mNrJno=/1023x682/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/JYZDEHUTEVB23PBY77CMXE7YRE.jpg"
-              alt="coquita"
-              height="100%"
-              width="70%"
-            />
+            {% if noticia.imagen %}
+              <img
+                class="borderRadius imgCard"
+                src="{{ noticia.imagen.url }}" 
+                alt="Imagen"
+                height="470px"
+                width="750px"
+              />
+            {% else %}
+              <img src="{% static 'img/3dgifmaker78797.gif' %}" />
+            {% endif %}
             <div class="description">
-              <p>
-                Welcome to the jungle, we've got fun and games We got everything
-                you want honey, we know the names We are the people that can
-                find whatever you may need If you got the money, honey, we got
-                your disease
-              </p>
-              <div class="interaction row alignEnd">
-                <!-- <span style="font-size: 50px">&#10084;</span> -->
-                <img
-                  style="display: block"
-                  onclick="changeColor()"
-                  src="heart3.png"
-                  width="30"
-                  alt="corazon"
-                  id="heartImg"
-                />
-                <img
-                  style="display: none"
-                  onclick="changeColor1()"
-                  src="heart2.png"
-                  width="30"
-                  alt="corazon"
-                  id="heartImg1"
-                />
-              </div>
+              <p>{{noticia.cuerpo}}</p>
             </div>
           </div>
         </div>
         <!-- termina la card -->
         <!-- comentarios -->
         <div class="col commentsContainer">
-          <div class="row comments">
-            <div class="row">
-              <div class="column">
-                <img
-                  src="images/face1.png"
-                  width="50px"
-                  height="50px"
-                  class="avatar"
-                />
-              </div>
-              <div class="column commentContent">
-                <div><b>Nombre Apellido</b></div>
-                <div>Welcome to the Jungle</div>
-              </div>
-            </div>
-          </div>
-          <div class="row comments">
-            <div class="row">
-              <div class="column">
-                <img
-                  src="images/face2.png"
-                  width="50px"
-                  height="50px"
-                  class="avatar"
-                />
-              </div>
-              <div class="column commentContent">
-                <div><b>Nombre Apellido</b></div>
-                <div>
-                  we've got fun and games
-                  <span style="font-size: 20px">&#128070;</span>
+          {% for comentarios in noticia.get_comentarios_noticia  %}
+            <div class="row comments">
+              <div class="row">
+                <div class="column">
+                  <img
+                    src="{% static 'img/3dgifmaker78797.gif' %}"
+                    width="50px"
+                    height="50px"
+                    class="avatar"
+                  />
+                </div>
+                <div class="column commentContent">
+                  <div><b>{{comentarios.autor}}</b></div>
+                  <div><p>{{comentarios.contenido_txt}}</p><h4>{{comentarios.fecha_creacion}}</h4></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row comments">
-            <div class="row">
-              <div class="column">
-                <img
-                  src="images/face3.png"
-                  width="50px"
-                  height="50px"
-                  class="avatar"
-                />
-              </div>
-              <div class="column commentContent">
-                <div><b>Nombre Apellido</b></div>
-                <div>We got everything you want honey</div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
           <!-- if commentarios.length > muchos ... -->
-          <a class="row" href="">Ver mas comentarios</a>
-          <form class="row comments" id="inputComment" autocomplete="off">
-            <input
-              type="text"
-              name="fname"
-              placeholder="Escribe un comentario..."
-              style="width: 100%; height: 30px; border-radius: 8px"
-            />
-            <input
-              type="submit"
-              value="Comentar"
-              style="border-radius: 8px"
-              class="imputBtn"
-            />
-          </form>
+          {% if user.is_authenticated %}
+            <form method="POST" action={% url 'noticias:agregar_comentario' noticia.pk %} class="row comments" id="inputComment">
+              {% csrf_token %} 
+              <!-- nota para FRONT: controlar que el comentario no este vacio
+              se puede hacer con un JS, por ejemplo-->           
+              <input 
+                type="text" 
+                name="coment" id="" 
+                placeholder="Escribe un comentario..." 
+                style="width: 100%; height: 30px; border-radius: 8px"
+              >
+              <input
+                type="submit"
+                value="Comentar"
+                style="border-radius: 8px"
+                class="imputBtn"
+              >
+            </form>
+            {% comment %} por defecto los forms viejan a la misma vista que levanto el form {% endcomment %}
+          {% endif %}
         </div>
         <!-- comentarios -->
       </div>
     </div>
-  </body>
-  <script src="{% static 'js/utils.js' %}"></script>
-</html>
+    <script src="utils.js"></script>
+    {% endblock header %}
